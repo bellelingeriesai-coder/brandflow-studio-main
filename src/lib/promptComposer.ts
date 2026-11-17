@@ -1,0 +1,1006 @@
+import braPantyPrompt from "@/prompts/Bra-panty-Prompt.txt?raw";
+import braPrompt from "@/prompts/Bra-prompt.txt?raw";
+import pushupBraOnlyPrompt from "@/prompts/Pushup-Bra-Only-Prompt.txt?raw";
+import pushupSetPrompt from "@/prompts/Pushup-Set.txt?raw";
+
+import printBraSide1 from "@/prompts/print/bra/side1.txt?raw";
+import printBraSide2 from "@/prompts/print/bra/side2.txt?raw";
+import printBraMood from "@/prompts/print/bra/mood.txt?raw";
+import printBraBack from "@/prompts/print/bra/back.txt?raw";
+import printBraZoom from "@/prompts/print/bra/Zoom.txt?raw";
+
+import printBraPantySide1 from "@/prompts/print/bra-panty/side1.txt?raw";
+import printBraPantySide2 from "@/prompts/print/bra-panty/side2.txt?raw";
+import printBraPantyMood from "@/prompts/print/bra-panty/mood.txt?raw";
+import printBraPantyBack from "@/prompts/print/bra-panty/back.txt?raw";
+import printBraPantyZoom from "@/prompts/print/bra-panty/Zoom.txt?raw";
+
+import printPushupSide1 from "@/prompts/print/pushup/side1.txt?raw";
+import printPushupSide2 from "@/prompts/print/pushup/side2.txt?raw";
+import printPushupMood from "@/prompts/print/pushup/mood.txt?raw";
+import printPushupBack from "@/prompts/print/pushup/back.txt?raw";
+import printPushupZoom from "@/prompts/print/pushup/Zoom.txt?raw";
+
+import printPushupBraOnlySide1 from "@/prompts/print/pushup-bra-only/side1.txt?raw";
+import printPushupBraOnlySide2 from "@/prompts/print/pushup-bra-only/side2.txt?raw";
+import printPushupBraOnlyMood from "@/prompts/print/pushup-bra-only/mood.txt?raw";
+import printPushupBraOnlyBack from "@/prompts/print/pushup-bra-only/back.txt?raw";
+import printPushupBraOnlyZoom from "@/prompts/print/pushup-bra-only/Zoom.txt?raw";
+
+import {
+  BRANDS,
+  DECK_SHOT_LABELS,
+  type AspectId,
+  type Brand,
+  type DeckShotKey,
+  type FlowMode,
+  type ShotPresetContent,
+  type ShootType,
+  buildBrandLock,
+} from "@/lib/studio";
+
+type PromptSourceId = "bra" | "bra_panty" | "panty" | "pushup_bra_only" | "pushup_set";
+
+interface PromptSource {
+  id: PromptSourceId;
+  fileName: string;
+  raw: string;
+  headings: string[];
+}
+
+interface ComposeDeckPromptOptions {
+  shootType: ShootType;
+  pushupBraOnly: boolean;
+  deckShot: DeckShotKey;
+  brand: Brand;
+  aspect: AspectId;
+  userNote?: string;
+  regenerationNote?: string;
+  presetContent?: ShotPresetContent;
+  /** "print" routes through the Print Pattern Flow prompt set instead of the standard photo prompts. */
+  flowMode?: FlowMode;
+}
+
+const BRA_SOURCE: PromptSource = {
+  id: "bra",
+  fileName: "Bra-prompt.txt",
+  raw: braPrompt,
+  headings: [
+    "BRA ONLY FRONT PROMPT",
+    "BRA ONLY SIDE 1 PROMPT",
+    "BRA ONLY SIDE 2 PROMPT",
+    "BRA ONLY BACK PROMPT",
+    "BRA ONLY MOOD PROMPT",
+    "BRA ONLY ZOOM PROMPT",
+    "BRA ONLY MOCKUP PROMPT",
+  ],
+};
+
+const PUSHUP_BRA_ONLY_SOURCE: PromptSource = {
+  id: "pushup_bra_only",
+  fileName: "Pushup-Bra-Only-Prompt.txt",
+  raw: pushupBraOnlyPrompt,
+  headings: [
+    "FRONT PUSH UP PROMPT",
+    "SIDE 1 PUSH UP PROMPT",
+    "SIDE 2 PUSH UP PROMPT",
+    "BACK PUSH UP PROMPT",
+    "MOOD PUSH UP PROMPT",
+    "ZOOM PUSH UP PROMPT",
+    "MOCKUP PROMPT",
+  ],
+};
+
+const PUSHUP_SET_SOURCE: PromptSource = {
+  id: "pushup_set",
+  fileName: "Pushup-Set.txt",
+  raw: pushupSetPrompt,
+  headings: [
+    "FRONT PUSH UP PROMPT",
+    "SIDE 1 PUSH UP PROMPT",
+    "SIDE 2 PUSH UP PROMPT",
+    "BACK PUSH UP PROMPT",
+    "MOOD PUSH UP PROMPT",
+    "ZOOM PUSH UP PROMPT",
+    "MOCKUP PROMPT",
+  ],
+};
+
+const BRA_PANTY_SOURCE: PromptSource = {
+  id: "bra_panty",
+  fileName: "Bra-panty-Prompt.txt",
+  raw: braPantyPrompt,
+  headings: [
+    "SIDE VIEW PROMPT",
+    "SIDE VIEW 2 PROMPT",
+    "BACK VIEW PROMPT",
+    "Front View PROMPT",
+    "FRONT PUSH-UP PROMPT",
+    "MOOD SHOOT PROMPT",
+    "BRA PANTY ZOOM PROMPT",
+    "BRA PANTY MOCKUP PROMPT",
+    "PANTY ONLY FRONT VIEW PROMPT",
+    "PANTY ONLY BACK VIEW PROMPT",
+    "PANTY ONLY SIDE VIEW PROMPT",
+    "PANTY ONLY MOOD VIEW PROMPT",
+    "ZOOM PROMPT",
+    "MOCKUP PROMPT",
+  ],
+};
+
+const PANTY_SOURCE: PromptSource = {
+  ...BRA_PANTY_SOURCE,
+  id: "panty",
+};
+
+interface PrintPromptSource {
+  label: string;
+  files: Partial<Record<DeckShotKey, string>>;
+}
+
+const PRINT_BRA_SOURCE: PrintPromptSource = {
+  label: "only bra and without pushup (print)",
+  files: {
+    side1: printBraSide1,
+    side2: printBraSide2,
+    mood: printBraMood,
+    back: printBraBack,
+    zoom: printBraZoom,
+  },
+};
+
+const PRINT_BRA_PANTY_SOURCE: PrintPromptSource = {
+  label: "bra+panty (print)",
+  files: {
+    side1: printBraPantySide1,
+    side2: printBraPantySide2,
+    mood: printBraPantyMood,
+    back: printBraPantyBack,
+    zoom: printBraPantyZoom,
+  },
+};
+
+const PRINT_PUSHUP_SET_SOURCE: PrintPromptSource = {
+  label: "bra+panty pushup (print)",
+  files: {
+    side1: printPushupSide1,
+    side2: printPushupSide2,
+    mood: printPushupMood,
+    back: printPushupBack,
+    zoom: printPushupZoom,
+  },
+};
+
+const PRINT_PUSHUP_BRA_ONLY_SOURCE: PrintPromptSource = {
+  label: "pushup only bra (print)",
+  files: {
+    side1: printPushupBraOnlySide1,
+    side2: printPushupBraOnlySide2,
+    mood: printPushupBraOnlyMood,
+    back: printPushupBraOnlyBack,
+    zoom: printPushupBraOnlyZoom,
+  },
+};
+
+function getPrintPromptSource(shootType: ShootType, pushupBraOnly: boolean): PrintPromptSource {
+  if (shootType === "bra") return PRINT_BRA_SOURCE;
+  if (shootType === "pushup") return pushupBraOnly ? PRINT_PUSHUP_BRA_ONLY_SOURCE : PRINT_PUSHUP_SET_SOURCE;
+  return PRINT_BRA_PANTY_SOURCE;
+}
+
+function cleanHeading(value: string): string {
+  return value
+    .trim()
+    .replace(/^"+|"+$/g, "")
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function headingMatches(line: string, heading: string): boolean {
+  const cleanedLine = cleanHeading(line);
+  const cleanedHeading = cleanHeading(heading);
+  return cleanedLine === cleanedHeading || cleanedLine.startsWith(`${cleanedHeading} `);
+}
+
+function lineStarts(source: string): { line: string; start: number }[] {
+  const starts: { line: string; start: number }[] = [];
+  let index = 0;
+
+  for (const line of source.split("\n")) {
+    starts.push({ line, start: index });
+    index += line.length + 1;
+  }
+
+  return starts;
+}
+
+function findHeadingStart(
+  starts: { line: string; start: number }[],
+  heading: string,
+  after = -1,
+): number {
+  const match = starts.find(({ line, start }) => start > after && headingMatches(line, heading));
+  return match?.start ?? -1;
+}
+
+function extractSection(source: PromptSource, heading: string): string {
+  const starts = lineStarts(source.raw);
+  const start = findHeadingStart(starts, heading);
+  if (start < 0) return source.raw.trim();
+
+  const nextStarts = source.headings
+    .filter((candidate) => cleanHeading(candidate) !== cleanHeading(heading))
+    .map((candidate) => findHeadingStart(starts, candidate, start))
+    .filter((candidate) => candidate >= 0);
+
+  const end = nextStarts.length > 0 ? Math.min(...nextStarts) : source.raw.length;
+  return source.raw.slice(start, end).trim();
+}
+
+function getPromptSource(shootType: ShootType, pushupBraOnly: boolean): PromptSource {
+  if (shootType === "bra") return BRA_SOURCE;
+  if (shootType === "pushup") return pushupBraOnly ? PUSHUP_BRA_ONLY_SOURCE : PUSHUP_SET_SOURCE;
+  if (shootType === "panty") return PANTY_SOURCE;
+  return BRA_PANTY_SOURCE;
+}
+
+function sectionHeading(sourceId: PromptSourceId, deckShot: DeckShotKey): string {
+  if (sourceId === "panty") {
+    switch (deckShot) {
+      case "side1":
+        return "PANTY ONLY SIDE VIEW PROMPT";
+      case "side2":
+        return "PANTY ONLY FRONT VIEW PROMPT";
+      case "mood":
+        return "PANTY ONLY MOOD VIEW PROMPT";
+      case "back":
+        return "PANTY ONLY BACK VIEW PROMPT";
+      case "zoom":
+        return "ZOOM PROMPT";
+    }
+  }
+
+  if (sourceId === "bra_panty") {
+    switch (deckShot) {
+      case "side1":
+        return "SIDE VIEW PROMPT";
+      case "side2":
+        return "SIDE VIEW 2 PROMPT";
+      case "mood":
+        return "MOOD SHOOT PROMPT";
+      case "zoom":
+        return "BRA PANTY ZOOM PROMPT";
+      case "back":
+        return "BACK VIEW PROMPT";
+    }
+  }
+
+  if (sourceId === "bra") {
+    switch (deckShot) {
+      case "side1":
+        return "BRA ONLY SIDE 1 PROMPT";
+      case "side2":
+        return "BRA ONLY SIDE 2 PROMPT";
+      case "mood":
+        return "BRA ONLY MOOD PROMPT";
+      case "zoom":
+        return "BRA ONLY ZOOM PROMPT";
+      case "back":
+        return "BRA ONLY BACK PROMPT";
+    }
+  }
+
+  if (sourceId === "pushup_bra_only") {
+    switch (deckShot) {
+      case "side1":
+        return "SIDE 1 PUSH UP PROMPT — BRA ONLY";
+      case "side2":
+        return "SIDE 2 PUSH UP PROMPT — BRA ONLY";
+      case "mood":
+        return "MOOD PUSH UP PROMPT — BRA ONLY";
+      case "zoom":
+        return "ZOOM PUSH UP PROMPT — (UNCHANGED — BRA ONLY BY DEFAULT)";
+      case "back":
+        return "BACK PUSH UP PROMPT — BRA ONLY";
+    }
+  }
+
+  switch (deckShot) {
+    case "side1":
+      return "SIDE 1 PUSH UP PROMPT";
+    case "side2":
+      return "SIDE 2 PUSH UP PROMPT";
+    case "mood":
+      return "MOOD PUSH UP PROMPT";
+    case "zoom":
+      return "ZOOM PUSH UP PROMPT";
+    case "back":
+      return "BACK PUSH UP PROMPT";
+  }
+}
+
+function resolvePlaceholders(text: string, brand: Brand): string {
+  return text
+    .replace(
+      /\{\{BACKGROUND_AND_LIGHTING\}\}/g,
+      `Background: ${brand.bg} (${brand.name} brand background), clean seamless studio backdrop, no props or clutter. Lighting: soft, even, flattering studio lighting with no harsh shadows, consistent with ${brand.name}'s "${brand.overallLookFeel}" identity.`,
+    )
+    .replace(/\{\{BRAND_FONT_COLOR\}\}/g, brand.fg);
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function replaceAllInsensitive(text: string, search: string, replacement: string): string {
+  return text.replace(new RegExp(escapeRegExp(search), "gi"), replacement);
+}
+
+function applyBrandSpecification(text: string, brand: Brand): string {
+  let next = text;
+
+  for (const catalogBrand of BRANDS) {
+    next = replaceAllInsensitive(next, catalogBrand.fg, brand.fg);
+    next = replaceAllInsensitive(next, catalogBrand.bg, brand.bg);
+    next = replaceAllInsensitive(next, catalogBrand.headingsDisplay, brand.headingsDisplay);
+    next = replaceAllInsensitive(next, catalogBrand.bodyUi, brand.bodyUi);
+    next = replaceAllInsensitive(next, `${catalogBrand.name} brand`, `${brand.name} brand`);
+    next = replaceAllInsensitive(next, catalogBrand.paletteNotes, brand.paletteNotes);
+    next = replaceAllInsensitive(next, catalogBrand.overallLookFeel, brand.overallLookFeel);
+  }
+
+  return normalizeRemainingHexCodes(next, brand);
+}
+
+function normalizeRemainingHexCodes(text: string, brand: Brand): string {
+  return text
+    .split("\n")
+    .map((line) => {
+      let next = line;
+
+      next = next.replace(
+        /(background(?:\s+color)?|backdrop|wall|bedroom|studio(?:\s+backdrop)?|negative[- ]space|breathing space|text panel|right panel|left panel)([^#\n]*?)#[0-9a-f]{6}/gi,
+        (_match, label: string, middle: string) => `${label}${middle}${brand.bg}`,
+      );
+      next = next.replace(
+        /(font|text color|color|callout|line|icon|dot|fill|stroke|border|ring|badge|heading|sub-heading|feature text|benefit text)([^#\n]*?)#[0-9a-f]{6}/gi,
+        (_match, label: string, middle: string) => `${label}${middle}${brand.fg}`,
+      );
+
+      const hasHex = /#[0-9a-f]{6}/i.test(next);
+      if (!hasHex) return next;
+
+      if (/(background|backdrop|wall|bedroom|studio|negative[- ]space|breathing space|panel)/i.test(next)) {
+        return next.replace(/#[0-9a-f]{6}/gi, brand.bg);
+      }
+
+      if (/(font|text|color|callout|line|icon|dot|fill|stroke|border|ring|badge|heading|sub-heading|feature|benefit)/i.test(next)) {
+        return next.replace(/#[0-9a-f]{6}/gi, brand.fg);
+      }
+
+      return next;
+    })
+    .join("\n");
+}
+
+function brandOverride(brand: Brand): string {
+  return [
+    "IMPORTANT SELECTED BRAND OVERRIDE:",
+    "Use the source prompt above exactly for pose, product, crop, callout structure, and reference-image rules.",
+    "The source prompt section has already been rewritten with the selected brand fonts and hex codes. Follow those rewritten values exactly.",
+    "If any old brand value still appears, ignore it and replace it with the selected brand values below.",
+    buildBrandLock(brand),
+    `HARD-CODED TEXT HEX: every visible heading, sub-heading, callout label, callout content, feature text, benefit text, callout body copy, icon fill, icon stroke, circular icon fill, border ring, callout line, pointer dot, badge text, and brand chip text must use exactly ${brand.fg}. Heading, sub-heading, and every callout text line must share this same ${brand.fg} hex. Do not use blue, black, grey, white, or any source-prompt color for text/graphics unless it equals ${brand.fg}.`,
+    `HARD-CODED BACKGROUND HEX: every studio backdrop, lifestyle wall, negative-space panel, right/left text panel, product panel, flat background, and visible empty background area must use exactly ${brand.bg}. Do not use any source-prompt background hex, tint, approximate color, or generated substitute unless it equals ${brand.bg}.`,
+    `Use ${brand.headingsDisplay} for headlines/display text and ${brand.bodyUi} for sub-headings/body/callout text.`,
+  ].join("\n");
+}
+
+function stylePresetOverride(content: ShotPresetContent, brand: Brand, deckShot: DeckShotKey): string {
+  const callouts = content.callouts
+    .map((callout, index) => (callout.trim() ? `Callout ${index + 1}: ${callout.trim()}` : ""))
+    .filter(Boolean);
+  const side2CopyLock =
+    deckShot === "side2"
+      ? [
+          "SIDE 2 EXACT TEXT LOCK:",
+          `Render the Side 2 headline exactly as: "${content.heading || ""}".`,
+          content.subHeading
+            ? `Render the Side 2 sub-heading exactly as: "${content.subHeading}".`
+            : "Render no Side 2 sub-heading text.",
+          "Do not use the Side 2 source-prompt headline or sub-heading if it differs from the selected style preset.",
+        ].join("\n")
+      : "";
+  const iconPlan =
+    deckShot === "mood"
+      ? "MOOD STYLE PRESET GRAPHICS OVERRIDE: render selected style text only. Do not render icons, circular icon containers, symbol drawings, icon borders, icon fills, icon backgrounds, or decorative pictograms for Mood."
+      : buildCalloutIconPlan(content, brand);
+
+  return [
+    "SELECTED STYLE PRESET CONTENT OVERRIDE — CRITICAL:",
+    `Selected style: ${content.styleName}.`,
+    "Use the exact source prompt section above for pose, crop, model position, negative space, callout count, callout direction, icon/line style, headline position, sub-heading position, and all layout/placement rules.",
+    "Only replace the written copy/content inside that existing layout with the selected style content below.",
+    "Do not invent extra labels, extra callouts, badges, captions, logos, or alternate wording.",
+    "Do not move callouts, icons, lines, dots, or text blocks away from the source prompt layout. Keep every visual element in the same placement zones described in the source prompt.",
+    `All selected-style text, callout content, icons, dots, lines, and callout graphics must use the selected brand font hex ${brand.fg}; headings use ${brand.headingsDisplay}, sub-heading/callouts use ${brand.bodyUi}; backgrounds use ${brand.bg}.`,
+    `Heading: ${content.heading || "Use no heading text."}`,
+    content.subHeading ? `Sub-heading: ${content.subHeading}` : "Sub-heading: Use no sub-heading text.",
+    callouts.length > 0 ? callouts.join("\n") : "Callouts: Use no callout text.",
+    side2CopyLock,
+    iconPlan,
+  ].filter(Boolean).join("\n");
+}
+
+function braPresetContentLock(content: ShotPresetContent, brand: Brand, deckShot: DeckShotKey): string {
+  const selectedCallouts = content.callouts
+    .map((callout, index) => (callout.trim() ? `Bra mode callout ${index + 1} exact text: "${callout.trim()}"` : ""))
+    .filter(Boolean);
+  const allowedCopy = [
+    content.heading,
+    content.subHeading,
+    ...content.callouts,
+  ]
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  return [
+    "BRA MODE SELECTED STYLE CONTENT LOCK — HIGHEST PRIORITY:",
+    `This image is plain Bra mode, ${DECK_SHOT_LABELS[deckShot]} deck shot.`,
+    "Use Bra-prompt.txt only for pose, crop, model direction, product visibility, callout placement, connector-line placement, icon/no-icon behavior, and background layout.",
+    "Replace the written marketing copy from the Bra-prompt.txt source section with the selected style preset content below.",
+    "Do not use Pushup, Pushup Bra-Only, Bra+Panty, or Panty preset wording, product-effect wording, or prompt layout.",
+    `Bra mode heading exact text: "${content.heading.trim()}".`,
+    content.subHeading.trim()
+      ? `Bra mode sub-heading exact text: "${content.subHeading.trim()}".`
+      : "Bra mode sub-heading exact text: render no sub-heading.",
+    selectedCallouts.length > 0
+      ? selectedCallouts.join("\n")
+      : "Bra mode callouts exact text: render no callout copy.",
+    allowedCopy.length > 0
+      ? ["BRA MODE ALLOWED VISIBLE COPY:", ...allowedCopy.map((item, index) => `Allowed bra text ${index + 1}: "${item}"`)].join("\n")
+      : "BRA MODE ALLOWED VISIBLE COPY: none. Do not render any heading, sub-heading, or callout text.",
+    "The source prompt's default example copy is forbidden unless it appears verbatim in the selected style content above.",
+    'Forbidden Bra source examples include: "Elastic-Free Construction", "No Digging. No Marks. No Itching.", "Comfort that feels light", "Soft touch. Gentle support.", "Breathable Cotton Fabric", "Elastic-free Armhole", "Elastic-free Bottom Band", "No-Stitch Design", "No Digging.", and "No Rashes."',
+    "Keep each selected preset callout as its own callout group. Do not merge, summarize, translate, rewrite, duplicate, or invent alternate text.",
+    `All Bra mode selected-style text, icons, connector lines, dots, and callout graphics must use ${brand.fg}; headings use ${brand.headingsDisplay}; sub-heading and callouts use ${brand.bodyUi}; background uses ${brand.bg}.`,
+  ].join("\n");
+}
+
+function isPushupSource(sourceId: PromptSourceId): boolean {
+  return sourceId === "pushup_bra_only" || sourceId === "pushup_set";
+}
+
+function normalizePushupPresetContent(content: ShotPresetContent): ShotPresetContent {
+  return content;
+}
+
+function pushupEffectRenderLock(
+  brand: Brand,
+  deckShot: DeckShotKey,
+  content?: ShotPresetContent,
+): string {
+  const selectedCallouts = content?.callouts
+    .map((callout, index) => (callout.trim() ? `Allowed push-up callout ${index + 1}: "${callout.trim()}"` : ""))
+    .filter(Boolean);
+
+  return [
+    "PUSH-UP LEVEL 3 FINAL RENDER LOCK — HIGHEST PRIORITY:",
+    "This is Pushup mode. The bra must visibly render as a Level 3 push-up bra in the final pixels.",
+    "Both cups must be visibly lifted upward from beneath, pushed inward toward center, rounded through the upper cup, fuller than an unpadded bra, and three-dimensional with clear forward projection.",
+    "The under-cup curve must show strong padding lift. The center shaping must show the inward push clearly while staying modest, natural, symmetric, and catalogue-appropriate.",
+    deckShot === "back"
+      ? "For Back view, show the push-up support through lifted side projection, sculpted cup volume visible at the side edges, and a supportive back-band structure. Do not let the back pose look like a flat non-padded bra."
+      : "For this front/side/mood/zoom pose, the lifted cup projection and fuller shaped silhouette must be immediately visible without zooming in.",
+    "Do NOT render a flat balconette, minimizer, sports-bra, light-padding, Level 1, Level 2, soft-padding, or gentle-lift result.",
+    "Do NOT let selected style preset wording weaken the visual product effect. Even if selected copy mentions comfort, softness, lightness, or gentle support, keep the visible bra shape as Level 3 push-up.",
+    "Do NOT replace, rewrite, or invent visible selected style text to describe the push-up effect. Copy stays exact; only the rendered garment shape is forced to Level 3 push-up.",
+    selectedCallouts && selectedCallouts.length > 0
+      ? ["VISIBLE PUSH-UP COPY OVERRIDE:", ...selectedCallouts].join("\n")
+      : "",
+    `All push-up callout text and icons still use ${brand.fg}; background remains ${brand.bg}; brand styling remains unchanged.`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function pushupBraOnlySide2RenderLock(): string {
+  return [
+    "PUSHUP BRA-ONLY SIDE 2 EXTRA RENDER LOCK — ABSOLUTE PRIORITY:",
+    "This deck image is specifically Pushup Bra-Only toggle mode, Side 2/front-facing pose.",
+    "Do not copy a flat or shallow cup silhouette from the uploaded bra reference. Preserve color, fabric, seams, trim, straps, and band construction, but visibly convert the worn bra into a Level 3 push-up shape.",
+    "The final pixels must show stronger lift than the full-set Side 2: rounded upper-cup fullness, upward under-cup lift, inward center push, modest natural center cleavage/shaping, and clear forward projection.",
+    "If the bra looks like ordinary molded cups, light padding, no-padding comfort support, minimizer support, or a flat T-shirt bra, the generation failed.",
+  ].join("\n");
+}
+
+function normalizeCalloutZone(zone?: string): string {
+  return (zone ?? "auto").trim().toLowerCase().replace(/[\s-]+/g, "_");
+}
+
+function iconConceptForCallout(callout: string, zone?: string): string {
+  const text = `${normalizeCalloutZone(zone)} ${callout}`.toLowerCase();
+
+  if (/armhole|underarm|rash|chafe|digging/.test(text)) {
+    return "a smooth underarm curve / armhole comfort symbol";
+  }
+  if (/bottom|band|underbust|elastic/.test(text)) {
+    return "a curved bra band / underbust support symbol";
+  }
+  if (/strap|shoulder/.test(text)) {
+    return "an adjustable shoulder strap symbol";
+  }
+  if (/hook|closure|adjustable|3[\s_/-]*level/.test(text)) {
+    return "three hook-and-eye closure rows";
+  }
+  if (/wing|side[\s_/-]*wing|back[\s_/-]*smooth|smoothen/.test(text)) {
+    return "wide side wing panels smoothing the back";
+  }
+  if (/pad|padding|lift|push/.test(text)) {
+    return "a lifted padded cup / gentle lift symbol";
+  }
+  if (/v[\s_/-]*neck|neckline/.test(text)) {
+    return "a clean V-neckline outline";
+  }
+  if (/coverage|cover/.test(text)) {
+    return "a full coverage cup outline";
+  }
+  if (/wire[\s_/-]*free|w[\s_/-]*hold|support/.test(text)) {
+    return "a wire-free support arc";
+  }
+  if (/u[\s_/-]*back/.test(text)) {
+    return "a back-view U-shape strap support symbol";
+  }
+  if (/fabric|seamless|stitch|no[\s_/-]*stitch|smooth|polyamide|breath|cotton|weave/.test(text)) {
+    return "a seamless fabric weave / smooth wave symbol";
+  }
+  if (/grip|gripper|anti[\s_/-]*slip/.test(text)) {
+    return "a grip-strip texture symbol";
+  }
+  if (/spill|spillage|bulge/.test(text)) {
+    return "a contained side-cup anti-spillage symbol";
+  }
+
+  return "a simple product-feature symbol inferred from the exact callout words";
+}
+
+function buildCalloutIconPlan(content: ShotPresetContent, brand: Brand): string {
+  const rows = content.callouts
+    .map((callout, index) => {
+      const trimmed = callout.trim();
+      if (!trimmed) return "";
+      const zone = content.calloutZones?.[index];
+      return `Callout ${index + 1} icon: auto-detect from "${trimmed}" -> draw ${iconConceptForCallout(trimmed, zone)}.`;
+    })
+    .filter(Boolean);
+
+  if (rows.length === 0) {
+    return "AUTO-DETECTED ICON RULE: no selected callout text is present, so do not render any callout icons.";
+  }
+
+  return [
+    "AUTO-DETECTED ICON RULE — CRITICAL:",
+    "Do not copy fixed icon examples from the source prompt when selected style content is active.",
+    "For each callout, choose the icon symbol from that callout's actual words and garment zone. The icon meaning must match the callout content exactly.",
+    `Every icon must be a solid ${brand.fg} circular icon with a clear white interior line illustration. The icon fill, border ring, connector line, and touch/connector dots must all use ${brand.fg}; never black, grey, blue, magenta, or any other color unless it is exactly ${brand.fg}.`,
+    ...rows,
+  ].join("\n");
+}
+
+function finalBrandRenderContract(
+  brand: Brand,
+  deckShot: DeckShotKey,
+  content?: ShotPresetContent,
+): string {
+  const selectedCopy = content
+    ? [
+        content.heading,
+        content.subHeading,
+        ...content.callouts,
+      ]
+        .map((item) => item.trim())
+        .filter(Boolean)
+    : [];
+
+  return [
+    "FINAL RENDER CONTRACT — HIGHEST PRIORITY:",
+    `Selected brand is ${brand.name}. Use ONLY this brand's visual specification in the final image.`,
+    `FINAL TEXT/CALLOUT/ICON HEX: ${brand.fg} only. Headings, sub-headings, every callout content line, feature text, benefit text, circular icon fills, icon strokes, icon borders, callout lines, connector dots, badges, and brand chips must all use the same ${brand.fg}.`,
+    `FINAL LINE COLOR LOCK: every connector line on every pose, especially Back and Side 1, must use ${brand.fg} exactly. Do not render black, grey, blue, pink, magenta, faded purple, gradient, transparent, or approximate lines.`,
+    `FINAL BACKGROUND HEX: ${brand.bg} only for studio backgrounds, text panels, negative-space areas, product panels, empty breathing space, and lifestyle wall/backdrop areas. The background must visibly read as ${brand.bg}, not an approximate blue/beige/grey substitute.`,
+    `FINAL FONTS: headings/display text must use ${brand.headingsDisplay}; sub-headings, body copy, and callouts must use ${brand.bodyUi}. Do not use default system fonts, black text, grey text, blue text, or any source-prompt font/color if it differs from this brand.`,
+    "Do not render font names, hex codes, brand-spec table labels, UI labels, numbers inside callout icons, arrows as text characters, or placeholder text.",
+    deckShot === "side1"
+      ? [
+          "SIDE 1 ICON/CALLOUT LOCK:",
+          "Render exactly three product feature callout groups, matching the source prompt positions.",
+          "Do not omit icons. Side 1 must contain exactly three visible circular icons, one attached to each callout group.",
+          `Each Side 1 icon must be a clean circular icon with solid ${brand.fg} fill and a simple white line-art lingerie/product-feature symbol inside.`,
+          "The white line-art symbol inside each icon must be auto-detected from that callout's selected text, not copied from the source prompt examples.",
+          "Do NOT render numbered icon badges such as 1, 2, or 3. Do NOT render arrow glyphs, random symbols, broken brackets, or text inside the icons.",
+          `Every Side 1 connector line and product touch dot must use ${brand.fg}. Lines must be thin, clean, and connected to the correct product zone.`,
+        ].join("\n")
+      : "",
+    deckShot === "back"
+      ? [
+          "BACK VIEW COLOR/GRAPHIC LOCK:",
+          `Back headline, sub-heading, all three feature labels, benefit lines, circular icon fills, icon rings, interior icon strokes, and connector lines must use ${brand.fg} only, with white interior icon drawings only.`,
+          "Do not use black text for Back callouts. Do not use pink/magenta/purple variants unless the exact selected brand hex is that value.",
+          "Back connector lines must be thin, clean, and visible in the selected brand hex; no faded alternate color and no mismatched line color.",
+        ].join("\n")
+      : "",
+    content
+      ? [
+          "SELECTED STYLE COPY IS THE ONLY COPY ALLOWED:",
+          "Replace all example/source-prompt marketing copy with the selected style content below.",
+          selectedCopy.length > 0
+            ? selectedCopy.map((item, index) => `Allowed text ${index + 1}: "${item}"`).join("\n")
+            : "Allowed text: none. Do not render any headline, sub-heading, or callout copy.",
+          "Do NOT render old source-prompt text unless it appears verbatim in the allowed selected-style text list above.",
+          'Forbidden old source copy examples include: "Elastic-Free Construction", "No Digging. No Marks. No Itching", "Elastic-free Armhole", "Elastic-free Bottom Band", "Seamless Design", "Rashfree Comfort", "Seamless Support", and "Invisible under Outfits".',
+          "Do not duplicate callout content. Do not merge multiple callouts into one paragraph. Keep each selected callout as its own clean callout group.",
+        ].join("\n")
+      : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function moodBackgroundLock(brand: Brand): string {
+  return [
+    "UNIVERSAL MOOD BACKGROUND LOCK — BRAND-SPECIFIC:",
+    "For every Mood deck image in every mode, use the same clean airy bedroom language:",
+    `Background wall/backdrop must be a smooth, bright, softly blurred ${brand.bg} brand-color wall, matching ${brand.name}'s background hex exactly.`,
+    "Use a clean white or very light ivory bed with soft bedding at the lower frame, like a premium morning lifestyle shoot.",
+    "The setting should feel fresh, open, minimal, and polished: no yellow beige cast, no dark warm room, no clutter, no decorative props, no plants, no visible curtains, no busy furniture, no colored panels.",
+    "Lighting must be soft bright daylight, clean and even, with gentle natural shadows only. The background should look like the reference clean bed mood image, recolored through the selected brand background hex.",
+    `All background panels, visible wall areas, and empty negative-space zones must stay in ${brand.bg}; all text, dots, callout lines, and Mood graphics must stay in ${brand.fg}.`,
+  ].join("\n");
+}
+
+function moodNoIconLock(brand: Brand): string {
+  return [
+    "MOOD SHOT NO-ICON LOCK — HIGHEST PRIORITY:",
+    "This is a Mood deck image. Render content text only with clean typography and, only where the source Mood layout requires them, thin connector lines and tiny touch-point dots.",
+    "Strictly do NOT render any icons in Mood: no circular icons, no icon badges, no symbol drawings, no pictograms, no decorative graphic marks, no icon containers, no icon borders, no icon fills, and no white line-art symbols.",
+    "Ignore and override any source prompt, selected style preset, auto-icon rule, or inferred callout-zone instruction that asks for icons in Mood.",
+    `Mood headings, sub-headings, callout text, thin connector lines, and tiny dots must use ${brand.fg}. Mood background must use ${brand.bg}.`,
+  ].join("\n");
+}
+
+function photoModeBrandSpecBackgroundLock(brand: Brand, deckShot: DeckShotKey): string {
+  const shotLabel = deckShot === "side1" ? "Side 1" : deckShot === "side2" ? "Side 2" : "Back";
+
+  return [
+    `PHOTO MODE ${shotLabel.toUpperCase()} BRAND BACKGROUND LOCK - HIGHEST PRIORITY:`,
+    "This image is being generated in Brandflow photo mode, not print flow.",
+    `Apply the selected brand sheet exactly: display font ${brand.headingsDisplay}, body font ${brand.bodyUi}, text hex ${brand.fg}, background hex ${brand.bg}, palette notes "${brand.paletteNotes}", overall look "${brand.overallLookFeel}".`,
+    `The selected brand background is one exact hex only: ${brand.bg}. Every visible background pixel outside the model, bra, panty, callout lines, icons, and text must resolve to ${brand.bg}.`,
+    "Do not interpret palette notes as permission to add extra background colors, secondary backdrop shades, ivory drifts, powder-blue casts, blush washes, champagne tint, beige warmth, or decorative room styling.",
+    deckShot === "back"
+      ? `Render Back as a clean seamless studio scene. No curtains, room walls, bedding, windows, botanical art, gradients, beige glow, cream halo, floor-shadow color cast, furniture, props, or staged interior elements behind the model.`
+      : `Render ${shotLabel} as a clean seamless studio scene. If the layout uses a text panel, that panel must also be exactly ${brand.bg}. No curtains, drapes, backdrop folds, wall stripes, room depth, window light patterns, botanical art, furniture, props, gradients, or staged interior elements.`,
+    `Brand palette notes and overall look may influence the feeling of the image and the product storytelling, but they must never change the background away from exact ${brand.bg}.`,
+    `If any part of the background reads as yellow, beige, cream, grey, blue-tinted, pink-tinted, or any value other than ${brand.bg}, the image is wrong and must be regenerated.`,
+  ].join("\n");
+}
+
+function pushupBraOnlyBackgroundLock(brand: Brand, deckShot: DeckShotKey): string {
+  const shotLabel = deckShot === "side2" ? "Side 2" : "Mood";
+
+  return [
+    `PUSHUP BRA-ONLY ${shotLabel.toUpperCase()} BACKGROUND LOCK — FINAL PRIORITY:`,
+    `This is the ${shotLabel} pose in Pushup Bra-Only toggle mode. The selected brand is ${brand.name}.`,
+    `Every visible background pixel, wall, backdrop, negative-space area, panel, and empty area must be exactly ${brand.bg}.`,
+    `Use ${brand.bg} as the unmistakable dominant background color; do not drift toward white, cream, beige, grey, aqua, blue, yellow, pink, or any approximate tint unless it is exactly ${brand.bg}.`,
+    "Do not inherit any source-prompt background color, source-brand palette, lifestyle-room color, bedroom, bed, bedding, curtain, window, furniture, colored panel, gradient, texture, prop, or decorative background element.",
+    deckShot === "side2"
+      ? "Keep the background clean, flat, seamless, and evenly lit so the exact selected brand color is visible around the complete model silhouette."
+      : "Keep the Mood image as a minimal seamless studio product scene, softly lit and free of bedroom elements; recolor every visible wall, backdrop, and empty background area to the exact selected brand color, with no warm room cast altering it.",
+    `This background rule overrides every earlier background instruction. The final generated image must visibly read as the selected brand background ${brand.bg}.`,
+  ].join("\n");
+}
+
+function pushupSetBackgroundLock(brand: Brand, deckShot: DeckShotKey): string {
+  const shotLabel = deckShot === "side2" ? "Side 2" : "Mood";
+
+  return [
+    `PUSHUP SET ${shotLabel.toUpperCase()} BACKGROUND LOCK — FINAL PRIORITY:`,
+    `This is the ${shotLabel} pose in Bra + Panty Pushup Set mode. The selected brand is ${brand.name}.`,
+    `Every visible background pixel, wall, backdrop, negative-space area, panel, and empty area must be exactly ${brand.bg}.`,
+    `Use ${brand.bg} as the unmistakable dominant background color; do not drift toward white, cream, beige, grey, aqua, blue, yellow, pink, or any approximate tint unless it is exactly ${brand.bg}.`,
+    "Do not inherit any source-prompt background color, source-brand palette, lifestyle-room color, bedroom, bed, bedding, curtain, window, furniture, colored panel, gradient, texture, prop, or decorative background element.",
+    deckShot === "side2"
+      ? "Keep the background clean, flat, seamless, and evenly lit so the exact selected brand color is visible around the complete model and bra-plus-panty silhouette."
+      : "Keep the Mood image as a minimal seamless product scene with the bra and panty clearly visible, softly lit and free of bedroom elements; recolor every visible wall, backdrop, and empty background area to the exact selected brand color, with no warm room cast altering it.",
+    `This background rule overrides every earlier background instruction. The final generated image must visibly read as the selected brand background ${brand.bg}.`,
+  ].join("\n");
+}
+
+function braPantyBackgroundLock(brand: Brand, deckShot: DeckShotKey): string {
+  const shotLabel =
+    deckShot === "side1"
+      ? "Side 1"
+      : deckShot === "side2"
+        ? "Side 2"
+        : deckShot === "back"
+          ? "Back"
+          : "Mood";
+
+  return [
+    `BRA + PANTY ${shotLabel.toUpperCase()} BACKGROUND LOCK — FINAL PRIORITY:`,
+    `This is the ${shotLabel} pose in Bra + Panty mode. The selected brand is ${brand.name}.`,
+    `Every visible background pixel, wall, backdrop, negative-space area, panel, and empty area must be exactly ${brand.bg}.`,
+    `Use ${brand.bg} as the unmistakable dominant background color; do not drift toward white, cream, beige, grey, aqua, blue, yellow, pink, or any approximate tint unless it is exactly ${brand.bg}.`,
+    "Do not inherit any source-prompt background color, source-brand palette, lifestyle-room color, bedroom, bed, bedding, curtain, window, furniture, colored panel, gradient, texture, prop, or decorative background element.",
+    deckShot === "mood"
+      ? "Keep the Mood image as a minimal seamless product scene with bra and panty clearly visible, softly lit and free of warm/yellow room cast; recolor every visible wall, backdrop, and empty background area to the exact selected brand color."
+      : "Keep the background clean, flat, seamless, and evenly lit so the exact selected brand color is visible around the complete model and bra-plus-panty silhouette.",
+    `This background rule overrides every earlier background instruction. The final generated image must visibly read as the selected brand background ${brand.bg}.`,
+  ].join("\n");
+}
+
+function invisiSoftBraPantyColorCastLock(deckShot: DeckShotKey): string {
+  const shotLabel =
+    deckShot === "side1"
+      ? "Side 1"
+      : deckShot === "side2"
+        ? "Side 2"
+        : deckShot === "back"
+          ? "Back"
+          : "Mood";
+
+  return [
+    `INVISI-SOFT ${shotLabel.toUpperCase()} COLOR-CAST LOCK — ABSOLUTE FINAL PRIORITY:`,
+    "Selected brand is Invisi-Soft. Treat any warm/yellow/beige rendering as a failed image.",
+    "Ignore and override any earlier wording that implies warm, creamy, beige, ivory, taupe, nude, earthy, cocoa, sunset, golden-hour, or warm-lifestyle tone.",
+    "White balance must be neutral-cool daylight. Background must stay crisp, airy, and clean with zero yellow cast.",
+    "Exact background target is #F6F8FB for all visible wall/backdrop/empty background areas; no tint drift is allowed.",
+    "Do not render cream, off-white yellow, warm beige, tan, peach, or brown background in any region.",
+    "If the background appears warm or yellow in any area, regenerate until the backdrop reads as exact cool airy #F6F8FB.",
+  ].join("\n");
+}
+
+function invisiSoftBraPantySceneLock(deckShot: DeckShotKey): string {
+  const shotLabel =
+    deckShot === "side1"
+      ? "Side 1"
+      : deckShot === "side2"
+        ? "Side 2"
+        : deckShot === "back"
+          ? "Back"
+          : "Mood";
+
+  return [
+    `INVISI-SOFT BRA + PANTY ${shotLabel.toUpperCase()} SCENE LOCK - ABSOLUTE FINAL PRIORITY:`,
+    "Selected brand is Invisi-Soft. The final image must read as cool, airy, crisp, and minimal - never warm, creamy, blush, or bedroom-heavy.",
+    deckShot === "side1" || deckShot === "side2"
+      ? `Render a plain seamless #F6F8FB studio field${deckShot === "side2" ? " with a matching #F6F8FB text/background panel only" : ""}. Every non-model, non-product background pixel must read as flat #F6F8FB. Do not render curtains, drape folds, fabric drops, vertical wall stripes, botanical corner art, floral line art, furniture, props, gradients, room depth, or warm ivory/beige set styling.`
+      : deckShot === "back"
+        ? "Render a plain seamless #F6F8FB studio field only. Every background pixel outside the model and garment silhouette must stay flat #F6F8FB with no curtains, no room walls, no beige glow, no cream halo, no botanical art, no set decoration, and no staged lifestyle environment."
+        : "If the pose needs a lifestyle setup, keep it extremely minimal and cool-toned: any visible bed, bedding, wall, or background surface must stay white to #F6F8FB and secondary to the product. Do not render cream bedding, beige walls, blush decor, curtains, wood furniture, plants, or a golden bedroom mood.",
+    deckShot === "mood"
+      ? 'Ignore and override any earlier source instruction such as "No studio - real lifestyle interior only" whenever it conflicts with the selected Invisi-Soft background spec.'
+      : "Ignore and override any earlier source instruction that asks for warm-white, pale-ivory, blush, decorative, curtain, room, wall-panel, or styled background treatment.",
+    "Treat any yellow cast, beige cast, blush tint, creamy room tone, curtain backdrop, or visible decorative bedroom element as a failed image and regenerate.",
+  ].join("\n");
+}
+
+function printBackgroundOnlyLock(brand: Brand, deckShot: DeckShotKey): string {
+  const shotLabel = DECK_SHOT_LABELS[deckShot];
+
+  return [
+    `PRINT PATTERN FLOW ${shotLabel.toUpperCase()} BACKGROUND LOCK — ABSOLUTE FINAL PRIORITY:`,
+    `Only the background changes per brand in this flow. The selected brand is ${brand.name}.`,
+    `Every visible background pixel, wall, backdrop, negative-space area, and solid text-zone/panel color must be exactly ${brand.bg} — flat, seamless, and uniform, with no gradient, no vignette, no lighting-driven tint shift, and no drift toward white, cream, beige, tan, warm, or yellow unless that is exactly ${brand.bg}.`,
+    "Do NOT render curtains, drape folds, fabric drops, vertical wall stripes, botanical corner art, floral line art, furniture, props, room depth, or any staged/lifestyle set decoration in the background — the background must be an empty, clean, seamless studio field.",
+    "Ignore and override any earlier instruction in the source prompt above that describes a warm-white, pale-ivory, blush-pink, cream, botanical, floral, curtain, drape, or decorative background treatment — that language does not apply once a brand has been selected; only the exact brand hex above applies.",
+    "Keep every other authored color exactly as written in the source prompt above: headline color, sub-heading color, feature-title colors, callout/body text colors, connector-line color, and icon badge fill colors all stay exactly as specified there. Do not recolor any of them to the background hex.",
+    `Ignore any other brand name mentioned in the source prompt above — this image is for ${brand.name} only. Do not change fonts, typography style, layout, callout placement, icon shapes, or wording; only the background follows the brand.`,
+    `Treat any yellow cast, beige cast, blush tint, cream tone, gradient, curtain, or visible decorative background element as a failed image and regenerate until the backdrop reads as exact flat ${brand.bg}.`,
+  ].join("\n");
+}
+
+function printSkinToneLock(): string {
+  return [
+    "MODEL SKIN TONE LOCK — NON-NEGOTIABLE:",
+    "Render the model's skin tone as an exact, neutral match to Reference Image 1 — natural fair skin with true-to-life, balanced undertones.",
+    'The source prompt\'s "warm" lighting and background language above describes the studio backdrop, ambient mood, and color palette only. It must NOT warm-tint, yellow-tint, orange-tint, tan, or otherwise discolor the model\'s skin.',
+    "Do NOT render jaundiced, sallow, golden, muddy, or over-warmed skin. Keep skin color rendering clean, neutral, and color-accurate exactly as the model reference shows — only the lighting brightness/softness follows the warm studio direction, never the skin's actual hue.",
+  ].join("\n");
+}
+
+function printPresetContentLock(content: ShotPresetContent, deckShot: DeckShotKey): string {
+  const callouts = content.callouts
+    .map((callout, index) => (callout.trim() ? `Callout ${index + 1}: ${callout.trim()}` : ""))
+    .filter(Boolean);
+
+  return [
+    "SELECTED STYLE PRESET CONTENT — PRINT PATTERN FLOW:",
+    `Selected style: ${content.styleName}.`,
+    "Use the exact source prompt above for pose, crop, layout, callout positions, connector-line style, icon style, and typography treatment — the print layout is mandatory.",
+    "Replace only the written headline, sub-heading, and feature-callout copy in that layout with the selected style content below. Keep the same number of feature rows as the source layout; if the source layout has more feature rows than the selected preset has callouts, keep the source prompt's own copy for the remaining rows.",
+    `Headline: ${content.heading.trim() || "Use the source prompt's own headline."}`,
+    content.subHeading.trim()
+      ? `Sub-heading: ${content.subHeading.trim()}`
+      : "Sub-heading: use the source prompt's own sub-heading.",
+    callouts.length > 0 ? callouts.join("\n") : "Callouts: use the source prompt's own callout copy.",
+    "Do not invent extra callouts, badges, or captions beyond the source layout's structure.",
+  ].join("\n");
+}
+
+function printPushupEffectRenderLock(deckShot: DeckShotKey): string {
+  return [
+    "PUSH-UP LEVEL 3 FINAL RENDER LOCK — HIGHEST PRIORITY:",
+    "This is Pushup mode. The bra must visibly render as a Level 3 push-up bra in the final pixels.",
+    "Both cups must be visibly lifted upward from beneath, pushed inward toward center, rounded through the upper cup, fuller than an unpadded bra, and three-dimensional with clear forward projection.",
+    "The under-cup curve must show strong padding lift. The center shaping must show the inward push clearly while staying modest, natural, symmetric, and catalogue-appropriate.",
+    deckShot === "back"
+      ? "For Back view, show the push-up support through lifted side projection, sculpted cup volume visible at the side edges, and a supportive back-band structure. Do not let the back pose look like a flat non-padded bra."
+      : "For this front/side/mood/zoom pose, the lifted cup projection and fuller shaped silhouette must be immediately visible without zooming in.",
+    "Do NOT render a flat balconette, minimizer, sports-bra, light-padding, Level 1, Level 2, soft-padding, or gentle-lift result.",
+    "Do NOT let selected style preset wording weaken the visual product effect. Even if selected copy mentions comfort, softness, lightness, or gentle support, keep the visible bra shape as Level 3 push-up.",
+    "This rule only affects the rendered garment shape. It does not change any text color, background color, or typography — those follow the background-only brand lock above.",
+  ].join("\n");
+}
+
+function printMoodBottomBenefitBarLock(content?: ShotPresetContent): string {
+  if (!content) return "";
+  const reference = [
+    content.heading.trim() ? `Heading: ${content.heading.trim()}` : "",
+    content.subHeading.trim() ? `Sub-heading: ${content.subHeading.trim()}` : "",
+    ...content.callouts.map((callout, index) =>
+      callout.trim() ? `Callout ${index + 1}: ${callout.trim()}` : "",
+    ),
+  ].filter(Boolean);
+
+  return [
+    "PRINT MOOD — BOTTOM BENEFIT BAR IS GEMINI-AUTHORED, NOT COPIED:",
+    "The bottom four-column benefit bar described in the source prompt above is the one element you should write yourself — it is not a copy of the source prompt's own example bar text, and not a repeat of the feature-callout column above it.",
+    'Read the selected style preset content below and write four short new benefit titles (2-4 words) with a matching short sub-line each, that plausibly relate to and extend that same product story. Do not paste the preset callouts verbatim into the bar, and do not reuse the source prompt\'s own example bar text ("Soft Touch", "Feather Light", "Elastic-Free", "Made to Support").',
+    "For each of the four columns, choose a simple circular line-art icon concept that matches your generated benefit text, following the bar's existing pastel badge style (soft blush pink / muted lavender fill, thin double-ring border, delicate monochrome line-art) described in the source prompt.",
+    "Selected style preset content for reference (do not render this text verbatim in the bar):",
+    reference.length > 0 ? reference.join("\n") : "(no preset content selected — keep the source prompt's own bottom bar example text)",
+  ].join("\n");
+}
+
+export function composeDeckPrompt({
+  shootType,
+  pushupBraOnly,
+  deckShot,
+  brand,
+  aspect,
+  userNote,
+  regenerationNote,
+  presetContent,
+  flowMode = "photo",
+}: ComposeDeckPromptOptions): { prompt: string; sourceFile: string; section: string } {
+  if (flowMode === "print") {
+    const printSource = getPrintPromptSource(shootType, pushupBraOnly);
+    const rawSection = printSource.files[deckShot];
+    if (!rawSection) {
+      throw new Error(
+        `No print pattern prompt available yet for "${DECK_SHOT_LABELS[deckShot]}" in ${printSource.label}.`,
+      );
+    }
+    const sourcePrompt = resolvePlaceholders(rawSection, brand);
+    const pushupMode = shootType === "pushup";
+    const effectivePresetContent =
+      pushupMode && presetContent ? normalizePushupPresetContent(presetContent) : presetContent;
+
+    const printControls = [
+      "DECK SHOT LOCK:",
+      `Deck shot: ${DECK_SHOT_LABELS[deckShot]}.`,
+      `Prompt source: Print Pattern Flow — ${printSource.label}.`,
+      `Aspect selected in Studio Flow: ${aspect}.`,
+      "Fixed image quality: generate a native, sharp, strict 2K ecommerce image. Do not return a blurry, low-resolution, soft, compressed, or pixelated image.",
+      "Generate only this deck shot. Keep model identity and product identity consistent with the rest of the deck.",
+      userNote?.trim() ? `User refinement note: ${userNote.trim()}` : "",
+      regenerationNote?.trim() ? `Regeneration correction note: ${regenerationNote.trim()}` : "",
+    ].filter(Boolean);
+
+    const printSections = [
+      sourcePrompt,
+      printBackgroundOnlyLock(brand, deckShot),
+      printSkinToneLock(),
+      printControls.join("\n"),
+    ];
+    if (effectivePresetContent) {
+      printSections.push(printPresetContentLock(effectivePresetContent, deckShot));
+    }
+    if (deckShot === "mood") printSections.push(printMoodBottomBenefitBarLock(effectivePresetContent));
+    if (pushupMode) printSections.push(printPushupEffectRenderLock(deckShot));
+    if (shootType === "pushup" && pushupBraOnly && deckShot === "side2") {
+      printSections.push(pushupBraOnlySide2RenderLock());
+    }
+
+    return {
+      prompt: printSections.join("\n\n"),
+      sourceFile: printSource.label,
+      section: `${DECK_SHOT_LABELS[deckShot]} print prompt`,
+    };
+  }
+
+  const source = getPromptSource(shootType, pushupBraOnly);
+  const section = sectionHeading(source.id, deckShot);
+  const sourcePrompt = applyBrandSpecification(resolvePlaceholders(extractSection(source, section), brand), brand);
+  const pushupMode = isPushupSource(source.id);
+  const effectivePresetContent =
+    pushupMode && presetContent ? normalizePushupPresetContent(presetContent) : presetContent;
+  const modeLock =
+    source.id === "pushup_bra_only" && deckShot === "mood"
+      ? [
+          "PUSHUP BRA-ONLY MOOD ROUTE LOCK:",
+          "This image must use the MOOD PUSH UP PROMPT — BRA ONLY section from Pushup-Bra-Only-Prompt.txt only.",
+          "Do not use Side 1, Side 2, Back, Zoom, Pushup Set, Bra+Panty, or Panty prompt layout for this Mood image.",
+        ].join("\n")
+      : "";
+  const sourceLock =
+    source.id === "pushup_set"
+      ? [
+          "PUSHUP SET ROUTE LOCK:",
+          "This Pushup mode includes the panty reference and must use Pushup-Set.txt only.",
+          "Use the exact selected Pushup-Set.txt section for content layout, icons, callout lines, dots, text placement, model crop, bra placement, and panty placement.",
+          "Do not switch to Pushup-Bra-Only-Prompt.txt, Bra-prompt.txt, Bra-panty-Prompt.txt, or any panty-only layout.",
+        ].join("\n")
+      : "";
+  const controls = [
+    "DECK SHOT LOCK:",
+    `Deck shot: ${DECK_SHOT_LABELS[deckShot]}.`,
+    `Prompt source file: ${source.fileName}.`,
+    `Prompt source section: ${section}.`,
+    `Aspect selected in Studio Flow: ${aspect}.`,
+    "Fixed image quality: generate a native, sharp, strict 2K ecommerce image. Do not return a blurry, low-resolution, soft, compressed, or pixelated image.",
+    effectivePresetContent
+      ? "Content/layout lock: render the selected style preset text inside the exact headline, sub-heading, and callout placement described by the source prompt. The source prompt layout is mandatory."
+      : "",
+    "Generate only this deck shot. Keep model identity, product identity, and brand identity consistent with the rest of the deck.",
+    userNote?.trim() ? `User refinement note: ${userNote.trim()}` : "",
+    regenerationNote?.trim() ? `Regeneration correction note: ${regenerationNote.trim()}` : "",
+  ].filter(Boolean);
+
+  const sections = [sourcePrompt, brandOverride(brand), controls.join("\n")];
+  if (deckShot === "mood" && source.id !== "bra_panty") sections.push(moodBackgroundLock(brand));
+  if (modeLock) sections.push(modeLock);
+  if (sourceLock) sections.push(sourceLock);
+  if (effectivePresetContent) sections.push(stylePresetOverride(effectivePresetContent, brand, deckShot));
+  if (source.id === "bra" && effectivePresetContent) {
+    sections.push(braPresetContentLock(effectivePresetContent, brand, deckShot));
+  }
+  sections.push(finalBrandRenderContract(brand, deckShot, effectivePresetContent));
+  if (pushupMode) sections.push(pushupEffectRenderLock(brand, deckShot, effectivePresetContent));
+  if (source.id === "pushup_bra_only" && deckShot === "side2") {
+    sections.push(pushupBraOnlySide2RenderLock());
+  }
+  if (deckShot === "mood") sections.push(moodNoIconLock(brand));
+  if (
+    source.id === "pushup_bra_only" &&
+    (deckShot === "side2" || deckShot === "mood")
+  ) {
+    sections.push(pushupBraOnlyBackgroundLock(brand, deckShot));
+  }
+  if (source.id === "pushup_set" && (deckShot === "side2" || deckShot === "mood")) {
+    sections.push(pushupSetBackgroundLock(brand, deckShot));
+  }
+  if (
+    source.id === "bra_panty" &&
+    (deckShot === "side1" || deckShot === "side2" || deckShot === "mood" || deckShot === "back")
+  ) {
+    sections.push(braPantyBackgroundLock(brand, deckShot));
+    if (deckShot === "side1" || deckShot === "side2" || deckShot === "back") {
+      sections.push(photoModeBrandSpecBackgroundLock(brand, deckShot));
+    }
+    if (brand.id === "invisi-soft") {
+      if (deckShot === "side1" || deckShot === "side2" || deckShot === "mood" || deckShot === "back") {
+        sections.push(invisiSoftBraPantySceneLock(deckShot));
+      }
+      sections.push(invisiSoftBraPantyColorCastLock(deckShot));
+    }
+  }
+
+  return {
+    prompt: sections.join("\n\n"),
+    sourceFile: source.fileName,
+    section,
+  };
+}

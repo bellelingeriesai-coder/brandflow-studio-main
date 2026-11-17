@@ -1,0 +1,574 @@
+import { type CSSProperties, useEffect, useMemo, useState } from "react";
+import { Check, Clipboard, Download, RefreshCw, Sparkles } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Textarea } from "@/components/ui/textarea";
+import { createZip } from "@/lib/zip";
+import { cn } from "@/lib/utils";
+import {
+  ASPECTS,
+  BRANDS,
+  DECK_SHOT_LABELS,
+  REGENERATION_ISSUES,
+  type AspectId,
+  type GeneratedShot,
+  type RegenerateIssue,
+  type ShotPresetContent,
+  type ShootType,
+  buildRegenerationNote,
+  getBrand,
+  shootTypeLabel,
+} from "@/lib/studio";
+import { findPreset, isPresetPose, type StylePreset } from "@/lib/stylePresets";
+
+function aspectRatio(id: AspectId): string {
+  return ASPECTS.find((a) => a.id === id)?.ratio ?? "3 / 4";
+}
+
+function brandColors(brandId: string | null) {
+  const brand = BRANDS.find((b) => b.id === brandId);
+  return {
+    bg: brand?.bg ?? "#f2e6da",
+    fg: brand?.fg ?? "#8a6d5b",
+    name: brand?.name ?? "Studio",
+  };
+}
+
+/** A stylized studio frame standing in for the composited result. */
+export function ShotFrame({
+  shot,
+  selected,
+  onToggleSelected,
+}: {
+  shot: GeneratedShot;
+  selected: boolean;
+  onToggleSelected: () => void;
+}) {
+  const { bg, fg, name } = brandColors(shot.brandId);
+  const poseLabel = DECK_SHOT_LABELS[shot.deckShot];
+
+  return (
+    <div
+      data-shot={shot.id}
+      className="relative w-full overflow-hidden rounded-2xl border border-border"
+      style={{ aspectRatio: aspectRatio(shot.aspect) }}
+    >
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(120% 90% at 50% 0%, ${bg} 0%, color-mix(in srgb, ${bg} 55%, #ffffff) 70%, #ffffff 100%)`,
+        }}
+      />
+      {shot.imageUrl ? (
+        <img src={shot.imageUrl} alt={`${name} ${poseLabel}`} className="absolute inset-0 h-full w-full object-cover" />
+      ) : (
+        <>
+          <div
+            className="absolute bottom-0 left-1/2 h-[78%] w-[46%] -translate-x-1/2 rounded-t-[999px] opacity-25"
+            style={{ background: `linear-gradient(180deg, ${fg}, transparent)` }}
+          />
+          <div
+            className="absolute bottom-[14%] left-1/2 h-[26%] w-[30%] -translate-x-1/2 rounded-[40%] opacity-70"
+            style={{ background: fg }}
+          />
+        </>
+      )}
+      {shot.status !== "done" && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-paper/60 backdrop-blur-sm">
+          {shot.status === "error" ? (
+            <span className="max-w-[80%] text-center text-xs font-medium text-destructive">
+              {shot.error ?? "Generation failed"}
+            </span>
+          ) : null}
+          {shot.status !== "error" ? (
+            <div className="loader-wrapper scale-[0.62] sm:scale-[0.7]" style={{ "--loader-accent": fg } as CSSProperties}>
+              {"Generating".split("").map((letter, index) => (
+                <span key={`${letter}-${index}`} className="loader-letter">
+                  {letter}
+                </span>
+              ))}
+              <div className="loader" />
+            </div>
+          ) : null}
+        </div>
+      )}
+      {shot.status === "done" && (
+        <button
+          type="button"
+          onClick={onToggleSelected}
+          className={cn(
+            "absolute right-2.5 top-2.5 z-10 inline-flex h-8 min-w-16 items-center justify-center gap-1 rounded-full border px-2 text-[0.68rem] font-semibold shadow-sm transition-colors",
+            selected
+              ? "border-success bg-success text-success-foreground"
+              : "border-border bg-paper/90 text-foreground hover:border-primary",
+          )}
+        >
+          {selected ? <Check className="h-3.5 w-3.5" /> : null}
+          {selected ? "Picked" : "Select"}
+        </button>
+      )}
+      <div className="absolute left-2.5 top-2.5 rounded-full bg-paper/85 px-2.5 py-1 text-[0.68rem] font-semibold text-foreground shadow-sm">
+        {poseLabel}
+      </div>
+      <div
+        className="absolute bottom-2.5 left-2.5 rounded-full px-2.5 py-1 text-[0.68rem] font-semibold shadow-sm"
+        style={{ background: fg, color: "#fff" }}
+      >
+        {name}
+      </div>
+      {shot.status === "done" ? (
+        <div className="absolute bottom-2.5 right-2.5 rounded-full bg-paper/85 px-2 py-1 text-[0.62rem] font-medium text-muted-foreground">
+          {shot.aspect}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+async function shotBlob(shot: GeneratedShot): Promise<Blob> {
+  if (shot.imageUrl) return await fetch(shot.imageUrl).then((response) => response.blob());
+
+  const { bg, fg, name } = brandColors(shot.brandId);
+  const [w, h] = shot.aspect === "9:16" ? [720, 1280] : shot.aspect === "1:1" ? [1000, 1000] : [900, 1200];
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return new Blob();
+  const grad = ctx.createRadialGradient(w / 2, 0, 0, w / 2, 0, h);
+  grad.addColorStop(0, bg);
+  grad.addColorStop(1, "#ffffff");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = fg;
+  ctx.globalAlpha = 0.7;
+  ctx.beginPath();
+  ctx.ellipse(w / 2, h * 0.72, w * 0.16, h * 0.14, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = fg;
+  ctx.font = "600 40px Instrument Sans, sans-serif";
+  ctx.fillText(name, 40, h - 48);
+  const poseLabel = DECK_SHOT_LABELS[shot.deckShot];
+  ctx.fillStyle = "#333";
+  ctx.font = "500 30px Instrument Sans, sans-serif";
+  ctx.fillText(poseLabel, 40, 60);
+  return await new Promise((resolve) => canvas.toBlob((blob) => resolve(blob ?? new Blob()), "image/png"));
+}
+
+function shotExtension(blob: Blob): string {
+  return blob.type === "image/jpeg" ? "jpg" : "png";
+}
+
+export async function downloadShot(shot: GeneratedShot) {
+  const { name } = brandColors(shot.brandId);
+  const blob = await shotBlob(shot);
+  const link = document.createElement("a");
+  link.download = `studioflow-${name}-${shot.deckShot}.${shotExtension(blob)}`;
+  link.href = URL.createObjectURL(blob);
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+export async function downloadShotsZip(shots: GeneratedShot[]) {
+  const done = shots.filter((shot) => shot.status === "done");
+  const files = await Promise.all(
+    done.map(async (shot, index) => {
+      const blob = await shotBlob(shot);
+      return {
+        name: `${String(index + 1).padStart(2, "0")}-${DECK_SHOT_LABELS[shot.deckShot].toLowerCase().replace(/\s+/g, "-")}.${shotExtension(blob)}`,
+        bytes: new Uint8Array(await blob.arrayBuffer()),
+      };
+    }),
+  );
+  const zip = createZip(files);
+  const link = document.createElement("a");
+  link.download = `studioflow-${done.length}-image-deck.zip`;
+  link.href = URL.createObjectURL(zip);
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+interface StageProps {
+  shots: GeneratedShot[];
+  shootType: ShootType;
+  pushupBraOnly: boolean;
+  generating: boolean;
+  onRegenerate: (id: string, note: string) => void;
+  onDownloadAll: () => void;
+  presets: StylePreset[];
+  selectedStyleName: string | null;
+}
+
+export function Stage({
+  shots,
+  shootType,
+  pushupBraOnly,
+  generating,
+  onRegenerate,
+  onDownloadAll,
+  presets,
+  selectedStyleName,
+}: StageProps) {
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [issues, setIssues] = useState<Record<string, RegenerateIssue[]>>({});
+  const doneCount = shots.filter((s) => s.status === "done").length;
+  const selectedShots = useMemo(
+    () => shots.filter((shot) => selectedIds.includes(shot.id)),
+    [selectedIds, shots],
+  );
+
+  const toggleSelected = (id: string) => {
+    setSelectedIds((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]));
+  };
+
+  const toggleIssue = (shotId: string, issue: RegenerateIssue) => {
+    setIssues((prev) => {
+      const current = prev[shotId] ?? [];
+      const next = current.includes(issue)
+        ? current.filter((item) => item !== issue)
+        : [...current, issue];
+      return { ...prev, [shotId]: next };
+    });
+  };
+
+  const regenerateSelected = () => {
+    selectedShots.forEach((shot) => {
+      onRegenerate(shot.id, buildRegenerationNote(issues[shot.id] ?? []));
+    });
+    setDialogOpen(false);
+    setSelectedIds([]);
+    setIssues({});
+  };
+
+  if (shots.length === 0) {
+    return (
+      <div className="flex h-full min-h-[420px] flex-col items-center justify-center rounded-3xl border border-dashed border-border bg-paper/50 p-10 text-center">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+          <Sparkles className="h-7 w-7 text-primary" />
+        </div>
+        <h2 className="text-2xl">Your shoot lands here</h2>
+        <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+          Drop your photos, pick a brand, and one tap produces the whole pose set as a contact
+          sheet with fixed Side 1, Side 2, Mood, Zoom, and Back deck shots.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-full flex-col">
+      <div className="mb-4 flex items-center justify-between">
+        <div>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Contact sheet</p>
+          <h2 className="text-xl">
+            {shootTypeLabel(shootType, pushupBraOnly)} · {doneCount}/{shots.length} deck images
+          </h2>
+        </div>
+        <div className="flex flex-wrap justify-end gap-2">
+          <Button
+            variant="soft"
+            size="sm"
+            onClick={onDownloadAll}
+            disabled={doneCount === 0}
+            className="rounded-full"
+          >
+            <Download className="h-3.5 w-3.5" />
+            Download all
+          </Button>
+          <Button
+            variant="hero"
+            size="sm"
+            onClick={() => setDialogOpen(true)}
+            disabled={selectedIds.length === 0 || generating}
+            className="rounded-full"
+          >
+            <RefreshCw className="h-3.5 w-3.5" />
+            Re-generate selected
+          </Button>
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          "grid flex-1 content-start gap-4 overflow-y-auto pr-1",
+          "grid-cols-2 xl:grid-cols-3",
+        )}
+      >
+        {shots.map((shot) => (
+          <div key={shot.id} className="group space-y-2">
+            <ShotFrame
+              shot={shot}
+              selected={selectedIds.includes(shot.id)}
+              onToggleSelected={() => toggleSelected(shot.id)}
+            />
+            <div className="flex items-center justify-between gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-7 flex-1 justify-center rounded-full text-xs"
+                disabled={shot.status !== "done"}
+                onClick={() => void downloadShot(shot)}
+              >
+                <Download className="h-3 w-3" />
+                Save
+              </Button>
+              <RedoButton disabled={shot.status !== "done" || generating} onRedo={(n) => onRegenerate(shot.id, n)} />
+              <PromptButton
+                disabled={shot.status !== "done"}
+                shot={shot}
+                presets={presets}
+                selectedStyleName={selectedStyleName}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>What is wrong in the selected images?</DialogTitle>
+          </DialogHeader>
+          <div className="max-h-[58vh] space-y-3 overflow-y-auto pr-1">
+            {selectedShots.map((shot, index) => (
+              <div key={shot.id} className="rounded-2xl border border-border bg-paper p-4">
+                <h3 className="text-sm font-semibold">
+                  Image {index + 1} - {DECK_SHOT_LABELS[shot.deckShot]}
+                </h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {REGENERATION_ISSUES.map((issue) => {
+                    const active = (issues[shot.id] ?? []).includes(issue.id);
+                    return (
+                      <button
+                        key={issue.id}
+                        type="button"
+                        onClick={() => toggleIssue(shot.id, issue.id)}
+                        className={cn(
+                          "rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
+                          active
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border bg-background text-foreground hover:bg-accent",
+                        )}
+                      >
+                        {issue.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+          <DialogFooter>
+            <Button variant="soft" onClick={() => setDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button variant="hero" onClick={regenerateSelected}>
+              Submit and regenerate
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}
+
+function presetToShotContent(preset: StylePreset): ShotPresetContent {
+  return {
+    styleName: preset.styleName,
+    heading: preset.heading,
+    subHeading: preset.subHeading,
+    callouts: [preset.c1Text, preset.c2Text, preset.c3Text, preset.c4Text],
+    calloutZones: [preset.c1Zone, preset.c2Zone, preset.c3Zone, preset.c4Zone],
+  };
+}
+
+function buildPresetPreviewPrompt(prompt: string, content?: ShotPresetContent): string {
+  if (!content) return prompt;
+
+  const callouts = content.callouts
+    .map((callout, index) => (callout.trim() ? `Callout ${index + 1}: ${callout.trim()}` : ""))
+    .filter(Boolean);
+
+  return [
+    "SELECTED STYLE CONTENT CHECK — USER PREVIEW:",
+    `Style: ${content.styleName}`,
+    `Heading: ${content.heading || "No heading"}`,
+    content.subHeading ? `Sub-heading: ${content.subHeading}` : "Sub-heading: No sub-heading",
+    callouts.length > 0 ? callouts.join("\n") : "Callouts: No callout copy",
+    "The image should use this exact visible content.",
+    "",
+    prompt,
+  ].join("\n");
+}
+
+function PromptButton({
+  disabled,
+  shot,
+  presets,
+  selectedStyleName,
+}: {
+  disabled: boolean;
+  shot: GeneratedShot;
+  presets: StylePreset[];
+  selectedStyleName: string | null;
+}) {
+  const [open, setOpen] = useState(false);
+  const [promptData, setPromptData] = useState<{
+    prompt: string;
+    sourceFile: string;
+    section: string;
+  } | null>(null);
+  const previewPresetContent = useMemo(() => {
+    if (shot.presetContent) return shot.presetContent;
+    if (!selectedStyleName || !isPresetPose(shot.deckShot)) return undefined;
+    const preset = findPreset(presets, selectedStyleName, shot.deckShot);
+    return preset ? presetToShotContent(preset) : undefined;
+  }, [presets, selectedStyleName, shot.deckShot, shot.presetContent]);
+  const displayedPrompt = useMemo(
+    () => (promptData ? buildPresetPreviewPrompt(promptData.prompt, previewPresetContent) : "Preparing prompt..."),
+    [promptData, previewPresetContent],
+  );
+
+  useEffect(() => {
+    setPromptData(null);
+  }, [shot.id, shot.note, shot.userNote, shot.brandId, shot.aspect, previewPresetContent]);
+
+  useEffect(() => {
+    if (!open || promptData) return;
+
+    let active = true;
+    void import("@/lib/promptComposer").then(({ composeDeckPrompt }) => {
+      if (!active) return;
+      setPromptData(
+        composeDeckPrompt({
+          shootType: shot.shootType,
+          pushupBraOnly: shot.pushupBraOnly,
+          deckShot: shot.deckShot,
+          brand: getBrand(shot.brandId),
+          aspect: shot.aspect,
+          userNote: shot.userNote,
+          regenerationNote: shot.note,
+          presetContent: previewPresetContent,
+        }),
+      );
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [open, promptData, shot, previewPresetContent]);
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 flex-1 justify-center rounded-full text-xs"
+          disabled={disabled}
+        >
+          <Clipboard className="h-3 w-3" />
+          Prompt
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[min(32rem,90vw)] space-y-2" align="end">
+        <div>
+          <p className="text-xs font-semibold text-foreground">
+            {promptData ? `${promptData.sourceFile} · ${promptData.section}` : "Loading prompt..."}
+          </p>
+          <p className="text-[0.68rem] text-muted-foreground">
+            {DECK_SHOT_LABELS[shot.deckShot]} · brand spec applied
+            {previewPresetContent ? ` · style ${previewPresetContent.styleName}` : ""}
+          </p>
+        </div>
+        {previewPresetContent ? (
+          <div className="rounded-xl border border-primary/30 bg-primary/5 p-2.5 text-[0.68rem] leading-snug">
+            <p className="mb-1 font-semibold text-primary">
+              Style {previewPresetContent.styleName} content injected into the exact pose prompt
+            </p>
+            <p className="font-medium text-foreground">{previewPresetContent.heading}</p>
+            {previewPresetContent.subHeading ? (
+              <p className="text-muted-foreground">{previewPresetContent.subHeading}</p>
+            ) : null}
+            {previewPresetContent.callouts.filter(Boolean).length > 0 ? (
+              <ul className="mt-1.5 list-disc space-y-0.5 pl-4 text-muted-foreground">
+                {previewPresetContent.callouts.filter(Boolean).map((callout, index) => (
+                  <li key={index}>{callout}</li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        ) : null}
+        <Textarea
+          readOnly
+          value={displayedPrompt}
+          className="max-h-72 min-h-52 resize-none font-mono text-[0.68rem]"
+        />
+        <Button
+          size="sm"
+          variant="hero"
+          className="w-full rounded-full"
+          disabled={!promptData}
+          onClick={() => void navigator.clipboard?.writeText(displayedPrompt)}
+        >
+          Copy prompt
+        </Button>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+function RedoButton({
+  disabled,
+  onRedo,
+}: {
+  disabled: boolean;
+  onRedo: (note: string) => void;
+}) {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 flex-1 justify-center rounded-full text-xs"
+          disabled={disabled}
+        >
+          <RefreshCw className="h-3 w-3" />
+          Redo
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-64 space-y-2" align="end">
+        <p className="text-xs font-medium text-foreground">What should change?</p>
+        <Textarea
+          id="redo-note"
+          placeholder="e.g. brighter lighting, tighter crop…"
+          className="min-h-16 resize-none text-sm"
+        />
+        <Button
+          size="sm"
+          variant="hero"
+          className="w-full rounded-full"
+          onClick={(e) => {
+            const wrap = (e.currentTarget.closest("[data-radix-popper-content-wrapper]") ??
+              e.currentTarget.parentElement) as HTMLElement | null;
+            const ta = wrap?.querySelector("#redo-note") as HTMLTextAreaElement | null;
+            onRedo(ta?.value ?? "");
+          }}
+        >
+          Regenerate this shot
+        </Button>
+      </PopoverContent>
+    </Popover>
+  );
+}

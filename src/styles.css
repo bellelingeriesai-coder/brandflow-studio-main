@@ -1,0 +1,1111 @@
+@import "tailwindcss";
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Studio Flow design system — warm editorial fashion-studio aesthetic.
+ * Cream paper, ink type, coral accent. All colors are oklch semantic tokens.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 14px);
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+}
+
+:root {
+  --radius: 0.9rem;
+
+  --background: oklch(0.981 0.009 83);
+  --foreground: oklch(0.245 0.021 47);
+
+  --paper: oklch(0.995 0.004 90);
+  --ink: oklch(0.22 0.02 45);
+
+  --card: oklch(0.995 0.004 90);
+  --card-foreground: oklch(0.245 0.021 47);
+  --popover: oklch(0.997 0.003 90);
+  --popover-foreground: oklch(0.245 0.021 47);
+
+  --primary: oklch(0.655 0.168 33);
+  --primary-foreground: oklch(0.99 0.006 90);
+
+  --secondary: oklch(0.936 0.017 72);
+  --secondary-foreground: oklch(0.31 0.03 48);
+
+  --muted: oklch(0.952 0.012 78);
+  --muted-foreground: oklch(0.52 0.024 52);
+
+  --accent: oklch(0.905 0.031 62);
+  --accent-foreground: oklch(0.3 0.04 45);
+
+  --destructive: oklch(0.585 0.2 27);
+  --destructive-foreground: oklch(0.99 0.006 90);
+
+  --success: oklch(0.62 0.115 155);
+  --success-foreground: oklch(0.99 0.006 90);
+
+  --border: oklch(0.9 0.014 74);
+  --input: oklch(0.9 0.014 74);
+  --ring: oklch(0.655 0.168 33);
+}
+
+.dark {
+  --background: oklch(0.2 0.016 50);
+  --foreground: oklch(0.95 0.008 85);
+  --paper: oklch(0.25 0.02 48);
+  --ink: oklch(0.95 0.008 85);
+  --card: oklch(0.25 0.02 48);
+  --card-foreground: oklch(0.95 0.008 85);
+  --popover: oklch(0.25 0.02 48);
+  --popover-foreground: oklch(0.95 0.008 85);
+  --primary: oklch(0.7 0.16 34);
+  --primary-foreground: oklch(0.2 0.016 50);
+  --secondary: oklch(0.3 0.02 50);
+  --secondary-foreground: oklch(0.95 0.008 85);
+  --muted: oklch(0.3 0.02 50);
+  --muted-foreground: oklch(0.72 0.02 70);
+  --accent: oklch(0.34 0.03 52);
+  --accent-foreground: oklch(0.95 0.008 85);
+  --destructive: oklch(0.62 0.2 27);
+  --destructive-foreground: oklch(0.98 0.006 90);
+  --success: oklch(0.66 0.12 155);
+  --success-foreground: oklch(0.2 0.016 50);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.7 0.16 34);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(
+        120% 90% at 12% -8%,
+        color-mix(in oklch, var(--primary) 9%, transparent),
+        transparent 55%
+      ),
+      radial-gradient(
+        90% 80% at 100% 0%,
+        color-mix(in oklch, var(--accent) 40%, transparent),
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
+}
+
+@utility panel {
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-3xl);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklch, white 55%, transparent) inset,
+    0 18px 40px -30px color-mix(in oklch, var(--ink) 55%, transparent);
+}
+
+@utility step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background-color: color-mix(in oklch, var(--primary) 15%, transparent);
+  color: var(--primary);
+}
+
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklch, var(--ink) 12%, transparent),
+    transparent
+  );
+}
+
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  font-family: "Inter", var(--font-sans);
+  font-size: 1.2em;
+  font-weight: 300;
+  color: white;
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: loader-rotate 2s linear infinite;
+  z-index: 0;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 30px 0 color-mix(in srgb, var(--loader-accent, #ad5fff) 65%, #ad5fff) inset,
+      0 60px 60px 0 color-mix(in srgb, var(--loader-accent, #471eec) 82%, #471eec) inset;
+  }
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 10px 0 color-mix(in srgb, var(--loader-accent, #d60a47) 72%, #d60a47) inset,
+      0 40px 60px 0 color-mix(in srgb, var(--loader-accent, #311e80) 82%, #311e80) inset;
+  }
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 10px 20px 0 #fff inset,
+      0 20px 30px 0 color-mix(in srgb, var(--loader-accent, #ad5fff) 65%, #ad5fff) inset,
+      0 60px 60px 0 color-mix(in srgb, var(--loader-accent, #471eec) 82%, #471eec) inset;
+  }
+}
+
+.loader-letter {
+  display: inline-block;
+  opacity: 0.4;
+  transform: translateY(0);
+  animation: loader-letter-anim 2s infinite;
+  z-index: 1;
+  border-radius: 50ch;
+  border: none;
+}
+
+.loader-letter:nth-child(1) {
+  animation-delay: 0s;
+}
+.loader-letter:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loader-letter:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.loader-letter:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.loader-letter:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.loader-letter:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.loader-letter:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.loader-letter:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.loader-letter:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.loader-letter:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes loader-letter-anim {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  40% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
+
+.brand-picker-select,
+.brand-picker-select option {
+  color: var(--foreground);
+  background-color: var(--paper);
+}
+
+.brand-picker-select option:checked {
+  color: var(--primary-foreground);
+  background-color: var(--primary);
+}
+
+.dark .brand-picker-select,
+.dark .brand-picker-select option {
+  color: var(--popover-foreground);
+  background-color: var(--popover);
+}
+
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center, hsla(0, 0%, 60%, 0) 47.8%, hsl(0, 0%, 60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em, 1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30, 90%, 55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow:
+    0 -0.25em 0 hsl(30, 90%, 80%) inset,
+    0.75em -1.55em 0 hsl(30, 90%, 90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0, 90%, 85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30, 90%, 55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0, 0%, 0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0, 90%, 75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30, 90%, 90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow:
+    0.1em 0.75em 0 hsl(30, 90%, 55%) inset,
+    0.15em -0.5em 0 hsl(30, 90%, 80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0, 100% 0, 70% 80%, 60% 100%, 0% 100%, 40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 80%) 80%, hsl(0, 90%, 75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 90%) 80%, hsl(0, 90%, 85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 70% 90%, 70% 100%, 30% 100%, 40% 90%, 0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 80%) 90%, hsl(0, 90%, 75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30, 90%, 90%) 90%, hsl(0, 90%, 85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0, 90%, 85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0, 90%, 75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background:
+    radial-gradient(100% 100% at center, hsl(0, 0%, 60%) 4.8%, hsla(0, 0%, 60%, 0) 5%),
+    linear-gradient(hsla(0, 0%, 55%, 0) 46.9%, hsl(0, 0%, 65%) 47% 52.9%, hsla(0, 0%, 65%, 0) 53%)
+      50% 50% / 99% 99% no-repeat;
+}
+
+@keyframes hamster {
+  from,
+  to {
+    transform: rotate(4deg) translate(-0.8em, 1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em, 1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(0);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from,
+  90%,
+  to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(0);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(0);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(20deg);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from,
+  25%,
+  50%,
+  75%,
+  to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%,
+  37.5%,
+  62.5%,
+  87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+/* --- Gear 2 entry: ghost eye loader (click to open Gear 2) --- */
+
+.ghost-loader {
+  --ghost-size: 2rem;
+  display: flex;
+  width: var(--ghost-size);
+  height: var(--ghost-size);
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ghost-head {
+  width: 100%;
+  height: 100%;
+  background-color: #e5f295;
+  border-radius: 50%;
+  animation: ghost-move 3s linear infinite;
+  box-shadow: 0 0.25rem 0.25rem #5beebd;
+  filter: blur(0.05rem);
+  z-index: 1;
+}
+
+.ghost-eye {
+  display: flex;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #efffc8;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 0.25rem #000000;
+  animation: ghost-move 5s alternate infinite;
+}
+
+.ghost-eye::before {
+  content: "";
+  display: flex;
+  width: 25%;
+  height: 50%;
+  background-color: #000;
+  border-radius: 50%;
+  animation: ghost-blink 4s ease-in-out alternate infinite;
+}
+
+.ghost-flames {
+  display: flex;
+  position: absolute;
+  z-index: 0;
+}
+
+.ghost-particle {
+  display: flex;
+  position: absolute;
+  background-color: #e5f295;
+  border-radius: 50%;
+  filter: blur(0.08rem);
+  border-top: 2px solid #e5f295;
+  border-left: 2px solid #e5f295;
+}
+
+.ghost-flames::before {
+  content: "";
+  position: absolute;
+  width: var(--ghost-size);
+  height: var(--ghost-size);
+  background: #e5f295;
+  filter: blur(1.4rem);
+  opacity: 0.5;
+  border-radius: 50%;
+  top: -2rem;
+  left: -1rem;
+  z-index: 4;
+  animation: ghost-pulse 3s linear infinite;
+}
+
+.ghost-particle:nth-child(1) {
+  width: 1rem;
+  height: 1rem;
+  top: -1.5rem;
+  animation: ghost-move 7s alternate-reverse infinite;
+}
+.ghost-particle:nth-child(2) {
+  width: 0.4rem;
+  height: 0.4rem;
+  top: -2rem;
+  left: -1.25rem;
+  animation: ghost-move 1.5s ease-in-out reverse infinite;
+}
+.ghost-particle:nth-child(3) {
+  width: 1rem;
+  height: 1rem;
+  top: -1.25rem;
+  left: -1rem;
+  animation: ghost-move 8s alternate-reverse infinite;
+}
+.ghost-particle:nth-child(4) {
+  width: 0.75rem;
+  height: 0.75rem;
+  top: -1.9rem;
+  animation: ghost-move 4s alternate-reverse infinite;
+}
+.ghost-particle:nth-child(5) {
+  width: 0.5rem;
+  height: 0.5rem;
+  top: -2.25rem;
+  left: 0.25rem;
+  animation: ghost-move 2.5s alternate-reverse infinite;
+}
+.ghost-particle:nth-child(6) {
+  width: 0.5rem;
+  height: 0.5rem;
+  top: -1.7rem;
+  left: -0.375rem;
+  animation: ghost-move 5s alternate-reverse infinite;
+}
+.ghost-particle:nth-child(7) {
+  width: 0.25rem;
+  height: 0.25rem;
+  top: -2.5rem;
+  left: -0.25rem;
+  animation: ghost-move 1.2s alternate-reverse infinite;
+}
+.ghost-particle:nth-child(8) {
+  width: 0.33rem;
+  height: 0.33rem;
+  top: -1.9rem;
+  left: -0.5rem;
+  animation: ghost-move 2.5s alternate-reverse infinite;
+}
+
+.ghost-loader--lg {
+  --ghost-size: 8rem;
+}
+
+@keyframes ghost-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, 3px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes ghost-blink {
+  20% {
+    transform: translate(0, 0);
+    height: 50%;
+  }
+  30% {
+    height: 0;
+  }
+  40% {
+    transform: translate(2px, 4px);
+    height: 0;
+  }
+  50% {
+    height: 50%;
+  }
+  70% {
+    transform: translate(-4px, -4px);
+  }
+  90% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes ghost-pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* --- Gear 2 v2: Model/Panty twin cards — free-standing, tilt with the cursor, no box --- */
+
+.twincard {
+  position: relative;
+  width: clamp(200px, 24vw, 300px);
+  aspect-ratio: 0.71;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(var(--twincard-color), 0.5);
+  background: radial-gradient(
+    circle,
+    rgba(var(--twincard-color), 0.2) 0%,
+    rgba(var(--twincard-color), 0.06) 60%,
+    transparent 100%
+  );
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.75);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.twincard--drag {
+  border-color: rgba(var(--twincard-color), 1);
+  box-shadow:
+    0 0 0 3px rgba(var(--twincard-color), 0.35),
+    0 24px 50px -20px rgba(0, 0, 0, 0.75);
+}
+
+/* --- Gear 2 v2: circular bra deck — real 3D cards on a slowly spinning tilted ring --- */
+
+.bracard-stage {
+  position: relative;
+  isolation: isolate;
+  width: clamp(300px, min(56dvh, 52dvw), 600px);
+  height: clamp(300px, min(56dvh, 52dvw), 600px);
+  perspective: 1600px;
+}
+
+.bracard-stage::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background: radial-gradient(
+    circle at center,
+    rgba(91, 238, 189, 0.18) 0%,
+    rgba(142, 249, 252, 0.07) 45%,
+    transparent 72%
+  );
+  filter: blur(24px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bracard-ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: bracard-spin 46s linear infinite;
+}
+
+/* Freeze the whole ring the instant the pointer enters the stage — hovering a single
+   card on a moving disc is a chicken-and-egg problem, so pause on the flat outer
+   box (reliable hit-testing) rather than the tilted 3D ring itself. */
+.bracard-stage:hover .bracard-ring {
+  animation-play-state: paused;
+}
+
+@keyframes bracard-spin {
+  from {
+    transform: rotateX(58deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(58deg) rotateZ(360deg);
+  }
+}
+
+.bracard {
+  position: absolute;
+  width: 17%;
+  aspect-ratio: 0.71;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 30px -14px rgba(0, 0, 0, 0.7);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    background-color 220ms ease;
+}
+
+.bracard--filled {
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.bracard--filled:hover {
+  transform: translate(-50%, -50%) scale(1.16) translateZ(30px) !important;
+  box-shadow: 0 26px 44px -12px rgba(0, 0, 0, 0.8);
+  z-index: 5;
+}
+
+.bracard--empty {
+  border: 1.5px dashed rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.32);
+  cursor: pointer;
+}
+
+.bracard--empty:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translate(-50%, -50%) scale(1.08) translateZ(20px) !important;
+}
+
+.bracard-hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateZ(60px);
+  z-index: 10;
+  width: 20%;
+  aspect-ratio: 1;
+}
+
+.bracard-hub-btn {
+  width: 100%;
+  height: 100%;
+}
+
+.bracard-hub-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg, #5beebd, #8ef9fc, #efffc8, #5beebd);
+  animation: bracard-hub-spin 6s linear infinite;
+  opacity: 0.55;
+  filter: blur(1px);
+}
+
+@keyframes bracard-hub-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Gear 2 v2: step slide-in transition --- */
+
+.gear2-slide-in {
+  animation: gear2-slide-in 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes gear2-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Gear 2 v2: free-floating pill chips (no bordered panel) --- */
+
+.gear2-chip {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.55rem 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    border-color 200ms ease,
+    color 200ms ease,
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.gear2-chip:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.gear2-chip--active {
+  border-color: transparent;
+  background: linear-gradient(135deg, #5beebd, #8ef9fc);
+  color: #04151f;
+  box-shadow: 0 8px 24px -8px rgba(91, 238, 189, 0.6);
+}
+
+.gear2-input {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.5rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #fff;
+  outline: none;
+  transition: border-color 200ms ease;
+}
+
+.gear2-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.gear2-input:focus {
+  border-color: rgba(91, 238, 189, 0.6);
+}
+
+/* --- Gear 2 v2: reusable ambient glow behind any step's hero content --- */
+
+.gear2-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.gear2-glow::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    circle at center,
+    rgba(91, 238, 189, 0.14) 0%,
+    rgba(142, 249, 252, 0.05) 45%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --- Gear 2 v2: mirrored controls panel flip --- */
+
+.gear2-flip-stage {
+  perspective: 1800px;
+}
+
+.gear2-flip-card {
+  position: relative;
+  display: grid;
+  min-height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gear2-flip-card--flipped {
+  transform: rotateY(180deg);
+}
+
+/* Both faces share the same grid cell so the card's height auto-sizes to
+   whichever face is taller — front and back don't always render the same
+   content, so they don't always share the same natural height. */
+.gear2-flip-face {
+  grid-area: 1 / 1;
+  min-width: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.gear2-flip-face--back {
+  transform: rotateY(180deg);
+}
+
+/* backface-visibility only hides paint, not hit-testing — without this the face
+   rotated away from the viewer still intercepts clicks meant for the visible one. */
+.gear2-flip-card:not(.gear2-flip-card--flipped) .gear2-flip-face--back {
+  pointer-events: none;
+}
+
+.gear2-flip-card--flipped .gear2-flip-face--front {
+  pointer-events: none;
+}
+
+/* --- Gear 2 v2: engine-phase deck tiles --- */
+
+.gear2-tile {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.gear2-tile-progress {
+  background: linear-gradient(90deg, #5beebd, #8ef9fc);
+  box-shadow: 0 0 12px rgba(91, 238, 189, 0.6);
+}
