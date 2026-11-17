@@ -8,7 +8,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig(({ mode }) => {
   const githubPages = mode === "github-pages" || process.env.GITHUB_PAGES === "true";
-  const pagesBase = "/brandflow-studio/";
+  const pagesBase = "/brandflow-studio-main/";
 
   return {
     vite: {

@@ -1,4 +1,4 @@
-import{d as e,g as t,l as n}from"./static-index-CKXS5DKD.js";var r=`SIDE VIEW PROMPT
+import{d as e,g as t,l as n}from"./static-index-meNQADl8.js";var r=`SIDE VIEW PROMPT
 
 
 ═══════════════════════════════════════════════════════
