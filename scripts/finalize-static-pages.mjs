@@ -1,32 +1,52 @@
-import { copyFileSync, cpSync, existsSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+// The static GitHub Pages build is written to docs/ (Pages: "Deploy from a branch" -> main -> /docs).
+// It must NOT live in the repo root: Nitro (the server build used on Render/Lovable) treats a root
+// index.html as its page template and a root assets/ folder as server assets, which hijacks "/" and
+// breaks `vite build`.
 const root = process.cwd();
 const pagesDir = join(root, ".pages-root");
+const outDir = join(root, "docs");
 const builtHtml = join(pagesDir, "static-index.html");
-const indexHtml = join(root, "index.html");
-const notFoundHtml = join(root, "404.html");
 
 if (!existsSync(builtHtml)) {
   throw new Error("Missing static-index.html. Run vite build --config vite.static.config.ts first.");
 }
 
-// Legacy folder name: a root-level assets/ breaks the Nitro server build, so always remove it.
-rmSync(join(root, "assets"), { recursive: true, force: true });
-rmSync(join(root, "site-assets"), { recursive: true, force: true });
-cpSync(join(pagesDir, "site-assets"), join(root, "site-assets"), { recursive: true });
-copyFileSync(builtHtml, indexHtml);
-copyFileSync(indexHtml, notFoundHtml);
-
-// Mirror every public/ asset (favicon, robots.txt, gear2/ video, etc.) to the repo
-// root, since GitHub Pages serves this branch's root directly.
-const publicDir = join(root, "public");
-if (existsSync(publicDir)) {
-  cpSync(publicDir, root, { recursive: true });
+// Remove legacy root-level output from older versions of this script.
+for (const entry of [
+  "assets",
+  "site-assets",
+  "index.html",
+  "404.html",
+  "favicon.ico",
+  "robots.txt",
+  "_headers",
+  ".nojekyll",
+  "book",
+  "gear2",
+]) {
+  rmSync(join(root, entry), { recursive: true, force: true });
 }
 
-writeFileSync(join(root, ".nojekyll"), "");
+mkdirSync(outDir, { recursive: true });
+for (const entry of ["site-assets", "index.html", "404.html", "_headers", ".nojekyll"]) {
+  rmSync(join(outDir, entry), { recursive: true, force: true });
+}
+
+cpSync(join(pagesDir, "site-assets"), join(outDir, "site-assets"), { recursive: true });
+copyFileSync(builtHtml, join(outDir, "index.html"));
+copyFileSync(join(outDir, "index.html"), join(outDir, "404.html"));
+
+// Mirror every public/ asset (favicon, robots.txt, book/ + gear2/ videos, etc.) next to the page.
+const publicDir = join(root, "public");
+if (existsSync(publicDir)) {
+  cpSync(publicDir, outDir, { recursive: true });
+}
+
+writeFileSync(join(outDir, ".nojekyll"), "");
 writeFileSync(
-  join(root, "_headers"),
+  join(outDir, "_headers"),
   ["/site-assets/*", "  Cache-Control: public, max-age=31536000, immutable", ""].join("\n"),
 );
