@@ -14,6 +14,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   build: {
     outDir: ".pages-root",
+    // NOT "assets": a root-level assets/ folder is scanned by Nitro as server assets and breaks the
+    // server build (vite build on Render/Lovable) when it contains .css files.
+    assetsDir: "site-assets",
     emptyOutDir: true,
     rollupOptions: {
       input: "static-index.html",

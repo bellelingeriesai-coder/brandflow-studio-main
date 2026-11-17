@@ -6,6 +6,7 @@ const root = process.cwd();
 for (const entry of [
   ".pages-root",
   "assets",
+  "site-assets",
   "index.html",
   "404.html",
   "favicon.ico",
