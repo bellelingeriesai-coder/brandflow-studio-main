@@ -1,4 +1,4 @@
-import{d as e,g as t,l as n}from"./static-index-Dq_iolug.js";var r=`SIDE VIEW PROMPT
+import{d as e,g as t,l as n}from"./static-index-K16SX_KC.js";var r=`SIDE VIEW PROMPT
 
 
 ═══════════════════════════════════════════════════════
@@ -3945,9 +3945,10 @@ NO watermarks, NO logos | NO changing bra color from reference — derive from r
 NO aspect ratio other than 3:4 portrait | Lines MUST NOT cross | Text MUST be regular/light weight only
 Font names must NEVER appear as visible text in image
 ""
-`,s=`REFERENCE IMAGE 1 (Model): Use this image as the EXACT reference for the model's face, skin tone, hair color, hair texture, body type, and overall appearance. Replicate identically — do not alter any facial feature, complexion, or hair characteristic.
+`,s=`REFERENCE IMAGE 1 (Model): Use this as the exact reference for the face, skin tone, hair, and body type. Replicate these features as closely as possible. Do not alter any facial feature, complexion, or hair characteristic.
 
-REFERENCE IMAGE 2 (Product): Use this image as the EXACT reference for the bra's color, texture, fabric finish, silhouette, band width, strap width, and neckline shape. Replicate identically on the model's body. Do not alter the product in any way.
+REFERENCE IMAGE 2 (Product—Bra): Use this as the exact reference for the bra color, fabric texture, silhouette, straps, cups, detail, and underband. Replicate the bra exactly with no changes. Match band width, strap width, and neckline shape identically.
+
 
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
@@ -3975,16 +3976,20 @@ No hands, hair, arms, or fabric overlapping any part of the bra
 BACKGROUND & LIGHTING
 ═══════════════════════════════════════════════════════
 Bright warm-white to pale-ivory background with a very subtle blush-pink cast.
-- Softly lit, diffused studio backdrop — feels warm and daylight-like
-- Faint warm light entering from the centre or upper-left area
-- Extremely soft shadows, low contrast, shallow depth of field
-- Delicate, slightly dreamy premium catalogue finish
-- Background stays clean and minimal — no competing props or clutter
+
+* Softly lit, diffused studio backdrop — feels warm and daylight-like
+* Faint warm light entering from the centre or upper-left area
+* Extremely soft shadows, low contrast, shallow depth of field
+* Delicate, slightly dreamy premium catalogue finish
+* Background stays clean and minimal — no competing props or clutter
+
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-- A light floral branch entering from the upper-right corner
-- A smaller floral accent entering from the lower-left corner
-- Optionally, a faint partial floral line near the lower-right edge
+
+* A light floral branch entering from the upper-right corner
+* A smaller floral accent entering from the lower-left corner
+* Optionally, a faint partial floral line near the lower-right edge
+
 
 Botanical illustrations must be elegant, thin, low-opacity, and decorative only — never overlapping important text, the model's face, or the product.
 
@@ -4008,42 +4013,45 @@ Font: Sophisticated high-contrast editorial serif (similar to Bodoni Moda, Didot
 SUB-HEADING — TOP LEFT below headline: "No Digging. No Marks. No Itching."
 Font: Clean modern sans-serif (similar to Manrope, Avenir, Helvetica Neue, or Montserrat), medium weight | Color: soft charcoal grey, approx #444044
 
-ICON REQUIREMENT — NON-NEGOTIABLE: All three callouts below render their circular icon badge directly above the two text lines. A callout rendered as plain text with no icon badge is a failed render.
-
 CALLOUT 1 — RIGHT: Points to LEFT ARMHOLE EDGE
-Icon (above text): circular badge, soft pastel blush-pink fill, thin double-ring border, minimal monochrome line-art of a smooth underarm/armhole curve
+Icon: circular badge, blush pink fill — thin line illustration of a smooth curved bra armhole edge with a tiny soft feather accent, symbolising gentle, rash-free skin comfort
 Line 1 (editorial serif, dusty rose): "Elastic-free Armhole"
 Line 2 (sans-serif, charcoal grey #444044): "for Rashfree Comfort"
 Border: thin pale rose pink
 
 CALLOUT 2 — BOTTOM LEFT: Points to BOTTOM BAND
-Icon (above text): circular badge, soft pastel muted-lavender fill, thin double-ring border, minimal monochrome line-art of a curved bra band / underbust support shape
+Icon: circular badge, muted lavender fill — thin line illustration of a smooth, flat, wide horizontal band with no ridges or elastic lines, with a small supportive upward-arrow or check accent, symbolising seamless support
 Line 1 (editorial serif, muted plum): "Elastic-free Bottom Band"
 Line 2 (sans-serif, charcoal grey #444044): "for Seamless Support"
 Border: thin pale rose pink
 
 CALLOUT 3 — LEFT: Points to SIDE SEAM / FABRIC EDGE
-Icon (above text): circular badge, soft pastel blush-pink fill, thin double-ring border, minimal monochrome line-art of a seamless fabric edge / smooth wave symbol
+Icon: circular badge, blush pink fill — thin line illustration of a sewing needle and thread with a thin diagonal slash through it, next to a smooth seamless fabric edge, symbolising no stitching and an invisible finish
 Line 1 (editorial serif, dusty rose): "No-Stitch Design"
 Line 2 (sans-serif, charcoal grey #444044): "for Invisible Finish"
 Border: thin pale rose pink
 
 CALLOUT LINE STYLE: Thin single line or slightly angled line | Color: pale rose pink | Clean and minimal
 
-ICON STYLE (applies to all three icon badges above — every callout MUST show its icon, never render callout text without it):
-- Large circular badge icons
-- Soft pastel fill, alternating between blush pink and muted lavender
-- Thin double-ring border around each circle
-- Minimal, delicate, monochromatic line-art illustration inside
-- Clean, refined, commercially polished finish
-- No cartoon styling, no thick strokes
+ICON STYLE:
+
+* Large circular badge icons, one per callout, placed directly beside or above its own callout text
+* Each icon's illustration MUST match the meaning of its callout text (armhole, bottom band, no-stitch) — no generic or unrelated symbols
+* Soft pastel fill, alternating between blush pink and muted lavender
+* Thin double-ring border around each circle
+* Minimal, delicate, monochromatic line-art illustration inside
+* Clean, refined, commercially polished finish
+* No cartoon styling, no thick strokes
+
 
 TYPOGRAPHY COLOR PALETTE (reference):
-- Primary headline: deep muted berry/wine — approx #8E173C to #982044
-- Italic emphasis: brighter dusty rose — approx #C83F65
-- Feature headings: alternating dusty rose and muted plum
-- Body copy: soft charcoal grey — approx #444044
-- Fine rules and dots: pale rose pink
+
+* Primary headline: deep muted berry/wine — approx #8E173C to #982044
+* Italic emphasis: brighter dusty rose — approx #C83F65
+* Feature headings: alternating dusty rose and muted plum
+* Body copy: soft charcoal grey — approx #444044
+* Fine rules and dots: pale rose pink
+
 No heavy drop shadows, thick outlines, metallic effects, or decorative gradients on any text.
 
 ═══════════════════════════════════════════════════════
@@ -4054,7 +4062,7 @@ Model is CENTER-RIGHT of the frame
 Callout 1 sits on the RIGHT, vertically middle zone
 Callout 2 sits on the BOTTOM LEFT
 Callout 3 sits on the LEFT, vertically middle zone
-All text and icons must NOT overlap the model's face or bra product
+All text and icons must NOT overlap the model's face, bra product
 Generous soft ivory/blush breathing space around all text elements
 Final image feels balanced, editorial, warm, and campaign-ready — true to Tweens' minimal premium daily comfort identity
 
@@ -4062,13 +4070,16 @@ Final image feels balanced, editorial, warm, and campaign-ready — true to Twee
 STRICT NEGATIVE INSTRUCTIONS
 ═══════════════════════════════════════════════════════
 Do NOT alter model or product from reference images
-Do NOT render any callout as plain text without its circular icon badge — all three callouts must show an icon.
 Do NOT use a background other than the warm-white/pale-ivory blush-cast style described above
 Do NOT use fonts other than the specified editorial serif (headings) and modern sans-serif (body)
 Do NOT use text colors other than the specified berry/wine, dusty rose, muted plum, and charcoal grey palette
-Do NOT allow hair over bra, callouts over face or bra, harsh shadows, cool-blue lighting, watermarks, extra models, thick callout lines
-Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text`,c=`REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
-REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette. Replicate identically.
+Do NOT use icons that don't match their callout text
+Do NOT allow hair over bra, callouts over face, bra, harsh shadows, cool-blue lighting, watermarks, extra models, thick callout lines
+Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text
+`,c=`REFERENCE IMAGE 1 (Model): Use this as the exact reference for the face, skin tone, hair, and body type. Replicate these features as closely as possible.
+
+REFERENCE IMAGE 2 (Product—Bra): Use this as the exact reference for the bra color, fabric texture, silhouette, straps, cups, detail, and underband. Replicate the bra exactly with no changes.
+
 
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
@@ -4089,16 +4100,20 @@ Primary lighting on bra | No hands, hair, or arms overlapping bra
 BACKGROUND & LIGHTING
 ═══════════════════════════════════════════════════════
 Bright warm-white to pale-ivory background with a very subtle blush-pink cast.
-- Softly lit, diffused studio backdrop — feels warm and daylight-like
-- Faint warm light entering from the centre or upper-left area
-- Extremely soft shadows, low contrast, shallow depth of field
-- Delicate, slightly dreamy premium catalogue finish
-- Background stays clean and minimal — no competing props or clutter
+
+* Softly lit, diffused studio backdrop — feels warm and daylight-like
+* Faint warm light entering from the centre or upper-left area
+* Extremely soft shadows, low contrast, shallow depth of field
+* Delicate, slightly dreamy premium catalogue finish
+* Background stays clean and minimal — no competing props or clutter
+
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-- A light floral branch entering from the upper-right corner
-- A smaller floral accent entering from the lower-left corner
-- Optionally, a faint partial floral line near the lower-right edge
+
+* A light floral branch entering from the upper-right corner
+* A smaller floral accent entering from the lower-left corner
+* Optionally, a faint partial floral line near the lower-right edge
+
 
 Botanical illustrations must be elegant, thin, low-opacity, and decorative only — never overlapping important text, the model's face, or the product.
 
@@ -4127,38 +4142,41 @@ Font: Clean modern sans-serif (similar to Manrope, Avenir, Helvetica Neue, or Mo
 Color: soft charcoal grey, approx #444044
 
 FEATURE ICON + TEXT STACK — LEFT SIDE (stacked vertically, evenly spaced)
-HARD BOUNDARY — NON-NEGOTIABLE: Confine the headline, sub-heading, and this entire three-feature icon stack to the LEFT ~40% of the canvas. Leave a clear vertical strip of empty background between this text column and the model — no text, icon, or line may touch or cross into the model's hair, face, shoulders, or body.
 
 FEATURE 1:
 Icon: Small circular badge — thin line illustration of a cotton/fabric/breathable weave symbol
-Text: "Breathable Cotton Fabric", "for airy comfort all day"
+Text: "Breathable Cotton Fabric", " airy comfort all day"
 Line 1 bold, editorial serif, dusty rose | Line 2 regular, sans-serif, charcoal grey #444044
 
 FEATURE 2:
 Icon: Small circular badge — thin line illustration of soft padding/gentle lift symbol (same style as Feature 1)
-Text: "Light Padding gives", "Gentle Lift"
+Text: "Light Padding ", "Gentle Lift"
 Line 1 bold, editorial serif, muted plum | Line 2 regular, sans-serif, charcoal grey #444044
 
 FEATURE 3:
 Icon: Small circular badge — thin line illustration of internal gripper/grip strip detail (same style as Feature 1)
-Text: "Hidden Internal Gripper", "for Perfect Fit"
+Text: "Hidden Internal Gripper", " Perfect Fit"
 Line 1 bold, editorial serif, dusty rose | Line 2 regular, sans-serif, charcoal grey #444044
 
 ICON STYLE (all three — consistent):
-- Circular badge icons, ~40–45px
-- Soft pastel fill, alternating between blush pink and muted lavender
-- Thin double-ring border around each circle
-- Minimal, delicate, monochromatic line-art illustration inside, relevant to each feature
-- Clean, refined, commercially polished finish
-- No cartoon styling, no thick strokes
+
+* Circular badge icons, ~40–45px
+* Soft pastel fill, alternating between blush pink and muted lavender
+* Thin double-ring border around each circle
+* Minimal, delicate, monochromatic line-art illustration inside, relevant to each feature
+* Clean, refined, commercially polished finish
+* No cartoon styling, no thick strokes
+
 NO callout lines — icons sit independently on LEFT side, NOT pointing to bra zones
 
 TYPOGRAPHY COLOR PALETTE (reference):
-- Primary headline: deep muted berry/wine — approx #8E173C to #982044
-- Italic emphasis: brighter dusty rose — approx #C83F65
-- Feature headings: alternating dusty rose and muted plum
-- Body copy: soft charcoal grey — approx #444044
-- Fine rules and dots: pale rose pink
+
+* Primary headline: deep muted berry/wine — approx #8E173C to #982044
+* Italic emphasis: brighter dusty rose — approx #C83F65
+* Feature headings: alternating dusty rose and muted plum
+* Body copy: soft charcoal grey — approx #444044
+* Fine rules and dots: pale rose pink
+
 No heavy drop shadows, thick outlines, metallic effects, or decorative gradients on any text.
 
 ═══════════════════════════════════════════════════════
@@ -4167,7 +4185,7 @@ OVERALL COMPOSITION BALANCE
 Headline + sub-heading: TOP LEFT quadrant
 Model: CENTER to CENTER-RIGHT, framed HEAD TO WAIST ONLY
 Three feature icons stacked vertically: LEFT side, middle zone
-HARD BOUNDARY: no text or icon may overlap or touch model's face, hair, shoulders, or bra — keep a visible gap of empty background between the LEFT text column and the model
+No text/icons overlapping model's face, bra
 Generous soft ivory/blush breathing space around all elements
 Final image: balanced, warm, minimally premium, campaign-ready — true to Tweens' minimal premium daily comfort identity
 
@@ -4175,13 +4193,13 @@ Final image: balanced, warm, minimally premium, campaign-ready — true to Tween
 STRICT NEGATIVE INSTRUCTIONS
 ═══════════════════════════════════════════════════════
 Do NOT alter model or product | FULLY FRONT-FACING only | No callout lines
-Do NOT let the headline, sub-heading, or any feature text/icon touch or overlap the model's hair, face, shoulders, or body — keep the entire text column separated from the model by visible background.
 Do NOT show hips, waistline-and-below, bottom, or any lower body — frame ends strictly at the waist
 Do NOT use a background other than the warm-white/pale-ivory blush-cast style described above
 Do NOT use fonts other than the specified editorial serif (headings) and modern sans-serif (body)
 Do NOT use text colors other than the specified berry/wine, dusty rose, muted plum, and charcoal grey palette
-No hair over bra | No icons/text on face or bra | No cool-blue lighting | No watermarks | No extra models | 4:5 ratio only | No flat white backdrop
-Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text`,l=`PREMIUM INTIMATEWEAR FEATURE ADVERTISEMENT — REUSABLE MASTER PROMPT
+No hair over bra | No icons/text on facemodels | 4:5 ratio only | No flat white backdrop
+Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text
+`,l=`PREMIUM INTIMATEWEAR FEATURE ADVERTISEMENT — REUSABLE MASTER PROMPT
 
 FORMAT AND PURPOSE
 Create a photorealistic premium intimate-apparel feature advertisement in a 3:4 vertical portrait ratio. Reproduce the same overall visual hierarchy, soft feminine editorial mood, background treatment, typography pairing, model placement, content placement, callout system and bottom benefit bar as the supplied layout reference.
@@ -4191,9 +4209,9 @@ This is a reusable template. The model and bra may change through uploaded refer
 ═══════════════════════════════════════════════════════
 REFERENCE IMAGE 1 — MODEL
 ═══════════════════════════════════════════════════════
-Use Reference Image 1 only for the clearly adult model’s exact face, facial structure, skin tone, body proportions, hair colour, hair texture, hairstyle and overall physical appearance.
+Use Reference Image 1 only for the clearly adult model's exact face, facial structure, skin tone, body proportions, hair colour, hair texture, hairstyle and overall physical appearance.
 
-Preserve the model’s identity accurately and naturally. Do not copy any bra, garment, jewellery, pose, background or lighting from the model reference unless specifically requested below.
+Preserve the model's identity accurately and naturally. Do not copy any bra, garment, jewellery, pose, background or lighting from the model reference unless specifically requested below.
 
 The model must look unmistakably adult and suitable for a professional intimatewear catalogue campaign.
 
@@ -4203,17 +4221,19 @@ REFERENCE IMAGE 2 — BRA PRODUCT
 Use Reference Image 2 only for the exact bra product.
 
 Replicate its exact:
-• colour and colour depth
-• fabric texture and surface finish
-• cup shape, cup depth and coverage
-• neckline shape
-• seam placement and panel construction
-• bonded or stitched edges
-• strap width, strap placement and strap hardware
-• underband width and finish
-• side-wing height and construction
-• support structure
-• silhouette, proportions and fit
+
+* colour and colour depth
+* fabric texture and surface finish
+* cup shape, cup depth and coverage
+* neckline shape
+* seam placement and panel construction
+* bonded or stitched edges
+* strap width, strap placement and strap hardware
+* underband width and finish
+* side-wing height and construction
+* support structure
+* silhouette, proportions and fit
+
 
 Do not invent, simplify, brighten, recolour, redesign or remove any visible product detail. The bra worn by the model must be an accurate, commercially believable reproduction of Reference Image 2.
 
@@ -4225,14 +4245,16 @@ OVERALL ART DIRECTION
 Create a soft, airy, premium bedroom-lifestyle advertisement with a feminine catalogue aesthetic.
 
 The complete visual must feel:
-• elegant
-• light
-• comfortable
-• refined
-• warm
-• supportive
-• polished
-• commercially realistic
+
+* elegant
+* light
+* comfortable
+* refined
+* warm
+* supportive
+* polished
+* commercially realistic
+
 
 Avoid a loud, provocative, overly glamorous, dark, high-contrast or cluttered appearance.
 
@@ -4244,27 +4266,33 @@ BACKGROUND — MATCH THE REFERENCE STRUCTURE
 Use a bright warm-white to pale-ivory bedroom background with a very subtle blush-pink cast.
 
 The background should resemble a softly sunlit premium bedroom:
-• creamy white bedding across the lower and right portions
-• diffused white curtains or softly illuminated wall behind the model
-• faint warm daylight entering from the centre or upper-left area
-• extremely soft shadows
-• low contrast
-• shallow depth of field
-• delicate, slightly dreamy catalogue finish
+
+* creamy white bedding across the lower and right portions
+* diffused white curtains or softly illuminated wall behind the model
+* faint warm daylight entering from the centre or upper-left area
+* extremely soft shadows
+* low contrast
+* shallow depth of field
+* delicate, slightly dreamy catalogue finish
+
 
 Include only subtle, blurred bedroom details, such as:
-• a white or ivory pillow
-• folded bedding
-• a small pale bedside vase or foliage arrangement near the centre-bottom background
+
+* a white or ivory pillow
+* folded bedding
+* a small pale bedside vase or foliage arrangement near the centre-bottom background
+
 
 Keep all room details understated and out of focus so they do not compete with the model or typography.
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-• a light floral branch entering from the upper-right corner
-• a smaller floral accent entering from the lower-left corner
-• optionally, a faint partial floral line near the lower-right edge
 
-The botanical illustrations must be elegant, thin, low-opacity and decorative only. They must never overlap important text, the model’s face or the bra.
+* a light floral branch entering from the upper-right corner
+* a smaller floral accent entering from the lower-left corner
+* optionally, a faint partial floral line near the lower-right edge
+
+
+The botanical illustrations must be elegant, thin, low-opacity and decorative only. They must never overlap important text, the model's face or the bra.
 
 ═══════════════════════════════════════════════════════
 MODEL PLACEMENT AND FRAMING
@@ -4276,12 +4304,14 @@ The model should occupy approximately the right 43–48% of the visual. Preserve
 Show the model seated or kneeling comfortably on a soft white bed. Her body is positioned in the lower-right quadrant, with her upper torso extending toward the centre-right and her raised arms reaching into the upper-right area.
 
 Framing:
-• show the complete head
-• show both raised arms and hands
-• show the full bra clearly
-• show the waist, hips and upper thighs
-• allow the seated legs to continue naturally toward the bottom-right edge
-• do not crop the top of the head, hands, elbows or bra
+
+* show the complete head
+* show both raised arms and hands
+* show the full bra clearly
+* show the waist, hips and upper thighs
+* allow the seated legs to continue naturally toward the bottom-right edge
+* do not crop the top of the head, hands, elbows or bra
+
 
 The model must remain visually separate from all text and callout icons.
 
@@ -4291,17 +4321,19 @@ POSE — MATCH THE REFERENCE FEEL
 The model is seated or kneeling sideways on the bed in a relaxed morning-stretch pose.
 
 Pose details:
-• torso turned approximately three-quarters toward the camera
-• hips and legs angled gently toward the right
-• back naturally elongated
-• both arms raised above the head
-• one wrist held or lightly crossed by the opposite hand
-• elbows softly bent rather than rigid
-• shoulders relaxed
-• chest open naturally
-• eyes gently closed
-• face tilted slightly toward the left
-• subtle, peaceful closed-mouth expression
+
+* torso turned approximately three-quarters toward the camera
+* hips and legs angled gently toward the right
+* back naturally elongated
+* both arms raised above the head
+* one wrist held or lightly crossed by the opposite hand
+* elbows softly bent rather than rigid
+* shoulders relaxed
+* chest open naturally
+* eyes gently closed
+* face tilted slightly toward the left
+* subtle, peaceful closed-mouth expression
+
 
 The pose must communicate comfort, freedom of movement and effortless support. It must feel candid and graceful rather than fashion-runway stiff or overtly sensual.
 
@@ -4329,14 +4361,16 @@ Use soft diffused natural daylight with warm-neutral undertones.
 Lighting direction should feel like a large window positioned toward the upper-left or front-left side.
 
 Render:
-• smooth highlight transitions
-• soft, realistic skin texture
-• gentle shadows beneath the arms and bra band
-• natural body contours
-• no harsh rim lighting
-• no excessive skin smoothing
-• no orange cast
-• no blown highlights
+
+* smooth highlight transitions
+* soft, realistic skin texture
+* gentle shadows beneath the arms and bra band
+* natural body contours
+* no harsh rim lighting
+* no excessive skin smoothing
+* no orange cast
+* no blown highlights
+
 
 The model and bra should be crisp and detailed while the bedroom background remains softly blurred.
 
@@ -4344,21 +4378,27 @@ The model and bra should be crisp and detailed while the bedroom background rema
 TYPOGRAPHY SYSTEM
 ═══════════════════════════════════════════════════════
 Use a sophisticated high-contrast editorial serif similar to Bodoni Moda, Didot or a premium modern fashion serif for:
-• the main headline
-• feature titles
-• selected emphasis words
+
+* the main headline
+* feature titles
+* selected emphasis words
+
 
 Use a clean modern sans-serif similar to Manrope, Avenir, Helvetica Neue or Montserrat for:
-• supporting copy
-• secondary feature lines
-• footer benefit descriptions
+
+* supporting copy
+* secondary feature lines
+* footer benefit descriptions
+
 
 Typography colours:
-• primary headline: deep muted berry or wine, approximately #8E173C to #982044
-• italic emphasis: brighter dusty rose, approximately #C83F65
-• feature headings: alternating dusty rose and muted plum
-• body copy: soft charcoal grey, approximately #444044
-• fine rules and dots: pale rose pink
+
+* primary headline: deep muted berry or wine, approximately #8E173C to #982044
+* italic emphasis: brighter dusty rose, approximately #C83F65
+* feature headings: alternating dusty rose and muted plum
+* body copy: soft charcoal grey, approximately #444044
+* fine rules and dots: pale rose pink
+
 
 Do not use heavy drop shadows, thick outlines, metallic effects or decorative gradients on the text.
 
@@ -4369,19 +4409,19 @@ Place the primary headline in the UPPER-LEFT quadrant with generous margins from
 
 Use this exact copy and line arrangement:
 
-Bonded Finish,
-Always
-Elevated Support
+Feels light, Sits Smooth, Supports Gently.
 
 Typography treatment:
-• “Bonded Finish,” in large upright high-contrast serif
-• “Always” in the same upright serif on the next line
-• “Elevated Support” in a large elegant italic serif
-• keep the three-line unit left aligned
-• use tight but refined line spacing
-• make “Elevated Support” slightly more expressive while maintaining readability
 
-The headline should occupy approximately the upper-left 42–47% of the canvas without extending into the model’s raised arms.
+* "Feels light," in large upright high-contrast serif
+* "Sits Smooth" in the same upright serif on the next line
+* "Supports Gently" in a large elegant italic serif
+* keep the three-line unit left aligned
+* use tight but refined line spacing
+* make "Supports Gently" slightly more expressive while maintaining readability
+
+
+The headline should occupy approximately the upper-left 42–47% of the canvas without extending into the model's raised arms.
 
 ═══════════════════════════════════════════════════════
 SUBHEADING
@@ -4390,12 +4430,11 @@ Place the supporting statement directly below the main headline, aligned to the 
 
 Use this exact copy:
 
-Comfort That Supports
-Every Curve
+Comfort, refined for every day
 
 Use a clean medium-weight charcoal sans-serif. Keep it significantly smaller than the headline but large enough to read clearly.
 
-Add a tiny hand-drawn blush-pink decorative flourish or abstract leaf-like stroke to the right of “Every Curve.” Keep it subtle.
+Add a tiny hand-drawn blush-pink decorative flourish or abstract leaf-like stroke to the right of "every day." Keep it subtle.
 
 ═══════════════════════════════════════════════════════
 FEATURE CALLOUT COLUMN
@@ -4403,81 +4442,98 @@ FEATURE CALLOUT COLUMN
 Place four product-feature rows vertically down the LEFT side, beginning below the subheading and ending above the footer benefit bar.
 
 Each row contains:
+
 1. a large pastel circular icon badge on the far left
+
 2. a two-line text block immediately to its right
 3. a thin horizontal dotted connector line extending toward the model or relevant product area
 4. a small solid dot at the line endpoint
 
 Maintain equal vertical spacing between all four rows.
 
-The connector lines should be pale dusty rose, thin and refined. They must stop before touching the model’s body. Do not draw lines over the bra, face, arms or text.
+The connector lines should be pale dusty rose, thin and refined. They must stop before touching the model's body. Do not draw lines over the bra, face, arms or text.
 
 FEATURE ROW 1
 Icon badge:
-• soft pale-pink circle
-• thin double-ring border
-• minimal line icon of a full-coverage bra
+
+* soft pale-pink circle
+* thin double-ring border
+* minimal line icon of a bra with a small crossed-out underwire curve beneath the cup, clearly reading as "wire-free"
+
 
 Text:
-Full Coverage
-with V-Neckline
+"Wire-Free Support
+All-day comfort, no pressure"
 
 Style:
-• “Full Coverage” in dusty-rose serif, medium-bold
-• “with V-Neckline” in charcoal sans-serif
+
+* "Wire-Free Support" in dusty-rose serif, medium-bold
+* "All-day comfort, no pressure" in charcoal sans-serif
+
 
 Connector endpoint should visually align around the bra neckline or upper-cup level.
 
 FEATURE ROW 2
 Icon badge:
-• soft pale-lavender circle
-• thin double-ring border
-• minimal line icon suggesting a broad padded shoulder strap
+
+* soft pale-lavender circle
+* thin double-ring border
+* minimal line icon of two bra cups with a "W"-shaped support line running beneath them, clearly reading as "W-hold"
+
 
 Text:
-Broad Shoulder
-Straps
+"W-Hold Design
+Natural shape, secure hold."
 
 Style:
-• both feature-title lines in muted-plum serif
-• maintain strong readability
+
+* both feature-title lines in muted-plum serif
+* maintain strong readability
+
 
 Connector endpoint should align near the bra strap or upper side-cup region.
 
 FEATURE ROW 3
 Icon badge:
-• soft blush-pink circle
-• thin double-ring border
-• minimal leaf or soft-support line icon
+
+* soft blush-pink circle
+* thin double-ring border
+* minimal line icon of a bra front with a deep V-shaped neckline, clearly reading as "V-neck"
+
 
 Text:
-W-Hold
-Wire-free
-Support
+"V-Neck Structure
+Enhances look"
 
 Style:
-• “W-Hold” in dusty-rose serif
-• “Wire-free” and “Support” in charcoal sans-serif
+
+* "V-Neck Structure" in dusty-rose serif
+* "Enhances look" in charcoal sans-serif
+
 
 Connector endpoint should align around the underbust or lower-cup area.
 
 FEATURE ROW 4
 Icon badge:
-• soft pale-lavender circle
-• thin double-ring border
-• minimal feather line icon
+
+* soft pale-lavender circle
+* thin double-ring border
+* minimal line icon of a single full, rounded bra cup with a smooth coverage curve over the top edge, clearly reading as "full coverage"
+
 
 Text:
-No Spillage
-No Side Bulges
+"Full Coverage
+Seamless all-round support"
 
 Style:
-• “No Spillage” in muted-plum serif
-• “No Side Bulges” in charcoal sans-serif
+
+* "Full Coverage" in muted-plum serif
+* "Seamless all-round support" in charcoal sans-serif
+
 
 Connector endpoint should align near the side-wing, waist or hip-adjacent area without crossing the model.
 
-All icon artwork must be delicate, monochromatic and commercially polished. Avoid cartoon styling or thick strokes.
+All icon artwork must be delicate, monochromatic and commercially polished. Avoid cartoon styling or thick strokes. Every icon must visually illustrate its own feature text — no generic or unrelated symbols.
 
 ═══════════════════════════════════════════════════════
 BOTTOM BENEFIT BAR
@@ -4485,44 +4541,50 @@ BOTTOM BENEFIT BAR
 Create a wide rounded rectangular benefit panel across the bottom of the visual.
 
 Panel placement:
-• approximately 3–4% margin from the left and right canvas edges
-• positioned just above the bottom edge
-• approximately 9–11% of the total canvas height
+
+* approximately 3–4% margin from the left and right canvas edges
+* positioned just above the bottom edge
+* approximately 9–11% of the total canvas height
+
 
 Panel design:
-• warm translucent ivory or extremely pale blush fill
-• fine pale-pink border
-• large rounded corners
-• no heavy shadow
-• four evenly spaced benefit columns
-• thin vertical dotted separators between the columns
+
+* warm translucent ivory or extremely pale blush fill
+* fine pale-pink border
+* large rounded corners
+* no heavy shadow
+* four evenly spaced benefit columns
+* thin vertical dotted separators between the columns
+
 
 Each benefit column contains:
-• a circular pink or lavender icon badge
-• a short coloured serif or strong sans-serif title
-• a smaller charcoal supporting line
+
+* a circular pink or lavender icon badge
+* a short coloured serif or strong sans-serif title
+* a smaller charcoal supporting line
+
 
 Use this exact content from left to right:
 
 1.
 Soft Touch
 Gentle on Skin
-Icon: delicate leaf
+Icon: delicate leaf (soft, gentle, natural — keep)
 
 2.
 Feather Light
 All Day Comfort
-Icon: soft cloud
+Icon: soft cloud (keep)
 
 3.
 Elastic-Free
 Freedom to Move
-Icon: open hand or freedom-of-movement symbol
+Icon: a small elastic band loop with a thin diagonal slash through it, clearly reading as "elastic-free"
 
 4.
 Made to Support
 All Day, Every Day
-Icon: simple heart outline
+Icon: simple heart outline (keep)
 
 Alternate the circular badge colours softly between blush pink and muted lavender. Keep all icons white or pale line-art for clear contrast.
 
@@ -4532,22 +4594,26 @@ The footer content must remain neat, centred within each column and comfortably 
 LAYOUT PROPORTIONS AND SPACING
 ═══════════════════════════════════════════════════════
 Maintain the following approximate structure:
-• left outer margin: 5–7% of canvas width
-• headline top position: 7–10% of canvas height
-• headline region: left 45% of canvas
-• model region: right 45% of canvas
-• feature-callout column: middle-left to lower-left
-• footer benefit bar: bottom 10% of canvas
-• generous blank breathing space between headline and model
+
+* left outer margin: 5–7% of canvas width
+* headline top position: 7–10% of canvas height
+* headline region: left 45% of canvas
+* model region: right 45% of canvas
+* feature-callout column: middle-left to lower-left
+* footer benefit bar: bottom 10% of canvas
+* generous blank breathing space between headline and model
+
 
 Do not allow any content collision.
 
 Keep:
-• headline clear of the raised arms
-• feature text clear of icons
-• connector lines clear of body and typography
-• model clear of the footer titles
-• bottom benefit bar fully inside the canvas
+
+* headline clear of the raised arms
+* feature text clear of icons
+* connector lines clear of body and typography
+* model clear of the footer titles
+* bottom benefit bar fully inside the canvas
+
 
 ═══════════════════════════════════════════════════════
 PRODUCT PRESENTATION — CRITICAL
@@ -4555,20 +4621,22 @@ PRODUCT PRESENTATION — CRITICAL
 The bra is the hero product and must remain clearly readable.
 
 Ensure:
-• accurate fit across the bust
-• symmetrical cup construction unless the reference product is intentionally asymmetric
-• natural fabric tension
-• correct neckline depth
-• clearly visible shoulder straps
-• clean underband placement
-• realistic side-wing fit
-• no warped seams
-• no missing panels
-• no duplicated straps
-• no accidental underwire when the reference is wire-free
-• no lace, padding lines, clasps or embellishments unless visible in Reference Image 2
 
-The model’s pose must never distort or conceal the product’s defining construction.
+* accurate fit across the bust
+* symmetrical cup construction unless the reference product is intentionally asymmetric
+* natural fabric tension
+* correct neckline depth
+* clearly visible shoulder straps
+* clean underband placement
+* realistic side-wing fit
+* no warped seams
+* no missing panels
+* no duplicated straps
+* no accidental underwire when the reference is wire-free
+* no lace, padding lines, clasps or embellishments unless visible in Reference Image 2
+
+
+The model's pose must never distort or conceal the product's defining construction.
 
 ═══════════════════════════════════════════════════════
 FINAL IMAGE QUALITY
@@ -4580,18 +4648,19 @@ The result must look like a finished intimatewear campaign advertisement created
 ═══════════════════════════════════════════════════════
 NEGATIVE PROMPT
 ═══════════════════════════════════════════════════════
-Do not change the supplied model’s identity.
+Do not change the supplied model's identity.
 Do not copy the garment from the model reference.
 Do not redesign or recolour the bra product.
 Do not create a youthful, teenage or childlike-looking model.
 Do not crop the head, hands, elbows or bra.
-Do not obscure the bra with hair or arms.
+Do not obscure the bra with hair, arms or bedding.
 Do not place text over the model.
 Do not use illegible text, misspelled copy or random letters.
 Do not create extra callouts, extra icons or extra footer columns.
+Do not use generic or unrelated icons — each icon must match its feature text.
 Do not use harsh shadows, dark bedroom lighting or high contrast.
 Do not use neon colours, saturated purple or bright red.
-Do not use lace or decorative trims unless present in the product reference.
+Do not use lace or decorative trims unless present in the product references.
 Do not create warped cups, doubled straps, uneven bands or incorrect seams.
 Do not create distorted fingers, extra limbs or anatomically incorrect joints.
 Do not make the pose overtly sensual.
@@ -4601,15 +4670,20 @@ Do not use heavy text shadows, outlines or 3D typography.
 Do not place a logo unless a separate logo reference is supplied.
 
 FINAL PRIORITY ORDER:
+
 1. Exact bra-product accuracy from Reference Image 2
+
 2. Exact adult-model identity from Reference Image 1
 3. Correct model pose and right-side placement
 4. Accurate headline and feature-copy hierarchy
-5. Precise four-row callout layout
+5. Precise four-row callout layout with icons matching their text
 6. Accurate four-column bottom benefit bar
 7. Soft ivory bedroom background and delicate floral accents
-8. Premium photorealistic catalogue finish`,u=`REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
-REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette, back construction. Replicate identically.
+8. Premium photorealistic catalogue finish
+`,u=`REFERENCE IMAGE 1 (Model): Use this as the exact reference for the face, skin tone, hair, and body type. Replicate these features as closely as possible.
+
+REFERENCE IMAGE 2 (Product—Bra): Use this as the exact reference for the bra color, fabric texture, silhouette, straps, cups, detail, and underband. Replicate the bra exactly with no changes.
+
 
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION — CRITICAL
@@ -4625,23 +4699,28 @@ Hair SWEPT FULLY to FRONT — NON-NEGOTIABLE | Tattoo-free, blemish-free skin
 PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
 ═══════════════════════════════════════════════════════
 U-back straps, hook-eye closure, both side wings, flat back band — ALL fully visible, unobstructed, sharply in focus
-Primary lighting on bra back | No hands, hair, or arms overlapping bra
+Primary lighting on bra back
+No hands, hair, or arms overlapping bra
 
 ═══════════════════════════════════════════════════════
 BACKGROUND & LIGHTING
 ═══════════════════════════════════════════════════════
 Bright warm-white to pale-ivory background with a very subtle blush-pink cast.
-- Softly lit, diffused studio backdrop — feels warm and daylight-like
-- Faint warm light entering from the centre or upper-left area
-- Extremely soft shadows, low contrast, shallow depth of field
-- Delicate, slightly dreamy premium catalogue finish
-- Background stays clean and minimal — no competing props or clutter
-- Light wraps around model's back illuminating all construction details
+
+* Softly lit, diffused studio backdrop — feels warm and daylight-like
+* Faint warm light entering from the centre or upper-left area
+* Extremely soft shadows, low contrast, shallow depth of field
+* Delicate, slightly dreamy premium catalogue finish
+* Background stays clean and minimal — no competing props or clutter
+* Light wraps around model's back illuminating all construction details
+
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-- A light floral branch entering from the upper-right corner
-- A smaller floral accent entering from the lower-left corner
-- Optionally, a faint partial floral line near the lower-right edge
+
+* A light floral branch entering from the upper-right corner
+* A smaller floral accent entering from the lower-left corner
+* Optionally, a faint partial floral line near the lower-right edge
+
 
 Botanical illustrations must be elegant, thin, low-opacity, and decorative only — never overlapping important text, the model's face, hair, or the product.
 
@@ -4711,11 +4790,13 @@ NO Dot should be used while pointing into the Bra Backs
 Use slightly angled thin line
 
 TYPOGRAPHY COLOR PALETTE (reference):
-- Primary headline: deep muted berry/wine — approx #8E173C to #982044
-- Italic emphasis: brighter dusty rose — approx #C83F65
-- Feature headings: alternating dusty rose and muted plum
-- Body copy: soft charcoal grey — approx #444044
-- Fine rules and dots: pale rose pink
+
+* Primary headline: deep muted berry/wine — approx #8E173C to #982044
+* Italic emphasis: brighter dusty rose — approx #C83F65
+* Feature headings: alternating dusty rose and muted plum
+* Body copy: soft charcoal grey — approx #444044
+* Fine rules and dots: pale rose pink
+
 No heavy drop shadows, thick outlines, metallic effects, or decorative gradients on any text.
 
 ═══════════════════════════════════════════════════════
@@ -4735,9 +4816,10 @@ STRICT NEGATIVE INSTRUCTIONS
 BACK must face lens | Hair swept fully to front | No callouts on LEFT side
 Do NOT use a background other than the warm-white/pale-ivory blush-cast style described above
 Do NOT use fonts other than the specified editorial serif (headings) and modern sans-serif (body)
-Do NOT use text colors other than the specified berry/wine, dusty rose, muted plu\\m, and charcoal grey palette
+Do NOT use text colors other than the specified berry/wine, dusty rose, muted plum, and charcoal grey palette
 No hair/arms over bra back | No icons/text on bra or face | No cool-blue lighting | No watermarks | No extra models | 4:5 only | Back band must sit flat
-Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text`,d=`REFERENCE IMAGE 1 (Model): Use this image as the EXACT reference for the model's skin tone, body type, and overall appearance from chest to hip level. Replicate skin tone and body characteristics identically.
+Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text
+`,d=`REFERENCE IMAGE 1 (Model): Use this image as the EXACT reference for the model's skin tone, body type, and overall appearance from chest to hip level. Replicate skin tone and body characteristics identically.
 NOTE: Face will NOT fully appear — reference is for skin tone and body only. Chin/neck may be partially visible at top edge.
 
 REFERENCE IMAGE 2 (Product): Use this image as the EXACT reference for the bra's color, texture, fabric finish, silhouette, band width, strap width, and seamless bonded construction. Replicate identically. Do not alter the product in any way.
@@ -4903,21 +4985,11 @@ Do NOT use cold, harsh, or clinical lighting
 Do NOT add watermarks, logos, or branding
 Do NOT change aspect ratio — square 1:1 only
 Do NOT allow callout lines to cross each other
-Do NOT include background props, furniture, or lifestyle elements`,f=`REFERENCE IMAGE 1 (Model): Use this image as the EXACT reference for the model's face, skin tone, hair color, hair texture, body type, and overall appearance. Replicate identically — do not alter any facial feature, complexion, or hair characteristic.
+Do NOT include background props, furniture, or lifestyle elements`,f=`REFERENCE IMAGE 1 (Model): Use this as the exact reference for the face, skin tone, hair, and body type. Replicate these features as closely as possible. Do not alter any facial feature, complexion, or hair characteristic.
 
-REFERENCE IMAGE 2 (Product): Use this image as the EXACT reference for the bra's color, texture, fabric finish, silhouette, band width, strap width, and neckline shape. Replicate identically on the model's body. Do not alter the product in any way.
+REFERENCE IMAGE 2 (Product—Bra): Use this as the exact reference for the bra color, fabric texture, silhouette, straps, cups, detail, and underband. Replicate the bra exactly with no changes. Match band width, strap width, and neckline shape identically.
 
-IMAGE 3 — PANTY REFERENCE
-Use Image 3 ONLY to replicate the exact panty design, including:
-Exact colour
-Shape and silhouette
-Waistband construction
-Fabric texture and finish
-Seam placement
-Leg opening shape
-Rise and coverage
-Overall proportions
-Replicate the panty exactly as shown in Image 3.
+REFERENCE IMAGE 3 (Product—Panty): Use this as the exact reference for the panty color, fabric texture, silhouette, waistband, and coverage. Replicate the panty exactly with no changes. The panty must match the bra's color family and fabric finish as shown in the references.
 
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION
@@ -4928,7 +5000,7 @@ Chin is level, natural relaxed confident smile
 RIGHT arm hangs relaxed at her side
 LEFT arm is relaxed and slightly away from body so the LEFT armhole area of the bra is clearly visible and unobstructed
 Shoulders are relaxed, not raised or tensed
-Shot framed HEAD TO KNEE ONLY — crop just below the knee, do NOT show calves, ankles, or feet
+Shot framed from MID-THIGH upward (3/4 body shot)
 Hair falls softly over both shoulders BUT must be directed AWAY from all bra straps, armhole edges, and bottom band — zero hair overlap on any part of the bra at any point
 Skin is completely tattoo-free and blemish-free
 
@@ -4936,26 +5008,32 @@ Skin is completely tattoo-free and blemish-free
 PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
 ═══════════════════════════════════════════════════════
 The bra from REFERENCE IMAGE 2 must be worn exactly as it appears — same color, same fabric, same fit, same silhouette
+The panty from REFERENCE IMAGE 3 must be worn exactly as it appears — same color, same fabric, same fit, same silhouette, same waistband and coverage
 ALL of the following zones must be FULLY VISIBLE, unobstructed, and sharply in focus:
 → LEFT armhole edge, RIGHT armhole edge, Full bottom band, Front center panel, Both shoulder straps
-The panty from IMAGE 3 must be worn exactly as it appears — same colour, waistband, silhouette, leg opening, and rise — fully visible, unobstructed, and sharply in focus
-Primary lighting directed TOWARD the bra and panty — they are the HERO products of this image
-No hands, hair, arms, or fabric overlapping any part of the bra or panty
+→ Panty waistband, panty front panel, panty leg openings
+Primary lighting directed TOWARD the bra — it is the HERO product of this image
+The panty is the supporting product and must be equally sharp, clean and unobstructed
+No hands, hair, arms, or fabric overlapping any part of the bra or the panty
 
 ═══════════════════════════════════════════════════════
 BACKGROUND & LIGHTING
 ═══════════════════════════════════════════════════════
 Bright warm-white to pale-ivory background with a very subtle blush-pink cast.
-- Softly lit, diffused studio backdrop — feels warm and daylight-like
-- Faint warm light entering from the centre or upper-left area
-- Extremely soft shadows, low contrast, shallow depth of field
-- Delicate, slightly dreamy premium catalogue finish
-- Background stays clean and minimal — no competing props or clutter
+
+* Softly lit, diffused studio backdrop — feels warm and daylight-like
+* Faint warm light entering from the centre or upper-left area
+* Extremely soft shadows, low contrast, shallow depth of field
+* Delicate, slightly dreamy premium catalogue finish
+* Background stays clean and minimal — no competing props or clutter
+
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-- A light floral branch entering from the upper-right corner
-- A smaller floral accent entering from the lower-left corner
-- Optionally, a faint partial floral line near the lower-right edge
+
+* A light floral branch entering from the upper-right corner
+* A smaller floral accent entering from the lower-left corner
+* Optionally, a faint partial floral line near the lower-right edge
+
 
 Botanical illustrations must be elegant, thin, low-opacity, and decorative only — never overlapping important text, the model's face, or the product.
 
@@ -4979,545 +5057,200 @@ Font: Sophisticated high-contrast editorial serif (similar to Bodoni Moda, Didot
 SUB-HEADING — TOP LEFT below headline: "No Digging. No Marks. No Itching."
 Font: Clean modern sans-serif (similar to Manrope, Avenir, Helvetica Neue, or Montserrat), medium weight | Color: soft charcoal grey, approx #444044
 
-ICON REQUIREMENT — NON-NEGOTIABLE: All three callouts below render their circular icon badge directly above the two text lines. A callout rendered as plain text with no icon badge is a failed render.
-
 CALLOUT 1 — RIGHT: Points to LEFT ARMHOLE EDGE
-Icon (above text): circular badge, soft pastel blush-pink fill, thin double-ring border, minimal monochrome line-art of a smooth underarm/armhole curve
+Icon: circular badge, blush pink fill — thin line illustration of a smooth curved bra armhole edge with a tiny soft feather accent, symbolising gentle, rash-free skin comfort
 Line 1 (editorial serif, dusty rose): "Elastic-free Armhole"
 Line 2 (sans-serif, charcoal grey #444044): "for Rashfree Comfort"
 Border: thin pale rose pink
 
 CALLOUT 2 — BOTTOM LEFT: Points to BOTTOM BAND
-Icon (above text): circular badge, soft pastel muted-lavender fill, thin double-ring border, minimal monochrome line-art of a curved bra band / underbust support shape
+Icon: circular badge, muted lavender fill — thin line illustration of a smooth, flat, wide horizontal band with no ridges or elastic lines, with a small supportive upward-arrow or check accent, symbolising seamless support
 Line 1 (editorial serif, muted plum): "Elastic-free Bottom Band"
 Line 2 (sans-serif, charcoal grey #444044): "for Seamless Support"
 Border: thin pale rose pink
 
 CALLOUT 3 — LEFT: Points to SIDE SEAM / FABRIC EDGE
-Icon (above text): circular badge, soft pastel blush-pink fill, thin double-ring border, minimal monochrome line-art of a seamless fabric edge / smooth wave symbol
+Icon: circular badge, blush pink fill — thin line illustration of a sewing needle and thread with a thin diagonal slash through it, next to a smooth seamless fabric edge, symbolising no stitching and an invisible finish
 Line 1 (editorial serif, dusty rose): "No-Stitch Design"
 Line 2 (sans-serif, charcoal grey #444044): "for Invisible Finish"
 Border: thin pale rose pink
 
 CALLOUT LINE STYLE: Thin single line or slightly angled line | Color: pale rose pink | Clean and minimal
 
-ICON STYLE (applies to all three icon badges above — every callout MUST show its icon, never render callout text without it):
-- Large circular badge icons
-- Soft pastel fill, alternating between blush pink and muted lavender
-- Thin double-ring border around each circle
-- Minimal, delicate, monochromatic line-art illustration inside
-- Clean, refined, commercially polished finish
-- No cartoon styling, no thick strokes
+ICON STYLE:
+
+* Large circular badge icons, one per callout, placed directly beside or above its own callout text
+* Each icon's illustration MUST match the meaning of its callout text (armhole, bottom band, no-stitch) — no generic or unrelated symbols
+* Soft pastel fill, alternating between blush pink and muted lavender
+* Thin double-ring border around each circle
+* Minimal, delicate, monochromatic line-art illustration inside
+* Clean, refined, commercially polished finish
+* No cartoon styling, no thick strokes
+
 
 TYPOGRAPHY COLOR PALETTE (reference):
-- Primary headline: deep muted berry/wine — approx #8E173C to #982044
-- Italic emphasis: brighter dusty rose — approx #C83F65
-- Feature headings: alternating dusty rose and muted plum
-- Body copy: soft charcoal grey — approx #444044
-- Fine rules and dots: pale rose pink
+
+* Primary headline: deep muted berry/wine — approx #8E173C to #982044
+* Italic emphasis: brighter dusty rose — approx #C83F65
+* Feature headings: alternating dusty rose and muted plum
+* Body copy: soft charcoal grey — approx #444044
+* Fine rules and dots: pale rose pink
+
 No heavy drop shadows, thick outlines, metallic effects, or decorative gradients on any text.
 
 ═══════════════════════════════════════════════════════
 OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
 Headline + sub-heading occupy TOP LEFT quadrant
-Model is CENTER-RIGHT of the frame, framed HEAD TO KNEE ONLY
+Model is CENTER-RIGHT of the frame
 Callout 1 sits on the RIGHT, vertically middle zone
 Callout 2 sits on the BOTTOM LEFT
 Callout 3 sits on the LEFT, vertically middle zone
-All text and icons must NOT overlap the model's face, bra, or panty
+All text and icons must NOT overlap the model's face, bra or panty product
 Generous soft ivory/blush breathing space around all text elements
 Final image feels balanced, editorial, warm, and campaign-ready — true to Tweens' minimal premium daily comfort identity
 
 ═══════════════════════════════════════════════════════
 STRICT NEGATIVE INSTRUCTIONS
 ═══════════════════════════════════════════════════════
-Do NOT alter model or product from reference images
-Do NOT render any callout as plain text without its circular icon badge — all three callouts must show an icon.
-Do NOT alter the panty design, colour, or fabric from Image 3
-Do NOT show calves, ankles, or feet — frame ends strictly just below the knee
+Do NOT alter model or product from reference images (bra and panty)
 Do NOT use a background other than the warm-white/pale-ivory blush-cast style described above
 Do NOT use fonts other than the specified editorial serif (headings) and modern sans-serif (body)
 Do NOT use text colors other than the specified berry/wine, dusty rose, muted plum, and charcoal grey palette
-Do NOT allow hair over bra, callouts over face, bra, or panty, harsh shadows, cool-blue lighting, watermarks, extra models, thick callout lines
-Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text`,p=`PREMIUM INTIMATEWEAR FEATURE ADVERTISEMENT — BRA +
-BRIEF
-If a later selected-brand override or brand-lock section is supplied, it has absolute priority over every warm, ivory, blush, curtain, drape, fold, panel, botanical, or room-background instruction in this source prompt.
-If the selected brand override demands an exact flat background hex, that exact hex must replace all curtains, wall treatments, decorative styling, gradients, and backdrop folds from this source prompt.
-REFERENCE IMAGE INSTRUCTIONS
-REFERENCE IMAGE 1 — MODEL
-Use Reference Image 1 as the exact reference for the clearly adult
-model’s:
-Face and facial structure
-Skin tone and undertone
-Hair colour, texture, length, volume and hairstyle
-Body type and body proportions
-Eyebrow shape
-Makeup style, shades, coverage, intensity and finish
-Overall physical appearance
-Replicate the model accurately and naturally.
-The model’s makeup must remain exactly as shown in Reference Image
-1. Do not add heavier makeup, stronger contouring, brighter blush,
-darker eyeliner, false eyelashes, different lipstick, extra highlighting or
-any makeup detail not visible in the reference.
-The face, neck, shoulders, arms, torso, stomach, hips and legs must
-have one consistent natural skin tone. Do not make the face lighter than
-the body or the body warmer, darker, orange or redder than the face.
-Preserve realistic skin texture. Do not create waxy, plastic, excessively
-smooth or artificially airbrushed skin.
-Do not copy any bra, brief, clothing, jewellery, pose, background or
-lighting from Reference Image 1.
-REFERENCE IMAGE 2 — BRA PRODUCT
-Use Reference Image 2 only for the exact bra product.
-Replicate its exact:
-Colour and colour depth
-Fabric texture and surface finish
-Cup shape, depth and coverage
-Neckline shape
-Padding structure
-Seam placement
-Panel construction
-Bonded or stitched edges
-Strap width and placement
-Strap hardware
-Armhole shape
-Bottom-band width and finish
-Side-wing height and structure
-Support construction
-Silhouette, proportions and fit
-Do not invent, simplify, recolour, brighten, darken, redesign or remove
-any visible product detail.
-The bra worn by the model must match Reference Image 2 exactly.
-REFERENCE IMAGE 3 — BRIEF / PANTY PRODUCT
-Use Reference Image 3 only for the exact lower intimatewear product.
-Reference Image 3 may contain any type of brief or panty, including:
-Bikini brief
-Hipster brief
-High-waist brief
-Mid-rise brief
-Low-rise brief
-Boyshort
-Brazilian brief
-Thong
-Seamless brief
-Full-coverage brief
-Shaping brief
-Any other intimatewear bottom style
-Replicate the exact product shown in Reference Image 3 without
-substituting it with another brief style.
-Match its exact:
-Product type and silhouette
-Colour and colour depth
-Print, pattern or colour blocking
-Fabric texture and fabric finish
-Waist rise
-Waistband height, width and construction
-Front-panel shape
-Side width and side-seam placement
-Leg-opening shape
-Leg-opening height
-Front and rear coverage
-Gusset construction
-Seam placement
-Bonded, stitched, folded or laser-cut edges
-Elastic construction
-Lace, mesh or decorative panels, only when visible
-Hardware, bows, labels or embellishments, only when visible
-Overall proportions
-Fit and natural placement on the model’s body
-Extract the exact colour directly from Reference Image 3.
-Do not alter, replace, simplify, recolour, brighten or redesign the brief.
-Do not convert the brief into shorts, jeans, trousers, shapewear or
-another lower garment unless that exact product is shown in Reference
-Image 3.
-The bra and brief must remain two separate reference-controlled
-products:
-Reference Image 2 controls the bra only.
-Reference Image 3 controls the brief only.
-Do not automatically make the brief match the bra unless both product
-references show the same colour or coordinated set.
-POSE AND BODY DIRECTION
-The model stands fully front-facing.
-Body completely squared to the camera lens
-Head facing directly toward the camera
-Direct, warm eye contact
-Soft, natural and relaxed smile
-Shoulders level and relaxed
-Both arms resting naturally at the sides
-Hands positioned beside the body without covering either product
-Torso upright and untwisted
-Hips facing forward
-Legs placed naturally and symmetrically
-No leaning
-No three-quarter body angle
-No crossed arms
-No hands touching or adjusting the bra or brief
-Body language must feel minimal, warm, comfortable, confident and
-effortlessly premium.
-FRAMING — BRA AND BRIEF MUST BOTH BE VISIBLE
-Frame the model from the top of the head to the upper thighs.
-The composition must show:
-Complete head
-Full hairstyle
-Both shoulders
-Both arms and hands
-Full bra
-Natural waist and stomach
-Full brief from waistband to lower leg openings
-Upper thighs below the brief
-The crop must end below the brief’s complete leg openings so the entire
-lower product is clearly visible.
-Do not crop:
-Top of the head
-Shoulders
-Bra straps
-Bra cups
-Bra bottom band
-Brief waistband
-Brief side panels
-Brief leg openings
-Hands or fingers
-Do not show the knees, calves or feet.
-HAIR PLACEMENT
-Keep all hair away from important bra zones.
-Hair must not overlap or conceal:
-Either bra strap
-Neckline
-Cups
-Centre-front panel
-Armhole edges
-Side wings
-Bottom band
-Hair should sit naturally behind the shoulders or away from the front of
-the bra while still matching Reference Image 1 exactly.
-SKIN AND BODY RENDERING
-The visible skin must be clean, natural and realistic.
-No added tattoos
-No artificial bruises
-No rashes
-No marks
-No fake tan
-No orange skin cast
-No face-to-body colour mismatch
-No excessive skin smoothing
-No plastic or waxy texture
-Do not change the model’s natural body type or proportions.
-Push Effect — Level 3 Padding (CRITICAL — MUST BE VISIBLY
-RENDERED):
-The bra cups MUST visibly show a strong, natural Level 3 push-up
-padding
-effect. This is NON-NEGOTIABLE and must be clearly visible in the final
-image.
-Specific rendering instructions:
-— Both cups must appear visibly LIFTED upward and pushed inward
-toward
- center simultaneously
-— The upper cup area must show clear, natural fullness and visible
-rounded
- projection — NOT flat or deflated
-— There must be a visible, modest, natural-looking center cleavage
-definition
- created by the inward push of both cups
-— The cup silhouette must appear three-dimensional, projected, and
-lifted —
- NOT flat against the chest
-— The underside of each cup must show a visible upward curve
-indicating
- strong padding lift from beneath
-— The push must look symmetric — both cups lifted equally
-— The overall bust silhouette must read as clearly enhanced, lifted, and
- fuller in shape compared to an unpadded bra
-— This must be visible even at full body frame distance — the lift effect
- must read clearly without zooming in
-DO NOT render flat, deflated, or projection-less cups.
-DO NOT make the effect anatomically exaggerated or unrealistic.
-DO NOT change the external cup fabric, color, or structure.
-The push is INTERNAL padding lift — external silhouette result must be
-clearly visible, natural, and catalogue-appropriate.
-PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
-BRA VISIBILITY
-The bra is a hero product and must remain completely visible,
-unobstructed and sharply focused.
-The following must be clearly visible:
-Complete front panel
-Both cups
-Full neckline
-Both shoulder straps
-Both armhole edges
-Centre-front construction
-Full bottom band from left to right
-Side-wing areas
-All visible seams, edges and fabric details
-No hand, arm, hair, text, icon or decoration may cover the bra.
-BRIEF VISIBILITY
-The brief is also a hero product and must remain completely visible,
-unobstructed and sharply focused.
-The following must be clearly visible:
-Full waistband from left to right
-Complete front panel
-Both side sections
-Both leg openings
-Full rise and coverage
-All visible seams and edge finishes
-Fabric texture
-Print or pattern, when present
-Decorative elements, only when present in Reference Image 3
-The brief must sit naturally on the model without folding, rolling, warping
-or being hidden by the arms or hands.
-No hand, arm, text, icon or decorative element may cover the brief.
-Use clear primary lighting across both products so their exact colour,
-structure, texture and fit are commercially readable.
-BACKGROUND AND LIGHTING
-Create a bright warm-white to pale-ivory studio background with a very
-subtle blush-pink cast.
-BACKGROUND CHARACTERISTICS
-Softly illuminated and diffused
-Warm, daylight-inspired atmosphere
-Faint warm light entering from the centre or upper-left region
-Extremely soft shadows
-Low contrast
-Clean and minimal
-Delicate, slightly dreamy premium catalogue finish
-No competing props or clutter
-Not a flat, pure-white backdrop
-LIGHTING
-Warm-neutral, soft and clean studio lighting
-Even illumination across the face and body
-Consistent skin tone across all visible areas
-Clear primary lighting on both the bra and brief
-Realistic highlights and shadows
-No harsh shadows
-No dramatic contrast
-No cool-blue cast
-No orange skin cast
-No blown highlights
-No dark vignette
-BOTANICAL DECORATIONS
-Add very delicate pale-blush botanical line-art decorations in the
-corners:
-A light floral branch entering from the upper-right corner
-A smaller floral accent entering from the lower-left corner
-Optionally, a faint partial floral line near the lower-right edge
-The botanical illustrations must be:
-Elegant
-Thin-lined
-Low-opacity
-Feminine and refined
-Decorative only
-Visually secondary to the model and products
-They must never overlap:
-The model’s face
-Hair
-Bra
-Brief
-Headline
-Sub-heading
-Feature icons
-Feature copy
-PHOTOGRAPHY STYLE
-Campaign-quality professional e-commerce photography
-Premium intimatewear catalogue finish
-Photorealistic skin, hair and fabric rendering
-Crisp bra and brief details
-Gentle shallow depth of field
-Warm ivory and soft-blush environment
-Clean commercial retouching
-Natural facial appearance
-Refined feminine styling
-Balanced negative space
-Overall mood: minimal, premium and comfortable, consistent with
-Tweens’ “minimal premium daily comfort” identity.
-INFOGRAPHIC LAYOUT AND TYPOGRAPHY
-HEADLINE — TOP LEFT
-Exact text:
-“Comfort that feels light”
-Typography:
-Sophisticated high-contrast editorial serif
-Similar to Bodoni Moda, Didot or a premium modern fashion serif
-Bold display weight
-Large but elegantly proportioned
-Refined fashion-editorial character
-Colour:
-Deep muted berry or wine
-Approximately #8E173C to #982044
-SUB-HEADING — DIRECTLY BELOW HEADLINE
-Exact text:
-“Soft touch. Gentle support.”
-Typography:
-Clean modern sans-serif
-Similar to Manrope, Avenir, Helvetica Neue or Montserrat
-Medium weight
-Clearly smaller than the headline
-Colour:
-Soft charcoal grey
-Approximately #444044
-FEATURE ICON AND TEXT STACK — LEFT SIDE
-Place three independent feature groups vertically along the left-middle
-side.
-Maintain balanced, consistent spacing.
-Do not use callout lines. The feature groups must not point toward the
-bra or brief.
-FEATURE 1
-Icon:
-A small circular badge containing a delicate line-art cotton,
-breathable-fabric or fabric-weave symbol.
-Text:
-“Breathable Cotton Fabric”
-“Airy comfort all day”
-Formatting:
-First line: bold editorial serif in dusty rose
-Second line: regular modern sans-serif in charcoal grey #444044
-FEATURE 2
-Icon:
-A small circular badge containing a delicate line-art soft-padding or
-gentle-lift symbol.
-Text:
-“Light Padding”
-“Gentle Lift”
-Formatting:
-First line: bold editorial serif in muted plum
-Second line: regular modern sans-serif in charcoal grey #444044
-FEATURE 3
-Icon:
-A small circular badge containing a delicate line-art internal-gripper or
-grip-strip symbol.
-Text:
-“Hidden Internal Gripper”
-“Perfect Fit”
-Formatting:
-First line: bold editorial serif in dusty rose
-Second line: regular modern sans-serif in charcoal grey #444044
-ICON STYLE — ALL THREE ICONS
-Approximately 40–45 pixels in diameter
-Circular badge design
-Soft pastel fill
-Alternate between blush pink and muted lavender
-Thin double-ring border
-Minimal monochromatic line-art illustration
-Consistent delicate stroke weight
-Refined and commercially polished
-No cartoon styling
-No thick lines
-No 3D effects
-No heavy shadows
-TYPOGRAPHY COLOUR PALETTE
-Primary headline: deep muted berry or wine, approximately #8E173C to
-#982044
-Optional italic emphasis: brighter dusty rose, approximately #C83F65
-Feature headings: alternating dusty rose and muted plum
-Supporting copy: soft charcoal grey, approximately #444044
-Fine rules and decorative dots: pale rose pink
-Do not use:
-Heavy drop shadows
-Thick outlines
-Metallic effects
-Embossed effects
-Decorative gradients
-Illegible decorative fonts
-All text must be correctly spelled, clearly typeset and professionally
-aligned.
-OVERALL COMPOSITION BALANCE
-Headline and sub-heading in the top-left quadrant
-Three feature groups stacked vertically along the left-middle zone
-Model positioned from the centre to centre-right
-Model framed from head to upper thighs
-Full bra and full brief clearly visible
-No text or icons overlapping the model or either product
-Generous ivory and blush breathing space
-Clear hierarchy between headline, model, products and features
-Balanced visual weight across the entire 4:5 composition
-The final advertisement must look warm, feminine, polished, minimal,
-premium and campaign-ready.
-STRICT NEGATIVE INSTRUCTIONS
-Do not alter the model’s identity.
-Do not alter:
-Face
-Facial proportions
-Skin tone or undertone
-Hair colour
-Hair texture
-Hairstyle
-Body type
-Body proportions
-Makeup style, intensity, shades or finish
-Do not create a face-to-body skin-tone mismatch.
-Do not make the face lighter than the body.
-Do not make the body warmer, darker, orange or redder than the face.
-Do not create plastic, waxy or excessively airbrushed skin.
-Do not alter the bra from Reference Image 2.
-Do not alter the brief from Reference Image 3.
-Do not interchange the bra and brief references.
-Do not automatically recolour the brief to match the bra.
-Do not replace the brief with:
-Shorts
-Jeans
-Trousers
-Skirt
-Leggings
-Shapewear
-Bodysuit
-Any lower garment not shown in Reference Image 3
-Do not alter the brief’s:
-Rise
-Waistband
-Side width
-Coverage
-Leg openings
-Fabric
-Colour
-Pattern
-Seams
-Edge construction
-Silhouette
-Fully front-facing pose only.
-No:
-Three-quarter pose
-Side pose
-Back pose
-Leaning
-Torso twist
-Crossed arms
-Hands touching the bra
-Hands touching the brief
-Hair covering the bra
-Product obstruction
-Do not crop the:
-Head
-Hands
-Bra straps
-Bra cups
-Bra band
-Brief waistband
-Brief sides
-Brief leg openings
-No callout lines.
-No text or icons over the model, bra or brief.
-No cool-blue lighting.
-No harsh shadows.
-No dramatic contrast.
-No flat pure-white backdrop.
-No heavy text shadows.
-No thick text outlines.
-No metallic text effects.
-No decorative text gradients.
-No watermarks.
-No extra models.
-No extra limbs.
-No malformed hands.
-No distorted anatomy.
-No duplicated straps.
-No warped bra cups.
-No uneven brief leg openings.
-No misspelled text.
-Aspect ratio: vertical 4:5 only.
-`,m=`PREMIUM INTIMATEWEAR FEATURE ADVERTISEMENT — REUSABLE MASTER PROMPT
+Do NOT use icons that don't match their callout text
+Do NOT allow hair over bra or panty, callouts over face, bra or panty, harsh shadows, cool-blue lighting, watermarks, extra models, thick callout lines
+Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text
+`,p=`REFERENCE IMAGE 1 (Model): Use this as the exact reference for the face, skin tone, hair, and body type. Replicate these features as closely as possible.
 
-If a later selected-brand override or brand-lock section is supplied, it has absolute priority over every warm, ivory, blush, bedroom, bedding, curtain, botanical, or lifestyle-only background instruction in this source prompt.
+REFERENCE IMAGE 2 (Product—Bra): Use this as the exact reference for the bra color, fabric texture, silhouette, straps, cups, detail, and underband. Replicate the bra exactly with no changes.
+
+REFERENCE IMAGE 3 (Product—Panty): Use this as the exact reference for the panty color, fabric texture, silhouette, waistband, and coverage. Replicate the panty exactly with no changes.
+
+═══════════════════════════════════════════════════════
+POSE & BODY DIRECTION
+═══════════════════════════════════════════════════════
+Model stands FULLY FRONT-FACING | Body squared to lens | Direct warm eye contact
+Soft natural relaxed smile | Both arms relaxed at sides
+Shot framed HEAD TO KNEE — full upper body, hips and thighs visible, crop just below the knees
+Hair away from ALL bra zones | Tattoo-free, blemish-free skin
+Body language: minimal, warm, effortlessly premium
+
+═══════════════════════════════════════════════════════
+PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
+═══════════════════════════════════════════════════════
+Full front panel, both straps, full bottom band, both armhole edges — ALL fully visible, unobstructed, sharply in focus
+Panty: full waistband, front panel, and both leg openings — ALL fully visible, unobstructed, sharply in focus
+Primary lighting on bra with the panty equally clean and sharp | No hands, hair, or arms overlapping bra or panty
+
+═══════════════════════════════════════════════════════
+BACKGROUND & LIGHTING
+═══════════════════════════════════════════════════════
+Bright warm-white to pale-ivory background with a very subtle blush-pink cast.
+
+* Softly lit, diffused studio backdrop — feels warm and daylight-like
+* Faint warm light entering from the centre or upper-left area
+* Extremely soft shadows, low contrast, shallow depth of field
+* Delicate, slightly dreamy premium catalogue finish
+* Background stays clean and minimal — no competing props or clutter
+
+
+Add very delicate pale-blush botanical line-art decorations in the corners:
+
+* A light floral branch entering from the upper-right corner
+* A smaller floral accent entering from the lower-left corner
+* Optionally, a faint partial floral line near the lower-right edge
+
+
+Botanical illustrations must be elegant, thin, low-opacity, and decorative only — never overlapping important text, the model's face, or the product.
+
+Lighting is warm, soft, and clean — never cool-blue or harsh
+No dark shadows, no cool-heavy tones, no dramatic contrast
+Aspect ratio: portrait 4:5
+
+═══════════════════════════════════════════════════════
+PHOTOGRAPHY STYLE
+═══════════════════════════════════════════════════════
+Campaign-quality professional e-commerce product image
+Warm ivory, soft blush, premium editorial-catalogue finish
+Overall mood: minimal, premium, daily comfort — consistent with Tweens' "minimal premium daily comfort" identity
+
+═══════════════════════════════════════════════════════
+INFOGRAPHIC LAYOUT & TYPOGRAPHY
+═══════════════════════════════════════════════════════
+HEADLINE — TOP LEFT
+Text: "Comfort that feels light"
+Font: Sophisticated high-contrast editorial serif (similar to Bodoni Moda, Didot, or a premium modern fashion serif), bold display weight, large size
+Color: deep muted berry/wine, approx #8E173C–#982044
+
+SUB-HEADING — TOP LEFT, directly below headline
+Text: "Soft touch. Gentle support."
+Font: Clean modern sans-serif (similar to Manrope, Avenir, Helvetica Neue, or Montserrat), medium weight, slightly smaller
+Color: soft charcoal grey, approx #444044
+
+FEATURE ICON + TEXT STACK — LEFT SIDE (stacked vertically, evenly spaced)
+
+FEATURE 1:
+Icon: Small circular badge — thin line illustration of a cotton/fabric/breathable weave symbol
+Text: "Breathable Cotton Fabric", " airy comfort all day"
+Line 1 bold, editorial serif, dusty rose | Line 2 regular, sans-serif, charcoal grey #444044
+
+FEATURE 2:
+Icon: Small circular badge — thin line illustration of soft padding/gentle lift symbol (same style as Feature 1)
+Text: "Light Padding ", "Gentle Lift"
+Line 1 bold, editorial serif, muted plum | Line 2 regular, sans-serif, charcoal grey #444044
+
+FEATURE 3:
+Icon: Small circular badge — thin line illustration of internal gripper/grip strip detail (same style as Feature 1)
+Text: "Hidden Internal Gripper", " Perfect Fit"
+Line 1 bold, editorial serif, dusty rose | Line 2 regular, sans-serif, charcoal grey #444044
+
+ICON STYLE (all three — consistent):
+
+* Circular badge icons, ~40–45px
+* Soft pastel fill, alternating between blush pink and muted lavender
+* Thin double-ring border around each circle
+* Minimal, delicate, monochromatic line-art illustration inside, relevant to each feature
+* Clean, refined, commercially polished finish
+* No cartoon styling, no thick strokes
+
+NO callout lines — icons sit independently on LEFT side, NOT pointing to bra zones
+
+TYPOGRAPHY COLOR PALETTE (reference):
+
+* Primary headline: deep muted berry/wine — approx #8E173C to #982044
+* Italic emphasis: brighter dusty rose — approx #C83F65
+* Feature headings: alternating dusty rose and muted plum
+* Body copy: soft charcoal grey — approx #444044
+* Fine rules and dots: pale rose pink
+
+No heavy drop shadows, thick outlines, metallic effects, or decorative gradients on any text.
+
+═══════════════════════════════════════════════════════
+OVERALL COMPOSITION BALANCE
+═══════════════════════════════════════════════════════
+Headline + sub-heading: TOP LEFT quadrant
+Model: CENTER to CENTER-RIGHT, framed HEAD TO KNEE
+Three feature icons stacked vertically: LEFT side, middle zone
+No text/icons overlapping model's face, bra or panty
+Generous soft ivory/blush breathing space around all elements
+Final image: balanced, warm, minimally premium, campaign-ready — true to Tweens' minimal premium daily comfort identity
+
+═══════════════════════════════════════════════════════
+STRICT NEGATIVE INSTRUCTIONS
+═══════════════════════════════════════════════════════
+Do NOT alter model or product (bra and panty) | FULLY FRONT-FACING only | No callout lines
+Do NOT crop above the knees — the head, torso, hips and thighs must all be fully in frame, with the frame ending just below the knees
+Do NOT use a background other than the warm-white/pale-ivory blush-cast style described above
+Do NOT use fonts other than the specified editorial serif (headings) and modern sans-serif (body)
+Do NOT use text colors other than the specified berry/wine, dusty rose, muted plum, and charcoal grey palette
+No hair over bra or panty | No icons/text on facemodels | 4:5 ratio only | No flat white backdrop
+Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text
+`,m=`PREMIUM INTIMATEWEAR FEATURE ADVERTISEMENT — REUSABLE MASTER PROMPT
 
 FORMAT AND PURPOSE
 Create a photorealistic premium intimate-apparel feature advertisement in a 3:4 vertical portrait ratio. Reproduce the same overall visual hierarchy, soft feminine editorial mood, background treatment, typography pairing, model placement, content placement, callout system and bottom benefit bar as the supplied layout reference.
 
-This is a reusable template. The model, bra, and panty may change through uploaded reference images, but the advertisement composition, spacing, visual hierarchy and premium catalogue finish must remain consistent.
+This is a reusable template. The model and bra may change through uploaded reference images, but the advertisement composition, spacing, visual hierarchy and premium catalogue finish must remain consistent.
 
 ═══════════════════════════════════════════════════════
 REFERENCE IMAGE 1 — MODEL
@@ -5534,36 +5267,41 @@ REFERENCE IMAGE 2 — BRA PRODUCT
 Use Reference Image 2 only for the exact bra product.
 
 Replicate its exact:
-- colour and colour depth
-- fabric texture and surface finish
-- cup shape, cup depth and coverage
-- neckline shape
-- seam placement and panel construction
-- bonded or stitched edges
-- strap width, strap placement and strap hardware
-- underband width and finish
-- side-wing height and construction
-- support structure
-- silhouette, proportions and fit
+
+* colour and colour depth
+* fabric texture and surface finish
+* cup shape, cup depth and coverage
+* neckline shape
+* seam placement and panel construction
+* bonded or stitched edges
+* strap width, strap placement and strap hardware
+* underband width and finish
+* side-wing height and construction
+* support structure
+* silhouette, proportions and fit
+
 
 Do not invent, simplify, brighten, recolour, redesign or remove any visible product detail. The bra worn by the model must be an accurate, commercially believable reproduction of Reference Image 2.
 
 Do not copy the garment visible in Reference Image 1.
 
 ═══════════════════════════════════════════════════════
-IMAGE 3 — PANTY REFERENCE
+REFERENCE IMAGE 3 — PANTY PRODUCT
 ═══════════════════════════════════════════════════════
-Use Image 3 ONLY to replicate the exact panty design, including:
-- Exact colour
-- Shape and silhouette
-- Waistband construction
-- Fabric texture and finish
-- Seam placement
-- Leg opening shape
-- Rise and coverage
-- Overall proportions
+Use Reference Image 3 only for the exact panty product.
 
-Replicate the panty exactly as shown in Image 3. Do not invent, simplify, brighten, recolour, redesign or remove any visible detail from the panty product.
+Replicate its exact:
+
+* colour and colour depth
+* fabric texture and surface finish
+* silhouette and coverage
+* waistband width and finish
+* leg-opening shape and finish
+* seam placement and construction
+* fit and proportions
+
+
+Do not invent, simplify, brighten, recolour, redesign or remove any visible product detail. The panty worn by the model must be an accurate, commercially believable reproduction of Reference Image 3, and must match the bra's colour family and fabric finish as shown in the references.
 
 ═══════════════════════════════════════════════════════
 OVERALL ART DIRECTION
@@ -5571,14 +5309,16 @@ OVERALL ART DIRECTION
 Create a soft, airy, premium bedroom-lifestyle advertisement with a feminine catalogue aesthetic.
 
 The complete visual must feel:
-- elegant
-- light
-- comfortable
-- refined
-- warm
-- supportive
-- polished
-- commercially realistic
+
+* elegant
+* light
+* comfortable
+* refined
+* warm
+* supportive
+* polished
+* commercially realistic
+
 
 Avoid a loud, provocative, overly glamorous, dark, high-contrast or cluttered appearance.
 
@@ -5590,27 +5330,33 @@ BACKGROUND — MATCH THE REFERENCE STRUCTURE
 Use a bright warm-white to pale-ivory bedroom background with a very subtle blush-pink cast.
 
 The background should resemble a softly sunlit premium bedroom:
-- creamy white bedding across the lower and right portions
-- diffused white curtains or softly illuminated wall behind the model
-- faint warm daylight entering from the centre or upper-left area
-- extremely soft shadows
-- low contrast
-- shallow depth of field
-- delicate, slightly dreamy catalogue finish
+
+* creamy white bedding across the lower and right portions
+* diffused white curtains or softly illuminated wall behind the model
+* faint warm daylight entering from the centre or upper-left area
+* extremely soft shadows
+* low contrast
+* shallow depth of field
+* delicate, slightly dreamy catalogue finish
+
 
 Include only subtle, blurred bedroom details, such as:
-- a white or ivory pillow
-- folded bedding
-- a small pale bedside vase or foliage arrangement near the centre-bottom background
+
+* a white or ivory pillow
+* folded bedding
+* a small pale bedside vase or foliage arrangement near the centre-bottom background
+
 
 Keep all room details understated and out of focus so they do not compete with the model or typography.
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-- a light floral branch entering from the upper-right corner
-- a smaller floral accent entering from the lower-left corner
-- optionally, a faint partial floral line near the lower-right edge
 
-The botanical illustrations must be elegant, thin, low-opacity and decorative only. They must never overlap important text, the model's face or the product.
+* a light floral branch entering from the upper-right corner
+* a smaller floral accent entering from the lower-left corner
+* optionally, a faint partial floral line near the lower-right edge
+
+
+The botanical illustrations must be elegant, thin, low-opacity and decorative only. They must never overlap important text, the model's face or the bra.
 
 ═══════════════════════════════════════════════════════
 MODEL PLACEMENT AND FRAMING
@@ -5622,13 +5368,14 @@ The model should occupy approximately the right 43–48% of the visual. Preserve
 Show the model seated or kneeling comfortably on a soft white bed. Her body is positioned in the lower-right quadrant, with her upper torso extending toward the centre-right and her raised arms reaching into the upper-right area.
 
 Framing:
-- show the complete head
-- show both raised arms and hands
-- show the full bra clearly
-- show the waist and hips
-- frame HEAD TO KNEE ONLY — crop just below the knee
-- do not crop the top of the head, hands, elbows or bra
-- do NOT show calves, ankles, or feet
+
+* show the complete head
+* show both raised arms and hands
+* show the full bra clearly
+* show the waist, hips and upper thighs
+* allow the seated legs to continue naturally toward the bottom-right edge
+* do not crop the top of the head, hands, elbows or bra
+
 
 The model must remain visually separate from all text and callout icons.
 
@@ -5638,31 +5385,32 @@ POSE — MATCH THE REFERENCE FEEL
 The model is seated or kneeling sideways on the bed in a relaxed morning-stretch pose.
 
 Pose details:
-- torso turned approximately three-quarters toward the camera
-- hips and legs angled gently toward the right
-- back naturally elongated
-- both arms raised above the head
-- one wrist held or lightly crossed by the opposite hand
-- elbows softly bent rather than rigid
-- shoulders relaxed
-- chest open naturally
-- eyes gently closed
-- face tilted slightly toward the left
-- subtle, peaceful closed-mouth expression
+
+* torso turned approximately three-quarters toward the camera
+* hips and legs angled gently toward the right
+* back naturally elongated
+* both arms raised above the head
+* one wrist held or lightly crossed by the opposite hand
+* elbows softly bent rather than rigid
+* shoulders relaxed
+* chest open naturally
+* eyes gently closed
+* face tilted slightly toward the left
+* subtle, peaceful closed-mouth expression
+
 
 The pose must communicate comfort, freedom of movement and effortless support. It must feel candid and graceful rather than fashion-runway stiff or overtly sensual.
 
-Keep the bra and panty fully visible and unobstructed by the arms or hair.
+Keep the bra fully visible and unobstructed by the arms or hair.
 
 ═══════════════════════════════════════════════════════
-LOWER GARMENT
+LOWER OUTFIT
 ═══════════════════════════════════════════════════════
-Style the model in the exact panty shown in Image 3, replicated precisely as described in the IMAGE 3 — PANTY REFERENCE section above.
+The model wears the panty from REFERENCE IMAGE 3 as her lower garment, worn exactly as it appears in the reference — same colour, fabric, silhouette, waistband and coverage.
 
-The panty must:
-- sit naturally at the correct rise and coverage
-- remain fully visible and unobstructed within the head-to-knee frame
-- blend harmoniously with the bedroom palette without being altered in colour or design
+The panty must be fully visible, unobstructed by hands, arms, hair or bedding, and sharply in focus. It is the supporting product and must remain secondary to the bra, blending softly into the bedroom palette.
+
+No shorts, skirt, trousers or any additional lower garment. No logos or distracting prints unless present in Reference Image 3.
 
 ═══════════════════════════════════════════════════════
 LIGHTING AND SKIN RENDERING
@@ -5672,36 +5420,44 @@ Use soft diffused natural daylight with warm-neutral undertones.
 Lighting direction should feel like a large window positioned toward the upper-left or front-left side.
 
 Render:
-- smooth highlight transitions
-- soft, realistic skin texture
-- gentle shadows beneath the arms and bra band
-- natural body contours
-- no harsh rim lighting
-- no excessive skin smoothing
-- no orange cast
-- no blown highlights
 
-The model, bra, and panty should be crisp and detailed while the bedroom background remains softly blurred.
+* smooth highlight transitions
+* soft, realistic skin texture
+* gentle shadows beneath the arms and bra band
+* natural body contours
+* no harsh rim lighting
+* no excessive skin smoothing
+* no orange cast
+* no blown highlights
+
+
+The model, bra and panty should be crisp and detailed while the bedroom background remains softly blurred.
 
 ═══════════════════════════════════════════════════════
 TYPOGRAPHY SYSTEM
 ═══════════════════════════════════════════════════════
 Use a sophisticated high-contrast editorial serif similar to Bodoni Moda, Didot or a premium modern fashion serif for:
-- the main headline
-- feature titles
-- selected emphasis words
+
+* the main headline
+* feature titles
+* selected emphasis words
+
 
 Use a clean modern sans-serif similar to Manrope, Avenir, Helvetica Neue or Montserrat for:
-- supporting copy
-- secondary feature lines
-- footer benefit descriptions
+
+* supporting copy
+* secondary feature lines
+* footer benefit descriptions
+
 
 Typography colours:
-- primary headline: deep muted berry or wine, approximately #8E173C to #982044
-- italic emphasis: brighter dusty rose, approximately #C83F65
-- feature headings: alternating dusty rose and muted plum
-- body copy: soft charcoal grey, approximately #444044
-- fine rules and dots: pale rose pink
+
+* primary headline: deep muted berry or wine, approximately #8E173C to #982044
+* italic emphasis: brighter dusty rose, approximately #C83F65
+* feature headings: alternating dusty rose and muted plum
+* body copy: soft charcoal grey, approximately #444044
+* fine rules and dots: pale rose pink
+
 
 Do not use heavy drop shadows, thick outlines, metallic effects or decorative gradients on the text.
 
@@ -5712,17 +5468,17 @@ Place the primary headline in the UPPER-LEFT quadrant with generous margins from
 
 Use this exact copy and line arrangement:
 
-Bonded Finish,
-Always
-Elevated Support
+Feels light, Sits Smooth, Supports Gently.
 
 Typography treatment:
-- "Bonded Finish," in large upright high-contrast serif
-- "Always" in the same upright serif on the next line
-- "Elevated Support" in a large elegant italic serif
-- keep the three-line unit left aligned
-- use tight but refined line spacing
-- make "Elevated Support" slightly more expressive while maintaining readability
+
+* "Feels light," in large upright high-contrast serif
+* "Sits Smooth" in the same upright serif on the next line
+* "Supports Gently" in a large elegant italic serif
+* keep the three-line unit left aligned
+* use tight but refined line spacing
+* make "Supports Gently" slightly more expressive while maintaining readability
+
 
 The headline should occupy approximately the upper-left 42–47% of the canvas without extending into the model's raised arms.
 
@@ -5733,12 +5489,11 @@ Place the supporting statement directly below the main headline, aligned to the 
 
 Use this exact copy:
 
-Comfort That Supports
-Every Curve
+Comfort, refined for every day
 
 Use a clean medium-weight charcoal sans-serif. Keep it significantly smaller than the headline but large enough to read clearly.
 
-Add a tiny hand-drawn blush-pink decorative flourish or abstract leaf-like stroke to the right of "Every Curve." Keep it subtle.
+Add a tiny hand-drawn blush-pink decorative flourish or abstract leaf-like stroke to the right of "every day." Keep it subtle.
 
 ═══════════════════════════════════════════════════════
 FEATURE CALLOUT COLUMN
@@ -5746,81 +5501,98 @@ FEATURE CALLOUT COLUMN
 Place four product-feature rows vertically down the LEFT side, beginning below the subheading and ending above the footer benefit bar.
 
 Each row contains:
+
 1. a large pastel circular icon badge on the far left
+
 2. a two-line text block immediately to its right
 3. a thin horizontal dotted connector line extending toward the model or relevant product area
 4. a small solid dot at the line endpoint
 
 Maintain equal vertical spacing between all four rows.
 
-The connector lines should be pale dusty rose, thin and refined. They must stop before touching the model's body. Do not draw lines over the bra, panty, face, arms or text.
+The connector lines should be pale dusty rose, thin and refined. They must stop before touching the model's body. Do not draw lines over the bra, face, arms or text.
 
 FEATURE ROW 1
 Icon badge:
-- soft pale-pink circle
-- thin double-ring border
-- minimal line icon of a full-coverage bra
+
+* soft pale-pink circle
+* thin double-ring border
+* minimal line icon of a bra with a small crossed-out underwire curve beneath the cup, clearly reading as "wire-free"
+
 
 Text:
-Full Coverage
-with V-Neckline
+"Wire-Free Support
+All-day comfort, no pressure"
 
 Style:
-- "Full Coverage" in dusty-rose serif, medium-bold
-- "with V-Neckline" in charcoal sans-serif
+
+* "Wire-Free Support" in dusty-rose serif, medium-bold
+* "All-day comfort, no pressure" in charcoal sans-serif
+
 
 Connector endpoint should visually align around the bra neckline or upper-cup level.
 
 FEATURE ROW 2
 Icon badge:
-- soft pale-lavender circle
-- thin double-ring border
-- minimal line icon suggesting a broad padded shoulder strap
+
+* soft pale-lavender circle
+* thin double-ring border
+* minimal line icon of two bra cups with a "W"-shaped support line running beneath them, clearly reading as "W-hold"
+
 
 Text:
-Broad Shoulder
-Straps
+"W-Hold Design
+Natural shape, secure hold."
 
 Style:
-- both feature-title lines in muted-plum serif
-- maintain strong readability
+
+* both feature-title lines in muted-plum serif
+* maintain strong readability
+
 
 Connector endpoint should align near the bra strap or upper side-cup region.
 
 FEATURE ROW 3
 Icon badge:
-- soft blush-pink circle
-- thin double-ring border
-- minimal leaf or soft-support line icon
+
+* soft blush-pink circle
+* thin double-ring border
+* minimal line icon of a bra front with a deep V-shaped neckline, clearly reading as "V-neck"
+
 
 Text:
-W-Hold
-Wire-free
-Support
+"V-Neck Structure
+Enhances look"
 
 Style:
-- "W-Hold" in dusty-rose serif
-- "Wire-free" and "Support" in charcoal sans-serif
+
+* "V-Neck Structure" in dusty-rose serif
+* "Enhances look" in charcoal sans-serif
+
 
 Connector endpoint should align around the underbust or lower-cup area.
 
 FEATURE ROW 4
 Icon badge:
-- soft pale-lavender circle
-- thin double-ring border
-- minimal feather line icon
+
+* soft pale-lavender circle
+* thin double-ring border
+* minimal line icon of a single full, rounded bra cup with a smooth coverage curve over the top edge, clearly reading as "full coverage"
+
 
 Text:
-No Spillage
-No Side Bulges
+"Full Coverage
+Seamless all-round support"
 
 Style:
-- "No Spillage" in muted-plum serif
-- "No Side Bulges" in charcoal sans-serif
+
+* "Full Coverage" in muted-plum serif
+* "Seamless all-round support" in charcoal sans-serif
+
 
 Connector endpoint should align near the side-wing, waist or hip-adjacent area without crossing the model.
 
-All icon artwork must be delicate, monochromatic and commercially polished. Avoid cartoon styling or thick strokes.
+All icon artwork must be delicate, monochromatic and commercially polished. Avoid cartoon styling or thick strokes. Every icon must visually illustrate its own feature text — no generic or unrelated symbols.
 
 ═══════════════════════════════════════════════════════
 BOTTOM BENEFIT BAR
@@ -5828,44 +5600,50 @@ BOTTOM BENEFIT BAR
 Create a wide rounded rectangular benefit panel across the bottom of the visual.
 
 Panel placement:
-- approximately 3–4% margin from the left and right canvas edges
-- positioned just above the bottom edge
-- approximately 9–11% of the total canvas height
+
+* approximately 3–4% margin from the left and right canvas edges
+* positioned just above the bottom edge
+* approximately 9–11% of the total canvas height
+
 
 Panel design:
-- warm translucent ivory or extremely pale blush fill
-- fine pale-pink border
-- large rounded corners
-- no heavy shadow
-- four evenly spaced benefit columns
-- thin vertical dotted separators between the columns
+
+* warm translucent ivory or extremely pale blush fill
+* fine pale-pink border
+* large rounded corners
+* no heavy shadow
+* four evenly spaced benefit columns
+* thin vertical dotted separators between the columns
+
 
 Each benefit column contains:
-- a circular pink or lavender icon badge
-- a short coloured serif or strong sans-serif title
-- a smaller charcoal supporting line
+
+* a circular pink or lavender icon badge
+* a short coloured serif or strong sans-serif title
+* a smaller charcoal supporting line
+
 
 Use this exact content from left to right:
 
 1.
 Soft Touch
 Gentle on Skin
-Icon: delicate leaf
+Icon: delicate leaf (soft, gentle, natural — keep)
 
 2.
 Feather Light
 All Day Comfort
-Icon: soft cloud
+Icon: soft cloud (keep)
 
 3.
 Elastic-Free
 Freedom to Move
-Icon: open hand or freedom-of-movement symbol
+Icon: a small elastic band loop with a thin diagonal slash through it, clearly reading as "elastic-free"
 
 4.
 Made to Support
 All Day, Every Day
-Icon: simple heart outline
+Icon: simple heart outline (keep)
 
 Alternate the circular badge colours softly between blush pink and muted lavender. Keep all icons white or pale line-art for clear contrast.
 
@@ -5875,44 +5653,57 @@ The footer content must remain neat, centred within each column and comfortably 
 LAYOUT PROPORTIONS AND SPACING
 ═══════════════════════════════════════════════════════
 Maintain the following approximate structure:
-- left outer margin: 5–7% of canvas width
-- headline top position: 7–10% of canvas height
-- headline region: left 45% of canvas
-- model region: right 45% of canvas
-- feature-callout column: middle-left to lower-left
-- footer benefit bar: bottom 10% of canvas
-- generous blank breathing space between headline and model
+
+* left outer margin: 5–7% of canvas width
+* headline top position: 7–10% of canvas height
+* headline region: left 45% of canvas
+* model region: right 45% of canvas
+* feature-callout column: middle-left to lower-left
+* footer benefit bar: bottom 10% of canvas
+* generous blank breathing space between headline and model
+
 
 Do not allow any content collision.
 
 Keep:
-- headline clear of the raised arms
-- feature text clear of icons
-- connector lines clear of body and typography
-- model clear of the footer titles
-- bottom benefit bar fully inside the canvas
+
+* headline clear of the raised arms
+* feature text clear of icons
+* connector lines clear of body and typography
+* model clear of the footer titles
+* bottom benefit bar fully inside the canvas
+
 
 ═══════════════════════════════════════════════════════
 PRODUCT PRESENTATION — CRITICAL
 ═══════════════════════════════════════════════════════
-The bra and panty are the hero products and must remain clearly readable.
+The bra is the hero product and must remain clearly readable.
 
 Ensure:
-- accurate fit across the bust
-- symmetrical cup construction unless the reference product is intentionally asymmetric
-- natural fabric tension
-- correct neckline depth
-- clearly visible shoulder straps
-- clean underband placement
-- realistic side-wing fit
-- no warped seams
-- no missing panels
-- no duplicated straps
-- no accidental underwire when the reference is wire-free
-- no lace, padding lines, clasps or embellishments unless visible in Reference Image 2 or Image 3
-- panty colour, waistband, silhouette, leg opening, and rise match Image 3 exactly
 
-The model's pose must never distort or conceal either product's defining construction.
+* accurate fit across the bust
+* symmetrical cup construction unless the reference product is intentionally asymmetric
+* natural fabric tension
+* correct neckline depth
+* clearly visible shoulder straps
+* clean underband placement
+* realistic side-wing fit
+* no warped seams
+* no missing panels
+* no duplicated straps
+* no accidental underwire when the reference is wire-free
+* no lace, padding lines, clasps or embellishments unless visible in Reference Image 2
+
+
+The panty is the supporting product and must also be accurate and clearly readable:
+
+* correct waistband width and placement
+* accurate coverage and leg-opening shape
+* natural fabric tension
+* no warped seams, no extra trims or lace unless visible in Reference Image 3
+
+
+The model's pose must never distort or conceal the product's defining construction.
 
 ═══════════════════════════════════════════════════════
 FINAL IMAGE QUALITY
@@ -5926,14 +5717,15 @@ NEGATIVE PROMPT
 ═══════════════════════════════════════════════════════
 Do not change the supplied model's identity.
 Do not copy the garment from the model reference.
-Do not redesign or recolour the bra or panty product.
+Do not redesign or recolour the bra product. Do not redesign or recolour the panty product.
 Do not create a youthful, teenage or childlike-looking model.
 Do not crop the head, hands, elbows or bra.
-Do not show calves, ankles, or feet — frame ends strictly just below the knee.
-Do not obscure the bra or panty with hair or arms.
+Do not obscure the bra or panty with hair, arms or bedding.
 Do not place text over the model.
 Do not use illegible text, misspelled copy or random letters.
 Do not create extra callouts, extra icons or extra footer columns.
+Do not use generic or unrelated icons — each icon must match its feature text.
+Do not add shorts, skirts or any extra lower garment over the panty.
 Do not use harsh shadows, dark bedroom lighting or high contrast.
 Do not use neon colours, saturated purple or bright red.
 Do not use lace or decorative trims unless present in the product references.
@@ -5946,32 +5738,22 @@ Do not use heavy text shadows, outlines or 3D typography.
 Do not place a logo unless a separate logo reference is supplied.
 
 FINAL PRIORITY ORDER:
+
 1. Exact bra-product accuracy from Reference Image 2
-2. Exact panty-product accuracy from Image 3
-3. Exact adult-model identity from Reference Image 1
-4. Correct model pose and right-side placement, framed head to knee
+
+2. Exact adult-model identity from Reference Image 1
+3. Exact panty accuracy from Reference Image 3
+4. Correct model pose and right-side placement
 5. Accurate headline and feature-copy hierarchy
-6. Precise four-row callout layout
+6. Precise four-row callout layout with icons matching their text
 7. Accurate four-column bottom benefit bar
 8. Soft ivory bedroom background and delicate floral accents
-9. Premium photorealistic catalogue finishx
-`,h=`If a later selected-brand override or brand-lock section is supplied, it has absolute priority over every warm, ivory, blush, botanical, studio-mood, or room-background instruction in this source prompt.
-If the selected brand override demands an exact flat background hex, that exact hex must replace all warm backdrop styling, cream tones, blush tints, gradients, and decorative background elements from this source prompt.
+9. Premium photorealistic catalogue finish
+`,h=`REFERENCE IMAGE 1 (Model): Use this as the exact reference for the face, skin tone, hair, and body type. Replicate these features as closely as possible.
 
-REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
-REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette, back construction. Replicate identically.
+REFERENCE IMAGE 2 (Product—Bra): Use this as the exact reference for the bra color, fabric texture, silhouette, straps, cups, detail, and underband. Replicate the bra exactly with no changes.
 
-IMAGE 3 — PANTY REFERENCE
-Use Image 3 ONLY to replicate the exact panty design, including:
-Exact colour
-Shape and silhouette
-Waistband construction
-Fabric texture and finish
-Seam placement
-Leg opening shape
-Rise and coverage
-Overall proportions
-Replicate the panty exactly as shown in Image 3.
+REFERENCE IMAGE 3 (Product—Panty): Use this as the exact reference for the panty color, fabric texture, silhouette, waistband, and coverage. Replicate the panty exactly with no changes. Shown from the back view.
 
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION — CRITICAL
@@ -5980,31 +5762,36 @@ Model's BODY faces AWAY from camera — back toward lens
 Body turned 10–15° to RIGHT — RIGHT side wing partially visible
 HEAD turns back over LEFT shoulder — warm direct eye contact
 Chin slightly lifted, natural confident smile
-Both arms relaxed at sides | Shot framed HEAD TO KNEE ONLY — crop just below the knee, do NOT show calves, ankles, or feet
+Both arms relaxed at sides | Shot MID-THIGH upward
 Hair SWEPT FULLY to FRONT — NON-NEGOTIABLE | Tattoo-free, blemish-free skin
 
 ═══════════════════════════════════════════════════════
 PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
 ═══════════════════════════════════════════════════════
 U-back straps, hook-eye closure, both side wings, flat back band — ALL fully visible, unobstructed, sharply in focus
-The panty from IMAGE 3 must be worn exactly as it appears — same colour, waistband, silhouette, seam placement, and rise — fully visible from the back, unobstructed, and sharply in focus
-Primary lighting on bra back and panty | No hands, hair, or arms overlapping bra or panty
+Panty (back view): waistband, rear panel and leg openings — fully visible, unobstructed, sharply in focus, worn exactly as in REFERENCE IMAGE 3
+Primary lighting on bra back (panty is the supporting product, equally clean and sharp)
+No hands, hair, or arms overlapping bra or panty
 
 ═══════════════════════════════════════════════════════
 BACKGROUND & LIGHTING
 ═══════════════════════════════════════════════════════
 Bright warm-white to pale-ivory background with a very subtle blush-pink cast.
-- Softly lit, diffused studio backdrop — feels warm and daylight-like
-- Faint warm light entering from the centre or upper-left area
-- Extremely soft shadows, low contrast, shallow depth of field
-- Delicate, slightly dreamy premium catalogue finish
-- Background stays clean and minimal — no competing props or clutter
-- Light wraps around model's back illuminating all construction details
+
+* Softly lit, diffused studio backdrop — feels warm and daylight-like
+* Faint warm light entering from the centre or upper-left area
+* Extremely soft shadows, low contrast, shallow depth of field
+* Delicate, slightly dreamy premium catalogue finish
+* Background stays clean and minimal — no competing props or clutter
+* Light wraps around model's back illuminating all construction details
+
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-- A light floral branch entering from the upper-right corner
-- A smaller floral accent entering from the lower-left corner
-- Optionally, a faint partial floral line near the lower-right edge
+
+* A light floral branch entering from the upper-right corner
+* A smaller floral accent entering from the lower-left corner
+* Optionally, a faint partial floral line near the lower-right edge
+
 
 Botanical illustrations must be elegant, thin, low-opacity, and decorative only — never overlapping important text, the model's face, hair, or the product.
 
@@ -6074,21 +5861,23 @@ NO Dot should be used while pointing into the Bra Backs
 Use slightly angled thin line
 
 TYPOGRAPHY COLOR PALETTE (reference):
-- Primary headline: deep muted berry/wine — approx #8E173C to #982044
-- Italic emphasis: brighter dusty rose — approx #C83F65
-- Feature headings: alternating dusty rose and muted plum
-- Body copy: soft charcoal grey — approx #444044
-- Fine rules and dots: pale rose pink
+
+* Primary headline: deep muted berry/wine — approx #8E173C to #982044
+* Italic emphasis: brighter dusty rose — approx #C83F65
+* Feature headings: alternating dusty rose and muted plum
+* Body copy: soft charcoal grey — approx #444044
+* Fine rules and dots: pale rose pink
+
 No heavy drop shadows, thick outlines, metallic effects, or decorative gradients on any text.
 
 ═══════════════════════════════════════════════════════
 OVERALL COMPOSITION BALANCE
 ═══════════════════════════════════════════════════════
 Headline + sub-heading: TOP LEFT quadrant
-Model: CENTER of frame, back toward camera, face looking back over LEFT shoulder, framed HEAD TO KNEE ONLY
+Model: CENTER of frame, back toward camera, face looking back over LEFT shoulder
 All three callouts stack on RIGHT side, pointing LEFT into bra's back construction zones
 LEFT side remains clean — only headline and sub-heading
-No text/icons overlapping model's face, hair, bra back panel, hook closure, side wings, or panty
+No text/icons overlapping model's face, hair, or bra back panel, hook closure, or side wings or panty
 Generous soft ivory/blush breathing space around all elements
 Final image: technically precise, balanced, warm, campaign-ready — true to Tweens' minimal premium daily comfort identity
 
@@ -6096,8 +5885,6 @@ Final image: technically precise, balanced, warm, campaign-ready — true to Twe
 STRICT NEGATIVE INSTRUCTIONS
 ═══════════════════════════════════════════════════════
 BACK must face lens | Hair swept fully to front | No callouts on LEFT side
-Do NOT alter the panty design, colour, or fabric from Image 3
-Do NOT show calves, ankles, or feet — frame ends strictly just below the knee
 Do NOT use a background other than the warm-white/pale-ivory blush-cast style described above
 Do NOT use fonts other than the specified editorial serif (headings) and modern sans-serif (body)
 Do NOT use text colors other than the specified berry/wine, dusty rose, muted plum, and charcoal grey palette
@@ -8824,7 +8611,7 @@ Do NOT include background props, furniture, or lifestyle elements`,T={id:`bra`,f
 `)}function fe(e,t){let n=t===`side1`?`Side 1`:t===`side2`?`Side 2`:t===`back`?`Back`:`Mood`;return[`BRA + PANTY ${n.toUpperCase()} BACKGROUND LOCK — FINAL PRIORITY:`,`This is the ${n} pose in Bra + Panty mode. The selected brand is ${e.name}.`,`Every visible background pixel, wall, backdrop, negative-space area, panel, and empty area must be exactly ${e.bg}.`,`Use ${e.bg} as the unmistakable dominant background color; do not drift toward white, cream, beige, grey, aqua, blue, yellow, pink, or any approximate tint unless it is exactly ${e.bg}.`,`Do not inherit any source-prompt background color, source-brand palette, lifestyle-room color, bedroom, bed, bedding, curtain, window, furniture, colored panel, gradient, texture, prop, or decorative background element.`,t===`mood`?`Keep the Mood image as a minimal seamless product scene with bra and panty clearly visible, softly lit and free of warm/yellow room cast; recolor every visible wall, backdrop, and empty background area to the exact selected brand color.`:`Keep the background clean, flat, seamless, and evenly lit so the exact selected brand color is visible around the complete model and bra-plus-panty silhouette.`,`This background rule overrides every earlier background instruction. The final generated image must visibly read as the selected brand background ${e.bg}.`].join(`
 `)}function pe(e){return[`INVISI-SOFT ${(e===`side1`?`Side 1`:e===`side2`?`Side 2`:e===`back`?`Back`:`Mood`).toUpperCase()} COLOR-CAST LOCK — ABSOLUTE FINAL PRIORITY:`,`Selected brand is Invisi-Soft. Treat any warm/yellow/beige rendering as a failed image.`,`Ignore and override any earlier wording that implies warm, creamy, beige, ivory, taupe, nude, earthy, cocoa, sunset, golden-hour, or warm-lifestyle tone.`,`White balance must be neutral-cool daylight. Background must stay crisp, airy, and clean with zero yellow cast.`,`Exact background target is #F6F8FB for all visible wall/backdrop/empty background areas; no tint drift is allowed.`,`Do not render cream, off-white yellow, warm beige, tan, peach, or brown background in any region.`,`If the background appears warm or yellow in any area, regenerate until the backdrop reads as exact cool airy #F6F8FB.`].join(`
 `)}function $(e){return[`INVISI-SOFT BRA + PANTY ${(e===`side1`?`Side 1`:e===`side2`?`Side 2`:e===`back`?`Back`:`Mood`).toUpperCase()} SCENE LOCK - ABSOLUTE FINAL PRIORITY:`,`Selected brand is Invisi-Soft. The final image must read as cool, airy, crisp, and minimal - never warm, creamy, blush, or bedroom-heavy.`,e===`side1`||e===`side2`?`Render a plain seamless #F6F8FB studio field${e===`side2`?` with a matching #F6F8FB text/background panel only`:``}. Every non-model, non-product background pixel must read as flat #F6F8FB. Do not render curtains, drape folds, fabric drops, vertical wall stripes, botanical corner art, floral line art, furniture, props, gradients, room depth, or warm ivory/beige set styling.`:e===`back`?`Render a plain seamless #F6F8FB studio field only. Every background pixel outside the model and garment silhouette must stay flat #F6F8FB with no curtains, no room walls, no beige glow, no cream halo, no botanical art, no set decoration, and no staged lifestyle environment.`:`If the pose needs a lifestyle setup, keep it extremely minimal and cool-toned: any visible bed, bedding, wall, or background surface must stay white to #F6F8FB and secondary to the product. Do not render cream bedding, beige walls, blush decor, curtains, wood furniture, plants, or a golden bedroom mood.`,e===`mood`?`Ignore and override any earlier source instruction such as "No studio - real lifestyle interior only" whenever it conflicts with the selected Invisi-Soft background spec.`:`Ignore and override any earlier source instruction that asks for warm-white, pale-ivory, blush, decorative, curtain, room, wall-panel, or styled background treatment.`,`Treat any yellow cast, beige cast, blush tint, creamy room tone, curtain backdrop, or visible decorative bedroom element as a failed image and regenerate.`].join(`
-`)}function me(t,n){return[`PRINT PATTERN FLOW ${e[n].toUpperCase()} BACKGROUND LOCK — ABSOLUTE FINAL PRIORITY:`,`Only the background changes per brand in this flow. The selected brand is ${t.name}.`,`Every visible background pixel, wall, backdrop, negative-space area, and solid text-zone/panel color must be exactly ${t.bg} — flat, seamless, and uniform, with no gradient, no vignette, no lighting-driven tint shift, and no drift toward white, cream, beige, tan, warm, or yellow unless that is exactly ${t.bg}.`,`Do NOT render curtains, drape folds, fabric drops, vertical wall stripes, botanical corner art, floral line art, furniture, props, room depth, or any staged/lifestyle set decoration in the background — the background must be an empty, clean, seamless studio field.`,`Ignore and override any earlier instruction in the source prompt above that describes a warm-white, pale-ivory, blush-pink, cream, botanical, floral, curtain, drape, or decorative background treatment — that language does not apply once a brand has been selected; only the exact brand hex above applies.`,`Keep every other authored color exactly as written in the source prompt above: headline color, sub-heading color, feature-title colors, callout/body text colors, connector-line color, and icon badge fill colors all stay exactly as specified there. Do not recolor any of them to the background hex.`,`Ignore any other brand name mentioned in the source prompt above — this image is for ${t.name} only. Do not change fonts, typography style, layout, callout placement, icon shapes, or wording; only the background follows the brand.`,`Treat any yellow cast, beige cast, blush tint, cream tone, gradient, curtain, or visible decorative background element as a failed image and regenerate until the backdrop reads as exact flat ${t.bg}.`].join(`
+`)}function me(t,n){let r=e[n],i=n===`mood`?`Render the FULL printed lifestyle background described in the source prompt: the softly sunlit premium bedroom with creamy bedding, diffused sheer curtains or a softly lit wall, a blurred pillow, folded bedding and a small bedside vase/foliage, PLUS the delicate pale botanical line-art florals in the corners. The mood background must NOT be a plain solid colour or empty studio field.`:`Render the printed background described in the source prompt: a softly lit, diffused studio backdrop with gentle tonal variation (soft light falloff from the upper-left/centre, very soft shadows) PLUS the delicate thin low-opacity botanical line-art florals — a floral branch from the upper-right corner, a smaller floral accent from the lower-left corner, and optionally a faint partial floral line near the lower-right edge. The background must NOT be a flat, solid, uniform colour.`;return[`PRINT PATTERN FLOW ${r.toUpperCase()} BACKGROUND LOCK — ABSOLUTE FINAL PRIORITY:`,`The selected brand is ${t.name}. Its backdrop base tone is ${t.bg}.`,i,`Use ${t.bg} only as the base tone/tint of the backdrop and of the room/wall/bedding surfaces; the botanical line art and (for Mood) the bedroom scene keep their soft decorative detail on top of that base. Do not drift to a different colour family, and avoid yellow, orange or heavy beige casts.`,`The botanical illustrations are elegant, thin, low-opacity and decorative only, tinted to harmonise with the brand's palette, and must never overlap text, the model's face, or the product.`,`Do NOT flatten the background into a single solid hex fill, and do NOT remove the florals or the Mood bedroom scene. Do not add heavy props, harsh shadows, gradients that look like a vignette, or cluttered set decoration.`,`Keep every authored color exactly as written in the source prompt above: headline color, sub-heading color, feature-title colors, callout/body text colors, connector-line color, and icon badge fill colors. Do not recolor them to the background tone.`,`Ignore any other brand name mentioned in the source prompt above — this image is for ${t.name} only. Do not change fonts, typography style, layout, callout placement, icon shapes, or wording.`,`Treat a plain solid-colour background (no botanical line art, or no bedroom scene on Mood) as a failed image and regenerate.`].join(`
 `)}function he(){return[`MODEL SKIN TONE LOCK — NON-NEGOTIABLE:`,`Render the model's skin tone as an exact, neutral match to Reference Image 1 — natural fair skin with true-to-life, balanced undertones.`,`The source prompt's "warm" lighting and background language above describes the studio backdrop, ambient mood, and color palette only. It must NOT warm-tint, yellow-tint, orange-tint, tan, or otherwise discolor the model's skin.`,`Do NOT render jaundiced, sallow, golden, muddy, or over-warmed skin. Keep skin color rendering clean, neutral, and color-accurate exactly as the model reference shows — only the lighting brightness/softness follows the warm studio direction, never the skin's actual hue.`].join(`
 `)}function ge(e,t){let n=e.callouts.map((e,t)=>e.trim()?`Callout ${t+1}: ${e.trim()}`:``).filter(Boolean);return[`SELECTED STYLE PRESET CONTENT — PRINT PATTERN FLOW:`,`Selected style: ${e.styleName}.`,`Use the exact source prompt above for pose, crop, layout, callout positions, connector-line style, icon style, and typography treatment — the print layout is mandatory.`,`Replace only the written headline, sub-heading, and feature-callout copy in that layout with the selected style content below. Keep the same number of feature rows as the source layout; if the source layout has more feature rows than the selected preset has callouts, keep the source prompt's own copy for the remaining rows.`,`Headline: ${e.heading.trim()||`Use the source prompt's own headline.`}`,e.subHeading.trim()?`Sub-heading: ${e.subHeading.trim()}`:`Sub-heading: use the source prompt's own sub-heading.`,n.length>0?n.join(`
 `):`Callouts: use the source prompt's own callout copy.`,`Do not invent extra callouts, badges, or captions beyond the source layout's structure.`].join(`

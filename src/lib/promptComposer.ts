@@ -788,16 +788,21 @@ function invisiSoftBraPantySceneLock(deckShot: DeckShotKey): string {
 
 function printBackgroundOnlyLock(brand: Brand, deckShot: DeckShotKey): string {
   const shotLabel = DECK_SHOT_LABELS[deckShot];
+  const decoration =
+    deckShot === "mood"
+      ? "Render the FULL printed lifestyle background described in the source prompt: the softly sunlit premium bedroom with creamy bedding, diffused sheer curtains or a softly lit wall, a blurred pillow, folded bedding and a small bedside vase/foliage, PLUS the delicate pale botanical line-art florals in the corners. The mood background must NOT be a plain solid colour or empty studio field."
+      : "Render the printed background described in the source prompt: a softly lit, diffused studio backdrop with gentle tonal variation (soft light falloff from the upper-left/centre, very soft shadows) PLUS the delicate thin low-opacity botanical line-art florals — a floral branch from the upper-right corner, a smaller floral accent from the lower-left corner, and optionally a faint partial floral line near the lower-right edge. The background must NOT be a flat, solid, uniform colour.";
 
   return [
     `PRINT PATTERN FLOW ${shotLabel.toUpperCase()} BACKGROUND LOCK — ABSOLUTE FINAL PRIORITY:`,
-    `Only the background changes per brand in this flow. The selected brand is ${brand.name}.`,
-    `Every visible background pixel, wall, backdrop, negative-space area, and solid text-zone/panel color must be exactly ${brand.bg} — flat, seamless, and uniform, with no gradient, no vignette, no lighting-driven tint shift, and no drift toward white, cream, beige, tan, warm, or yellow unless that is exactly ${brand.bg}.`,
-    "Do NOT render curtains, drape folds, fabric drops, vertical wall stripes, botanical corner art, floral line art, furniture, props, room depth, or any staged/lifestyle set decoration in the background — the background must be an empty, clean, seamless studio field.",
-    "Ignore and override any earlier instruction in the source prompt above that describes a warm-white, pale-ivory, blush-pink, cream, botanical, floral, curtain, drape, or decorative background treatment — that language does not apply once a brand has been selected; only the exact brand hex above applies.",
-    "Keep every other authored color exactly as written in the source prompt above: headline color, sub-heading color, feature-title colors, callout/body text colors, connector-line color, and icon badge fill colors all stay exactly as specified there. Do not recolor any of them to the background hex.",
-    `Ignore any other brand name mentioned in the source prompt above — this image is for ${brand.name} only. Do not change fonts, typography style, layout, callout placement, icon shapes, or wording; only the background follows the brand.`,
-    `Treat any yellow cast, beige cast, blush tint, cream tone, gradient, curtain, or visible decorative background element as a failed image and regenerate until the backdrop reads as exact flat ${brand.bg}.`,
+    `The selected brand is ${brand.name}. Its backdrop base tone is ${brand.bg}.`,
+    decoration,
+    `Use ${brand.bg} only as the base tone/tint of the backdrop and of the room/wall/bedding surfaces; the botanical line art and (for Mood) the bedroom scene keep their soft decorative detail on top of that base. Do not drift to a different colour family, and avoid yellow, orange or heavy beige casts.`,
+    "The botanical illustrations are elegant, thin, low-opacity and decorative only, tinted to harmonise with the brand's palette, and must never overlap text, the model's face, or the product.",
+    "Do NOT flatten the background into a single solid hex fill, and do NOT remove the florals or the Mood bedroom scene. Do not add heavy props, harsh shadows, gradients that look like a vignette, or cluttered set decoration.",
+    "Keep every authored color exactly as written in the source prompt above: headline color, sub-heading color, feature-title colors, callout/body text colors, connector-line color, and icon badge fill colors. Do not recolor them to the background tone.",
+    `Ignore any other brand name mentioned in the source prompt above — this image is for ${brand.name} only. Do not change fonts, typography style, layout, callout placement, icon shapes, or wording.`,
+    "Treat a plain solid-colour background (no botanical line art, or no bedroom scene on Mood) as a failed image and regenerate.",
   ].join("\n");
 }
 

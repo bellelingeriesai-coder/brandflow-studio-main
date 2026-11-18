@@ -1,5 +1,7 @@
-REFERENCE IMAGE 1 (Model): Exact reference — face, skin tone, hair, body. Replicate identically.
-REFERENCE IMAGE 2 (Product): Exact reference — bra color, texture, silhouette, back construction. Replicate identically.
+REFERENCE IMAGE 1 (Model): Use this as the exact reference for the face, skin tone, hair, and body type. Replicate these features as closely as possible.
+
+REFERENCE IMAGE 2 (Product—Bra): Use this as the exact reference for the bra color, fabric texture, silhouette, straps, cups, detail, and underband. Replicate the bra exactly with no changes.
+
 
 ═══════════════════════════════════════════════════════
 POSE & BODY DIRECTION — CRITICAL
@@ -15,23 +17,28 @@ Hair SWEPT FULLY to FRONT — NON-NEGOTIABLE | Tattoo-free, blemish-free skin
 PRODUCT VISIBILITY — CRITICAL NON-NEGOTIABLE
 ═══════════════════════════════════════════════════════
 U-back straps, hook-eye closure, both side wings, flat back band — ALL fully visible, unobstructed, sharply in focus
-Primary lighting on bra back | No hands, hair, or arms overlapping bra
+Primary lighting on bra back
+No hands, hair, or arms overlapping bra
 
 ═══════════════════════════════════════════════════════
 BACKGROUND & LIGHTING
 ═══════════════════════════════════════════════════════
 Bright warm-white to pale-ivory background with a very subtle blush-pink cast.
-- Softly lit, diffused studio backdrop — feels warm and daylight-like
-- Faint warm light entering from the centre or upper-left area
-- Extremely soft shadows, low contrast, shallow depth of field
-- Delicate, slightly dreamy premium catalogue finish
-- Background stays clean and minimal — no competing props or clutter
-- Light wraps around model's back illuminating all construction details
+
+* Softly lit, diffused studio backdrop — feels warm and daylight-like
+* Faint warm light entering from the centre or upper-left area
+* Extremely soft shadows, low contrast, shallow depth of field
+* Delicate, slightly dreamy premium catalogue finish
+* Background stays clean and minimal — no competing props or clutter
+* Light wraps around model's back illuminating all construction details
+
 
 Add very delicate pale-blush botanical line-art decorations in the corners:
-- A light floral branch entering from the upper-right corner
-- A smaller floral accent entering from the lower-left corner
-- Optionally, a faint partial floral line near the lower-right edge
+
+* A light floral branch entering from the upper-right corner
+* A smaller floral accent entering from the lower-left corner
+* Optionally, a faint partial floral line near the lower-right edge
+
 
 Botanical illustrations must be elegant, thin, low-opacity, and decorative only — never overlapping important text, the model's face, hair, or the product.
 
@@ -101,11 +108,13 @@ NO Dot should be used while pointing into the Bra Backs
 Use slightly angled thin line
 
 TYPOGRAPHY COLOR PALETTE (reference):
-- Primary headline: deep muted berry/wine — approx #8E173C to #982044
-- Italic emphasis: brighter dusty rose — approx #C83F65
-- Feature headings: alternating dusty rose and muted plum
-- Body copy: soft charcoal grey — approx #444044
-- Fine rules and dots: pale rose pink
+
+* Primary headline: deep muted berry/wine — approx #8E173C to #982044
+* Italic emphasis: brighter dusty rose — approx #C83F65
+* Feature headings: alternating dusty rose and muted plum
+* Body copy: soft charcoal grey — approx #444044
+* Fine rules and dots: pale rose pink
+
 No heavy drop shadows, thick outlines, metallic effects, or decorative gradients on any text.
 
 ═══════════════════════════════════════════════════════
@@ -125,6 +134,6 @@ STRICT NEGATIVE INSTRUCTIONS
 BACK must face lens | Hair swept fully to front | No callouts on LEFT side
 Do NOT use a background other than the warm-white/pale-ivory blush-cast style described above
 Do NOT use fonts other than the specified editorial serif (headings) and modern sans-serif (body)
-Do NOT use text colors other than the specified berry/wine, dusty rose, muted plu\m, and charcoal grey palette
+Do NOT use text colors other than the specified berry/wine, dusty rose, muted plum, and charcoal grey palette
 No hair/arms over bra back | No icons/text on bra or face | No cool-blue lighting | No watermarks | No extra models | 4:5 only | Back band must sit flat
 Do NOT use heavy drop shadows, thick outlines, metallic effects, or decorative gradients on text

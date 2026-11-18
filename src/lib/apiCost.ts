@@ -36,10 +36,21 @@ interface UsageMetadata {
 let state: ApiCostState = load();
 const listeners = new Set<() => void>();
 
+const BACKUP_KEY = "studioflow.apiCost.backup.v1";
+
+function readKey(key: string): string | null {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
 function load(): ApiCostState {
   try {
     if (typeof window === "undefined") return EMPTY;
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    // Fall back to the backup copy if the primary key was lost/cleared.
+    const raw = readKey(STORAGE_KEY) ?? readKey(BACKUP_KEY);
     if (!raw) return EMPTY;
     const parsed = JSON.parse(raw) as Partial<ApiCostState>;
     return {
@@ -56,7 +67,9 @@ function load(): ApiCostState {
 function commit(next: ApiCostState) {
   state = next;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    const json = JSON.stringify(next);
+    window.localStorage.setItem(STORAGE_KEY, json);
+    window.localStorage.setItem(BACKUP_KEY, json);
   } catch {
     // storage unavailable — keep the in-memory total
   }
@@ -91,6 +104,8 @@ export function costFromUsage(usage: UsageMetadata | undefined | null): {
 
 /** Record one successful image generation. */
 export function recordImageCost(usage: UsageMetadata | undefined | null) {
+  // Re-read storage first so another tab/window's spend is never overwritten by a stale in-memory total.
+  state = load();
   const cost = costFromUsage(usage);
   commit({
     totalUsd: state.totalUsd + cost.usd,
@@ -102,6 +117,14 @@ export function recordImageCost(usage: UsageMetadata | undefined | null) {
 
 export function resetApiCost() {
   commit(EMPTY);
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("storage", (event) => {
+    if (event.key !== STORAGE_KEY) return;
+    state = load();
+    listeners.forEach((listener) => listener());
+  });
 }
 
 function subscribe(listener: () => void) {
